@@ -1,0 +1,182 @@
+/* stylelint-disable selector-class-pattern */
+.dbb-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 25px;
+  background: linear-gradient(180deg, #040d18, rgb(26 52 99 / 24%));
+  box-shadow: 0 4px 12px 0 rgb(24 74 138 / 7%);
+  z-index: 4;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar {
+    height: 55px;
+    margin-bottom: 20px;
+  }
+}
+
+.dbb-navbar__logo {
+  display: flex;
+  width: 330px;
+  height: 100%;
+  position: relative;
+  margin-left: 20px;
+  z-index: 4;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar__logo {
+    width: 100px;
+  }
+}
+
+.dbb-navbar__logo--d {
+  background-image: url("/images/dokkan_battle-d.png");
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  left: 15px;
+  top: 28%;
+  z-index: 2;
+}
+
+.dbb-navbar__logo--okkan {
+  background-image: url("/images/dokkan_battle-okkan.png");
+  position: absolute;
+  height: 60px;
+  width: 180px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  left: 37px;
+  top: 28%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar__logo--okkan {
+    display: none;
+  }
+}
+
+.dbb-navbar__logo--b {
+  background-image: url("/images/dokkan_battle-b.png");
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  left: 111px;
+  top: 25%;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar__logo--b {
+    left: 35px;
+    z-index: 1;
+  }
+}
+
+.dbb-navbar__logo--attle {
+  background-image: url("/images/dokkan_battle-attle.png");
+  position: absolute;
+  height: 60px;
+  width: 160px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  left: 129px;
+  top: 28%;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar__logo--attle {
+    display: none;
+  }
+}
+
+.dbb-navbar__logo--b2 {
+  background-image: url("/images/dokkan_battle-b.png");
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  left: 211px;
+  top: 25%;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar__logo--b2 {
+    left: 56px;
+  }
+}
+
+.dbb-navbar__logo--attle2 {
+  background-image: url("/images/dokkan_battle-attle.png");
+  position: absolute;
+  height: 60px;
+  width: 160px;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  left: 229px;
+  top: 28%;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-navbar__logo--attle2 {
+    display: none;
+  }
+}
+
+.dbb-navbar__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  z-index: 4;
+}
+
+.dbb-navbar__link {
+  color: #e6f4e3;
+  text-decoration: none;
+  padding: 5px 20px 0;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  font-size: 1.1em;
+  font-style: italic;
+  transform: rotate(-4deg);
+  text-align: center;
+  text-shadow: -2px -2px 0 rgb(0 0 0 / 70%), -2px -1px 0 rgb(0 0 0 / 70%), -2px 0 0 rgb(0 0 0 / 70%), -2px 1px 0 rgb(0 0 0 / 70%), -2px 2px 0 rgb(0 0 0 / 70%), -1px -2px 0 rgb(0 0 0 / 70%), -1px -1px 0 rgb(0 0 0 / 70%), -1px 0 0 rgb(0 0 0 / 70%), -1px 1px 0 rgb(0 0 0 / 70%), -1px 2px 0 rgb(0 0 0 / 70%), 0 -2px 0 rgb(0 0 0 / 70%), 0 -1px 0 rgb(0 0 0 / 70%), 0 0 0 rgb(0 0 0 / 70%), 0 1px 0 rgb(0 0 0 / 70%), 0 2px 0 rgb(0 0 0 / 70%), 1px -2px 0 rgb(0 0 0 / 70%), 1px -1px 0 rgb(0 0 0 / 70%), 1px 0 0 rgb(0 0 0 / 70%), 1px 1px 0 rgb(0 0 0 / 70%), 1px 2px 0 rgb(0 0 0 / 70%), 2px -2px 0 rgb(0 0 0 / 70%), 2px -1px 0 rgb(0 0 0 / 70%), 2px 0 0 rgb(0 0 0 / 70%), 2px 1px 0 rgb(0 0 0 / 70%), 2px 2px 0 rgb(0 0 0 / 70%);
+}
+
+@media screen and (max-width: 720px) {
+  .dbb-navbar__link {
+    padding: 5px 3px 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-navbar__link {
+    font-size: 0.93em;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .dbb-navbar__link {
+    font-size: 0.8em;
+  }
+}
+
+.dbb-articles {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  color: #194aa2;
+  font-family: Roboto, sans-serif;
+  text-decoration: none;
+  font-size: 0.7em;
+}

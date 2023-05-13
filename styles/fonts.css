@@ -1,0 +1,215 @@
+/* stylelint-disable selector-class-pattern */
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Medium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font Styles */
+.d1 {
+  font-style: normal;
+  font-size: 6.25rem;
+  line-height: 5rem;
+}
+
+.d2 {
+  font-style: normal;
+  font-size: 4.5rem;
+  line-height: 5rem;
+}
+
+.h1 {
+  font-size: 2.4em;
+  color: #fff;
+  font-style: italic;
+  transform: rotate(-4deg);
+  text-align: center;
+  font-weight: 700;
+  text-shadow: -2px -2px 0 rgb(0 0 0 / 90%), -2px -1px 0 rgb(0 0 0 / 90%), -2px 0 0 rgb(0 0 0 / 90%), -2px 1px 0 rgb(0 0 0 / 90%), -2px 2px 0 rgb(0 0 0 / 90%), -1px -2px 0 rgb(0 0 0 / 90%), -1px -1px 0 rgb(0 0 0 / 90%), -1px 0 0 rgb(0 0 0 / 90%), -1px 1px 0 rgb(0 0 0 / 90%), -1px 2px 0 rgb(0 0 0 / 90%), 0 -2px 0 rgb(0 0 0 / 90%), 0 -1px 0 rgb(0 0 0 / 90%), 0 0 0 rgb(0 0 0 / 90%), 0 1px 0 rgb(0 0 0 / 90%), 0 2px 0 rgb(0 0 0 / 90%), 1px -2px 0 rgb(0 0 0 / 90%), 1px -1px 0 rgb(0 0 0 / 90%), 1px 0 0 rgb(0 0 0 / 90%), 1px 1px 0 rgb(0 0 0 / 90%), 1px 2px 0 rgb(0 0 0 / 90%), 2px -2px 0 rgb(0 0 0 / 90%), 2px -1px 0 rgb(0 0 0 / 90%), 2px 0 0 rgb(0 0 0 / 90%), 2px 1px 0 rgb(0 0 0 / 90%), 2px 2px 0 rgb(0 0 0 / 90%);
+}
+
+h2.ra-heading,
+.h2 {
+  margin: 0;
+  font-size: 1.3em;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 20px;
+  text-shadow: -2px -2px 0 rgb(0 0 0 / 90%), -2px -1px 0 rgb(0 0 0 / 90%), -2px 0 0 rgb(0 0 0 / 90%), -2px 1px 0 rgb(0 0 0 / 90%), -2px 2px 0 rgb(0 0 0 / 90%), -1px -2px 0 rgb(0 0 0 / 90%), -1px -1px 0 rgb(0 0 0 / 90%), -1px 0 0 rgb(0 0 0 / 90%), -1px 1px 0 rgb(0 0 0 / 90%), -1px 2px 0 rgb(0 0 0 / 90%), 0 -2px 0 rgb(0 0 0 / 90%), 0 -1px 0 rgb(0 0 0 / 90%), 0 0 0 rgb(0 0 0 / 90%), 0 1px 0 rgb(0 0 0 / 90%), 0 2px 0 rgb(0 0 0 / 90%), 1px -2px 0 rgb(0 0 0 / 90%), 1px -1px 0 rgb(0 0 0 / 90%), 1px 0 0 rgb(0 0 0 / 90%), 1px 1px 0 rgb(0 0 0 / 90%), 1px 2px 0 rgb(0 0 0 / 90%), 2px -2px 0 rgb(0 0 0 / 90%), 2px -1px 0 rgb(0 0 0 / 90%), 2px 0 0 rgb(0 0 0 / 90%), 2px 1px 0 rgb(0 0 0 / 90%), 2px 2px 0 rgb(0 0 0 / 90%);
+}
+
+h3.ra-heading,
+.h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 20px;
+  text-shadow: -2px -2px 0 rgb(0 0 0 / 90%), -2px -1px 0 rgb(0 0 0 / 90%), -2px 0 0 rgb(0 0 0 / 90%), -2px 1px 0 rgb(0 0 0 / 90%), -2px 2px 0 rgb(0 0 0 / 90%), -1px -2px 0 rgb(0 0 0 / 90%), -1px -1px 0 rgb(0 0 0 / 90%), -1px 0 0 rgb(0 0 0 / 90%), -1px 1px 0 rgb(0 0 0 / 90%), -1px 2px 0 rgb(0 0 0 / 90%), 0 -2px 0 rgb(0 0 0 / 90%), 0 -1px 0 rgb(0 0 0 / 90%), 0 0 0 rgb(0 0 0 / 90%), 0 1px 0 rgb(0 0 0 / 90%), 0 2px 0 rgb(0 0 0 / 90%), 1px -2px 0 rgb(0 0 0 / 90%), 1px -1px 0 rgb(0 0 0 / 90%), 1px 0 0 rgb(0 0 0 / 90%), 1px 1px 0 rgb(0 0 0 / 90%), 1px 2px 0 rgb(0 0 0 / 90%), 2px -2px 0 rgb(0 0 0 / 90%), 2px -1px 0 rgb(0 0 0 / 90%), 2px 0 0 rgb(0 0 0 / 90%), 2px 1px 0 rgb(0 0 0 / 90%), 2px 2px 0 rgb(0 0 0 / 90%);
+}
+
+h4.ra-heading,
+.h4 {
+  font-style: normal;
+  font-size: var(--padding-m);
+  line-height: 1.5rem;
+}
+
+h2.ra-heading,
+h3.ra-heading,
+h4.ra-heading {
+  font-family: var(--font-primary);
+}
+
+.h6-variant {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.p1 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.1875rem;
+  letter-spacing: 0.02rem;
+  text-align: center;
+}
+
+.p2 {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.0625rem;
+  letter-spacing: 0.11rem;
+  text-align: left;
+}
+
+.p2-variant {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.p3 {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.01em;
+}
+
+.caption {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 1rem;
+}
+
+.tb1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.188rem;
+  letter-spacing: 0.12rem;
+}
+
+.tb2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+  letter-spacing: 0.12rem;
+}
+
+.tb3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.12rem;
+}
+
+.ov1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.12rem;
+}
+
+.ov2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.12rem;
+}
+
+.ov3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.813rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.12rem;
+}
+
+.font-primary-light {
+  font-family: var(--font-primary);
+  font-weight: 300;
+}
+
+.font-primary-regular {
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+.font-primary-medium {
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+.font-primary-bold {
+  font-family: var(--font-primary);
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

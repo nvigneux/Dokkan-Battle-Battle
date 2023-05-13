@@ -1,0 +1,153 @@
+{
+  "home": {
+    "title": "Accueil"
+  },
+  "signin": {
+    "title": "Connexion",
+    "form": {
+      "email": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "submitting": "Connexion en cours..."
+    }
+  },
+  "user": {
+    "logout": "Déconnexion",
+    "register": "Inscription",
+    "profile": "Profil",
+    "form": {
+      "username": "Nom d'utilisateur",
+      "email": "Email",
+      "password": "Mot de passe",
+      "passwordConfirm": "Confirmation du mot de passe",
+      "size": "Taille (cm)",
+      "weight": "Poids (kg)",
+      "birthday": "Date de naissance",
+      "sex": "Sexe",
+      "diet": "Objectif",
+      "activityFactor": "Facteur d'activité",
+      "save": "Enregistrer",
+      "saving": "Enregistrement en cours...",
+      "edit": "Modifier",
+      "editing": "Modification en cours..."
+    }
+  },
+  "sex": {
+    "man": "Homme",
+    "woman": "Femme"
+  },
+  "diet": {
+    "bulk": "Prise de masse",
+    "maintenance": "Maintien",
+    "cutting": "Sèche"
+  },
+  "activityFactor": {
+    "sedentary": "Sédentaire",
+    "lightly_active": "Légèrement actif",
+    "moderately_active": "Modérément actif",
+    "very_active": "Très actif",
+    "extremely_active": "Extrêmement actif"
+  },
+  "recipes": {
+    "label_one": "Recette",
+    "label_other": "Recettes",
+    "title": "Recettes",
+    "searchLabel": "Rechercher une recette",
+    "noResult": "Aucune recette trouvée",
+    "stepDefault": "Mélanger tous les ingrédients",
+    "form": {
+      "title": "Ajouter une recette",
+      "editRecipe": "Editer une recette",
+      "name": "Nom de la recette",
+      "list": "Liste des ingredients",
+      "steps": "Étapes",
+      "addStep": "Ajouter une étape",
+      "save": "Enregistrer",
+      "saving": "Enregistrement en cours...",
+      "edit": "Modifier",
+      "editing": "Modification en cours...",
+      "error": "Une erreur est survenue lors de l'enregistrement de la recette",
+      "stepRequired": "Une étape est obligatoire",
+      "ingredientRequired": "Un ingredient est obligatoire",
+      "select": {
+        "noOptions": "Aucun ingrédient trouvé",
+        "loading": "Chargement..."
+      }
+    },
+    "selectLabel": "Ajouter un ingrédient"
+  },
+  "ingredients": {
+    "label_one": "Ingredient",
+    "label_other": "Ingredients",
+    "title": "Ingredients",
+    "searchLabel": "Rechercher un ingredient",
+    "noResult": "Aucun ingredient trouvée",
+    "header": {
+      "title": "Ajouter un ingredient",
+      "edit": "Editer un ingredient"
+    },
+    "form": {
+      "informations": "Informations",
+      "nutritions": "Valeurs nutritionnelles",
+      "name": "Nom de l'ingredient",
+      "brand": "Marque",
+      "kcal": "Calories (kcal)",
+      "protein": "Proteines (g)",
+      "carbohydrates": "Glucides (g)",
+      "carbohydrates_sugar": "Sucres (g)",
+      "lipids": "Lipides (g)",
+      "lipids_saturated": "Gras insaturés (g)",
+      "category": "Catégorie",
+      "save": "Enregistrer",
+      "saving": "Enregistrement en cours...",
+      "edit": "Modifier",
+      "editing": "Modification en cours...",
+      "error": "Une erreur est survenue lors de l'enregistrement de l'ingredient"
+    },
+    "selectLabel": "Ajouter un ingrédient"
+  },
+  "categories": {
+    "lamb": "Agneau",
+    "food library": "Bibliothèque alimentaire",
+    "drinks": "Boissons",
+    "beef": "Bœuf",
+    "fruits & dried fruits": "Fruits et fruits secs",
+    "vegetables": "Légumes",
+    "bread & bakeries": "Pain et boulangeries",
+    "prepared dishes": "Plats préparés",
+    "fish & shellfish": "Poissons et fruits de mer",
+    "pork": "Porc",
+    "dairy products & egg": "Produits laitiers et œufs",
+    "sauces & soups": "Sauces et soupes",
+    "snacks, sweets and desserts": "Snacks, sucreries et desserts",
+    "calf": "Veau",
+    "meat": "Viande"
+  },
+  "meal-type": {
+    "breakfast": "Petit déjeuner",
+    "lunch": "Déjeuner",
+    "snack": "Collation",
+    "diner": "Diner",
+    "advice": "Recommandés {{min}} - {{max}} kcal"
+  },
+  "headerMeal": {
+    "selectLabel": "Ajouter recette, ingrédient"
+  },
+  "modalMeal": {
+    "addToMeal": "Ajouter au repas",
+    "addPortion": "Ajouter une portion"
+  },
+  "nutritionValues": {
+    "kcal": "Calories",
+    "proteins": "Proteines",
+    "carbohydrates": "Glucides",
+    "carbohydrates_sugar": "Sucres",
+    "lipids": "Lipides",
+    "lipids_saturated": "Gras insaturés"
+  },
+  "footer": {
+    "home": "Accueil",
+    "recipes": "Recettes",
+    "ingredients": "Ingredients"
+  }
+}
