@@ -12,14 +12,17 @@ import '../styles/reset.css';
 import '../styles/theme.css';
 import '../styles/fonts.css';
 
-function MyApp ({ Component, pageProps: { session, ...pageProps } }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [queryClient] = React.useState(() => new QueryClient());
 
   return (
     <>
       <Head>
         <title>Dokkan Battle Battle - Fight your friends in multiplayer game mode</title>
-        <meta name="description" content="Dokkan Battle Battle allows you to fight your friends on Dokkan Battle in different game modes"></meta>
+        <meta
+          name="description"
+          content="Dokkan Battle Battle allows you to fight your friends on Dokkan Battle in different game modes"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
