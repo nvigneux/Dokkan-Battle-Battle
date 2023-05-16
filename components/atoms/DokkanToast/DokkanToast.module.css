@@ -1,0 +1,103 @@
+/* stylelint-disable max-line-length */
+/* stylelint-disable selector-class-pattern */
+.toast {
+  color: var(--color-white);
+  position: relative;
+  overflow: inherit !important;
+  background-size: 0 !important;
+  border: 3px solid rgb(255 255 255 / 90%);
+  padding: 20px 25px !important;
+  font-family: Roboto, sans-serif;
+  border-top-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+}
+
+.toast.toast-error {
+  background-color: rgb(19 4 6 / 80%) !important;
+  box-shadow: 0 0 4px rgb(0 0 0 / 80%), inset 0 0 25px 1px rgb(105 13 13 / 80%) !important;
+}
+
+.toast.toast-success {
+  background-color: rgb(3 16 3 / 80%) !important;
+  box-shadow: 0 0 4px rgb(0 0 0 / 80%), inset 0 0 25px 1px rgb(5 45 11 / 80%) !important;
+}
+
+.toast.toast-warning {
+  background-color: rgb(21 17 4 / 80%) !important;
+  box-shadow: 0 0 4px rgb(0 0 0 / 80%), inset 0 0 25px 1px rgb(72 71 8 / 80%) !important;
+}
+
+.toast.toast-info {
+  background-color: rgb(5 6 25 / 80%) !important;
+  box-shadow: 0 0 4px rgb(0 0 0 / 80%), inset 0 0 25px 1px rgb(0 37 72 / 80%) !important;
+}
+
+.toast::before,
+.toast::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 50px;
+  background: rgb(255 255 255 / 90%);
+}
+
+.toast::before {
+  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%);
+  left: -8px;
+  bottom: -3px;
+}
+
+.toast::after {
+  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%);
+  right: -8px;
+  top: -3px;
+}
+
+@media screen and (max-width: 480px) {
+  .toast {
+    width: 265px !important;
+    padding: 15px 10px !important;
+  }
+}
+
+.toast-title {
+  color: var(--color-white);
+  font-size: 1.2em;
+  font-family: Roboto, sans-serif;
+  font-style: italic;
+  line-height: 1;
+  text-shadow: 2px 2px 0 rgb(0 0 0 / 60%), 1px 3px 0 rgb(0 0 0 / 60%), -1px 1px 0 rgb(0 0 0 / 60%), 3px 2px 0 rgb(0 0 0 / 60%), 0 0 0 rgb(0 0 0 / 60%), 0 1px 0 rgb(0 0 0 / 60%), 1px -1px 0 rgb(0 0 0 / 60%), 1px 0 0 rgb(0 0 0 / 60%), 1px 1px 0 rgb(0 0 0 / 60%);
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .toast-title {
+    font-size: 1em;
+    padding-bottom: 5px;
+  }
+}
+
+.toast-message {
+  color: var(--color-white);
+  font-size: 0.8em;
+  line-height: 1.4em;
+  font-weight: 500;
+}
+
+.toast-top-right {
+  top: 75px;
+  right: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .toast-top-right {
+    top: initial;
+    right: 15px;
+    bottom: 20px;
+  }
+}

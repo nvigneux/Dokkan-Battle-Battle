@@ -13,7 +13,7 @@ function WithHeaderFooter({ children }) {
       <div className={styles.main}>
         {children}
       </div>
-      {/* <Footer /> */}
+      <div className={styles.bg} />
     </>
   );
 }

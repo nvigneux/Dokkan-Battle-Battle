@@ -6,6 +6,8 @@ import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 // Styles
 import '../styles/reset.css';
@@ -44,6 +46,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
           <ReactQueryDevtools initialIsOpen={false} />
+          <ToastContainer
+            theme=""
+            closeButton={false}
+            position="top-right"
+            autoClose={4000}
+            closeOnClick
+            transition={Slide}
+            limit={2}
+          />
         </Hydrate>
       </QueryClientProvider>
     </>

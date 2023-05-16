@@ -1,6 +1,6 @@
 // Components
-import Home from '../components/templates/Home/Home';
 import Page from '../components/templates/Page/Page';
+import RandomRush from '../components/templates/RandomRush/RandomRush';
 import WithHeaderFooter from '../components/templates/WithHeaderFooter/WithHeaderFooter';
 // Utils
 import { getCommonProps } from '../utils/requests';
@@ -9,7 +9,7 @@ function Accueil() {
   return (
     <WithHeaderFooter>
       <Page>
-        <Home />
+        <RandomRush />
       </Page>
     </WithHeaderFooter>
   );

@@ -1,5 +1,18 @@
+/* stylelint-disable max-line-length */
 .main {
   min-height: auto;
   display: flex;
   flex-flow: column nowrap;
+}
+
+.bg {
+  z-index: -1;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  background-image: linear-gradient(0deg, transparent 24%, rgb(19 72 171 / 25%) 25%, rgb(19 72 171 / 25%) 26%, transparent 27%, transparent 74%, rgb(19 72 171 / 25%) 75%, rgb(19 72 171 / 25%) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgb(19 72 171 / 25%) 25%, rgb(19 72 171 / 25%) 26%, transparent 27%, transparent 74%, rgb(19 72 171 / 25%) 75%, rgb(19 72 171 / 25%) 76%, transparent 77%, transparent);
+  min-height: 100%;
+  background-size: 50px 50px;
 }

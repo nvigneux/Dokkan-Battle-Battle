@@ -1,0 +1,38 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable max-line-length */
+.dbb-draw-number {
+  color: #fff;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Roboto, sans-serif;
+  opacity: 0.95;
+  text-shadow: 2px 2px 0 rgb(51 25 10 / 90%), 1px 3px 0 rgb(60 51 45 / 90%), -1px 1px 0 rgb(0 0 0 / 90%), 3px 2px 0 rgb(0 0 0 / 90%), 7px 5px 0 rgb(0 0 0 / 90%), 4px 4px 0 rgb(0 0 0 / 90%), 6px 3px 0 rgb(0 0 0 / 90%), 1px 0 0 rgb(0 0 0 / 90%), 1px 1px 0 rgb(0 0 0 / 90%);
+}
+
+.dbb-draw-cat {
+  font-size: 2em;
+  padding: 0 6px 0 0;
+}
+
+@media screen and (max-width: 390px) {
+  .dbb-draw-cat {
+    font-size: 1.6em;
+  }
+}
+
+.dbb-draw-result {
+  font-size: 7em;
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-draw-result {
+    font-size: 6em;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .dbb-draw-result {
+    font-size: 5.5em;
+  }
+}
