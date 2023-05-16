@@ -1,8 +1,32 @@
 /* stylelint-disable max-line-length */
 /* stylelint-disable selector-class-pattern */
 @font-face {
+  font-family: "Roboto Condensed";
+  src: url("../public/fonts/Roboto-Condensed-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../public/fonts/Roboto-Condensed-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../public/fonts/Roboto-Condensed-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: Roboto;
-  src: url("../public/fonts/Roboto-Light-webfont.woff") format("woff");
+  src: url("../public/fonts/Roboto-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -10,7 +34,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../public/fonts/Roboto-Regular-webfont.woff") format("woff");
+  src: url("../public/fonts/Roboto-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -18,15 +42,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../public/fonts/Roboto-Medium-webfont.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Roboto;
-  src: url("../public/fonts/Roboto-Bold-webfont.woff") format("woff");
+  src: url("../public/fonts/Roboto-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

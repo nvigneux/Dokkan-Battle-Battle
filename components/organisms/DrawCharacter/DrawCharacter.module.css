@@ -1,0 +1,20 @@
+/* stylelint-disable selector-class-pattern */
+.dbb-draw-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 40px;
+}
+
+.dbb-draw-random {
+  padding: 0 0 0 25px;
+}
+
+.dbb-draw {
+  padding: 0 0 15px 8px;
+}
+
+.dbb-redraw {
+  padding: 0 0 0 4px;
+}

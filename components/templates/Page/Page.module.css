@@ -1,0 +1,27 @@
+.page {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 1.25rem;
+}
+
+.fullscreen {
+  --footer-height: 0;
+}
+
+/* 608 */
+@media screen and (max-width: 38rem) {
+  .page {
+    min-height: calc(100vh - var(--footer-height, 0px));
+    padding-bottom: var(--footer-height);
+  }
+
+  .fullscreen {
+    min-height: 100vh;
+    height: 100vh;
+  }
+}

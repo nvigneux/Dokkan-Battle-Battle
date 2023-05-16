@@ -1,0 +1,245 @@
+/* stylelint-disable max-line-length */
+/* stylelint-disable selector-class-pattern */
+.dbb-btn {
+  margin: 0;
+  border: 0;
+  padding: 0.5em 1em;
+  position: relative;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.dbb-btn--small {
+  padding: 0.8em 1.5em;
+  font-size: 1.05em !important;
+}
+
+.dbb-btn--small.dbb-btn--corner::after {
+  clip-path: polygon(calc(100% - 7px) 0, 100% calc(100% - 81%), calc(100% - 9.5px) 100%, 7px 100%, 0% 81%, 9.5px 0) !important;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--small.dbb-btn--corner::after {
+    width: calc(100% - 12px);
+    height: calc(100% - 9px);
+    left: 6px;
+    top: 4.4px;
+  }
+}
+
+.dbb-btn--small .dbb-btn__border {
+  height: calc(100% - 11.7px) !important;
+  top: 5.7px !important;
+  clip-path: polygon(calc(100% - 8px) 0, 100% calc(100% - 80%), calc(100% - 10px) 100%, 8px 100%, 0% 80%, 10px 0) !important;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--small .dbb-btn__border {
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 7.4px) !important;
+    top: 3.5px !important;
+    left: 5px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--small {
+    font-size: 0.85em !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .dbb-btn--small {
+    font-size: 0.79em !important;
+  }
+}
+
+.dbb-btn--big {
+  padding: 0.55em 2em;
+  font-size: 1.8em !important;
+}
+
+.dbb-btn--big.dbb-btn--corner::after {
+  width: calc(100% - 18px);
+  height: calc(100% - 16px);
+  left: 9px;
+  top: 8px;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--big.dbb-btn--corner::after {
+    width: calc(100% - 14px);
+    height: calc(100% - 12px);
+    left: 7px;
+    top: 6px;
+  }
+}
+
+.dbb-btn--big .dbb-btn__border {
+  width: calc(100% - 16.1px) !important;
+  height: calc(100% - 14px) !important;
+  left: 8px !important;
+  top: 7px !important;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--big .dbb-btn__border {
+    width: calc(100% - 12px) !important;
+    height: calc(100% - 10px) !important;
+    left: 6px !important;
+    top: 5px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--big {
+    font-size: 1.4em !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .dbb-btn--big {
+    font-size: 1.3em !important;
+  }
+}
+
+.dbb-btn .dbb-btn__border {
+  position: absolute;
+  width: calc(100% - 14.1px);
+  height: calc(100% - 12px);
+  left: 7px;
+  top: 6px;
+  z-index: -2;
+  clip-path: polygon(calc(100% - 9px) 0, 100% calc(100% - 80%), calc(100% - 10px) 100%, 9px 100%, 0% 80%, 10px 0);
+}
+
+.dbb-btn .dbb-btn__border--black {
+  background: rgb(0 0 0 / 80%);
+}
+
+.dbb-btn .dbb-btn__border--white {
+  background: rgb(255 255 255 / 80%);
+}
+
+.dbb-btn--big.dbb-btn--text-white {
+  text-shadow: -1.25px -1.25px 0 rgb(0 0 0 / 70%), -1.25px -0.25px 0 rgb(0 0 0 / 70%), -1.25px 0.75px 0 rgb(0 0 0 / 70%), -1.25px 1.75px 0 rgb(0 0 0 / 70%), -0.25px -1.25px 0 rgb(0 0 0 / 70%), -0.25px -0.25px 0 rgb(0 0 0 / 70%), -0.25px 0.75px 0 rgb(0 0 0 / 70%), -0.25px 1.75px 0 rgb(0 0 0 / 70%), 0.75px -1.25px 0 rgb(0 0 0 / 70%), 0.75px -0.25px 0 rgb(0 0 0 / 70%), 0.75px 0.75px 0 rgb(0 0 0 / 70%), 0.75px 1.75px 0 rgb(0 0 0 / 70%), 1.75px -1.25px 0 rgb(0 0 0 / 70%), 1.75px -0.25px 0 rgb(0 0 0 / 70%), 1.75px 0.75px 0 rgb(0 0 0 / 70%), 1.75px 1.75px 0 rgb(0 0 0 / 70%);
+}
+
+.dbb-btn--text-white {
+  color: #fff;
+  font-size: 1.5em;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.dbb-btn--corner-border {
+  clip-path: polygon(calc(100% - 9px) 0, 100% calc(100% - 80%), calc(100% - 10px) 100%, 9px 100%, 0% 80%, 10px 0);
+}
+
+.dbb-btn--corner-after {
+  clip-path: polygon(calc(100% - 8px) 0, 100% calc(100% - 80%), calc(100% - 10px) 100%, 8px 100%, 0% 80%, 10px 0);
+}
+
+.dbb-btn--corner {
+  clip-path: polygon(calc(100% - 12px) 0, 100% calc(100% - 76%), calc(100% - 12px) 100%, 12px 100%, 0 76%, 12px 0);
+}
+
+.dbb-btn.dbb-btn--corner::before,
+.dbb-btn.dbb-btn--gradient-border {
+  box-shadow: inset -4px 2px 20px 0 hsl(0deg 0% 100% / 40%);
+  background: linear-gradient(180deg, #fff, #d5d5db 7%, #d5d5db 52%, #f2f2f2 54%, #8e8e8e 55%, #554f53);
+}
+
+.dbb-btn--corner::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -3;
+  clip-path: polygon(calc(100% - 12px) 0, 100% calc(100% - 76%), calc(100% - 12px) 100%, 12px 100%, 0 76%, 12px 0);
+}
+
+.dbb-btn--corner::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 16px);
+  height: calc(100% - 14px);
+  left: 8px;
+  top: 7px;
+  z-index: -2;
+  clip-path: polygon(calc(100% - 8px) 0, 100% calc(100% - 81%), calc(100% - 9.5px) 100%, 8px 100%, 0% 81%, 9.5px 0);
+}
+
+.dbb-btn .dbb-glossy {
+  position: absolute;
+  top: -41%;
+  left: 5%;
+  width: 103%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+  transform: rotate(-9deg);
+}
+
+.dbb-btn .dbb-glossy--white {
+  background: linear-gradient(2deg, rgb(255 255 255 / 60%) 0%, rgb(255 255 255 / 0%) 47%);
+}
+
+.dbb-btn.dbb-btn--gradient-border,
+.dbb-btn--corner::before.dbb-btn {
+  box-shadow: inset -4px 2px 20px 0 rgb(255 255 255 / 40%);
+  background: linear-gradient(180deg, #fff 0%, #d5d5db 7%, #d5d5db 52%, #f2f2f2 54%, #8e8e8e 55%, #554f53 100%);
+}
+
+.dbb-btn.dbb-btn--gradient-grey,
+.dbb-btn:disabled::after {
+  background: linear-gradient(180deg, #6e6f6f 0%, #6e6f6f 56%, #565555 57%) !important;
+}
+
+.dbb-btn.dbb-btn--gradient-orange::after {
+  background: linear-gradient(180deg, #ee7717 0%, #ee7717 53%, #ee6615 59%, #ee6615 63%);
+}
+
+.dbb-btn.dbb-btn--gradient-blue::after {
+  background: linear-gradient(180deg, #18e 0%, #18e 53%, #16d 59%, #16d 63%);
+}
+
+.dbb-btn.dbb-btn--gradient-green::after {
+  background: linear-gradient(180deg, #77a13b 0%, #77a13b 53%, #679130 59%, #679130 63%);
+}
+
+.dbb-btn.dbb-btn--gradient-yellow::after {
+  background: linear-gradient(180deg, #c6ba51 0%, #c6ba51 53%, #bcae43 59%, #bcae43 63%);
+}
+
+.dbb-btn.dbb-btn--gradient-black::after {
+  background: linear-gradient(180deg, #3e3e3e 0%, #383838 53%, #1d1d1d 59%, #1d1d1d 63%);
+}
+
+.dbb-btn:hover.dbb-btn--gradient-orange::after {
+  background: linear-gradient(180deg, #f68017 0%, #f68017 53%, #f26615 59%, #f26615 63%);
+}
+
+.dbb-btn:hover.dbb-btn--gradient-blue::after {
+  background: linear-gradient(180deg, #1190f6 0%, #1190f6 53%, #1169ec 59%, #1169ec 63%);
+}
+
+.dbb-btn:hover.dbb-btn--gradient-green::after {
+  background: linear-gradient(180deg, #7cab40 0%, #7cab40 53%, #679535 59%, #679535 63%);
+}
+
+.dbb-btn:hover.dbb-btn--gradient-yellow::after {
+  background: linear-gradient(180deg, #ccc050 0%, #ccc050 53%, #c5b743 59%, #c5b743 63%);
+}
+
+.dbb-btn:hover.dbb-btn--gradient-black::after {
+  background: linear-gradient(180deg, #3e3e3e 0%, #383838 53%, #1d1d1d 59%, #1d1d1d 63%);
+}
+
+.dbb-btn:disabled {
+  color: #cacaca;
+  cursor: default;
+}

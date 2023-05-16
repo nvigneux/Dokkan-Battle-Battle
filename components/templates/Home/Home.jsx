@@ -1,7 +1,10 @@
+/* eslint-disable react/no-danger */
 import Link from 'next/link';
 
 // Styles
 import styles from './Home.module.css';
+import TitleDokkan from '../../atoms/TitleDokkan/TitleDokkan';
+import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 
 export default function Home() {
   return (
@@ -13,22 +16,26 @@ export default function Home() {
         </div>
         <div className={styles['dbb-home__description']}>
           <p>For the moment Dokkan Battle Battle allows you to play in two multiplayers modes.</p>
-          <p>
-            The principle and the rules were thought and created by the youtubers described below.
-            <br />
-            I thank them for
-            having ideas of multiplayer modes, so that everyone can share their passion of
-            <strong>Dragon Ball Z DokkanBattle</strong>
-            .
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: `
+          The principle and the rules were thought and created by the youtubers described below.
+          <br />
+          I thank them for
+          having ideas of multiplayer modes, so that everyone can share their passion of
+          <strong>Dragon Ball Z DokkanBattle</strong>
+          .
+          `,
+            }}
+          />
         </div>
         <div className={styles['dbb-home__mode']}>
-          <h2>Random Rush</h2>
+          <TitleDokkan>Random Rush</TitleDokkan>
           <div className={styles['dbb-home__yt']}>
-            <div className={styles['home__yt--title']}>
+            <div className={styles['dbb-home__yt--title']}>
               <h3>Youtubers</h3>
             </div>
-            <div className={styles['home__yt--link']}>
+            <div className={styles['dbb-home__yt--link']}>
               <Link
                 href="https://www.youtube.com/channel/UCYdop03CtRIi_0GUXSm2c9w"
                 target="_blank"
@@ -46,10 +53,10 @@ export default function Home() {
             </div>
           </div>
           <div className={styles['dbb-home__rules']}>
-            <div className={styles['home__rules--title']}>
+            <div className={styles['dbb-home__rules--title']}>
               <h3>The Rules</h3>
             </div>
-            <ul className={styles['home__rules--rule']}>
+            <ul className={styles['dbb-home__rules--rule']}>
               <li>In Random Rush each player will created a team of 6 characters randomly.</li>
               <li>For that, each player need to fill the number of lines of his box.</li>
               <li>Players will draws each their turns a random number for the lines and the column.</li>
@@ -73,17 +80,19 @@ export default function Home() {
           </div>
           <div className={styles['dbb-home__btn']}>
             <Link href="/random-rush" className={styles['dbb-button}']} data-size="big" data-color="orange">
-              {'Let\'s play !'}
+              <ButtonDokkan>
+                {'Let\'s play !'}
+              </ButtonDokkan>
             </Link>
           </div>
         </div>
         <div className={styles['dbb-home__mode']}>
-          <h2>Challenge Battle</h2>
+          <TitleDokkan>Challenge Battle</TitleDokkan>
           <div className={styles['dbb-home__yt']}>
-            <div className={styles['home__yt--title']}>
+            <div className={styles['dbb-home__yt--title']}>
               <h3>Youtubers</h3>
             </div>
-            <div className={styles['home__yt--link']}>
+            <div className={styles['dbb-home__yt--link']}>
               <Link
                 href="https://www.youtube.com/channel/UCCyAzMaIWGw1vsCsL4IHbHQ"
                 target="_blank"
@@ -101,10 +110,10 @@ export default function Home() {
             </div>
           </div>
           <div className={styles['dbb-home__rules']}>
-            <div className={styles['home__rules--title']}>
+            <div className={styles['dbb-home__rules--title']}>
               <h3>The Rules</h3>
             </div>
-            <ul className={styles['home__rules--rule']}>
+            <ul className={styles['dbb-home__rules--rule']}>
               <li>On Challenge Battle each player will created a team of 6 characters based on their types.</li>
               <li>Define the number of players.</li>
               <li>Players will draws each their turns a random types of characters.</li>
@@ -117,7 +126,9 @@ export default function Home() {
           </div>
           <div className={styles['dbb-home__btn']}>
             <Link href="/challenge-battle" className={styles['dbb-button']} data-size="big" data-color="orange">
-              {'Let\'s play !'}
+              <ButtonDokkan>
+                {'Let\'s play !'}
+              </ButtonDokkan>
             </Link>
           </div>
         </div>

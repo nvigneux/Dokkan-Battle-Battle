@@ -1,4 +1,10 @@
 /* stylelint-disable selector-class-pattern */
+.dbb-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 430px) {
   .dbb-home {
     padding: 0 5px;
@@ -7,6 +13,7 @@
 
 .dbb-home__title {
   font-family: Roboto, sans-serif;
+  font-weight: 600;
 }
 
 .dbb-home__title h1 {
@@ -16,6 +23,7 @@
   transform: rotate(-4deg);
   text-align: center;
   font-weight: bold;
+  margin: 0.68rem;
 }
 
 @media screen and (max-width: 430px) {
@@ -41,6 +49,10 @@
   line-height: 1.5em;
 }
 
+.dbb-home__description p {
+  margin-block: 1rem;
+}
+
 .dbb-home__mode {
   display: flex;
   flex-direction: column;
@@ -57,18 +69,14 @@
   }
 }
 
-.dbb-home__yt--title {
+.dbb-home__yt--title h3 {
   flex: 0 0 17%;
   font-family: Roboto, sans-serif;
   font-size: 1.4em;
   color: #fff;
-  text-align: center;
-  margin-right: 50px;
-}
-
-.dbb-home__yt--title h3 {
   text-align: left;
-  margin: 30px 0 15px !important;
+  margin: 30px 50px 15px 0 !important;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 430px) {
@@ -105,7 +113,7 @@
   position: absolute;
   left: 10%;
   bottom: 0;
-  height: 1px;
+  height: 3px;
   border: 1px solid #000;
   width: 80%;
   background: #e79d0d;
@@ -123,17 +131,18 @@
 }
 
 .dbb-home__rules--title {
-  flex: 0 0 17%;
+  display: flex;
+}
+
+.dbb-home__rules--title h3 {
+  flex: 1 0 auto;
+  font-weight: 600;
   font-family: Roboto, sans-serif;
   font-size: 1.4em;
   color: #fff;
   text-align: center;
-  margin-right: 35px;
-}
-
-.dbb-home__rules--title h3 {
   text-align: left;
-  margin: 25px 0 15px !important;
+  margin: 25px 65px 15px 0 !important;
 }
 
 @media screen and (max-width: 480px) {
@@ -148,11 +157,19 @@
   font-family: Roboto, sans-serif;
   font-size: 1em;
   line-height: 1.5em;
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1.7em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 40px;
 }
 
 @media screen and (max-width: 480px) {
   .dbb-home__rules--rule {
     margin-top: 5px;
+    padding-inline-start: 20px;
   }
 }
 
