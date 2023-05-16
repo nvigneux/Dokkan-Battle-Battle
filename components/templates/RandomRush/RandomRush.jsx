@@ -7,6 +7,7 @@ import DrawsSummary from '../../molecules/DrawsSummary/DrawsSummary';
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 import TitleButtonDokkan from '../../atoms/TitleButtonDokkan/TitleButtonDokkan';
 import Drawback from '../../molecules/Drawback/Drawback';
+import DokkanToast from '../../atoms/DokkanToast/DokkanToast';
 
 // Styles
 import styles from './RandomRush.module.css';
@@ -33,6 +34,11 @@ function RandomRush() {
   const [previousPlayer, setPreviousPlayer] = useState(players[0]);
 
   const drawsHasValues = useMemo(() => drawsHasStarted(draws), [draws]);
+
+  // const notify = (text, subText) => toast.custom(<DokkanToast text={text} subText={subText} />, {
+  //   duration: 3000,
+  //   position: 'top-right',
+  // });
 
   /**
  * Defines the next player based on the current state of draws and active turn.
@@ -202,7 +208,7 @@ function RandomRush() {
     }
 
     if (player.nbLines <= 0) {
-      alert('No lines for this player');
+      // notify('No lines for this player', 'error');
     }
   };
 
