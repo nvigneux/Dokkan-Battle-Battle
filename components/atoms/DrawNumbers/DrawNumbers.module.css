@@ -15,7 +15,9 @@
 }
 
 @media screen and (max-width: 390px) {
-  font-size: 1.6em;
+  .dbb-draw-cat {
+    font-size: 1.6em;
+  }
 }
 
 .dbb-draw-result {
@@ -24,9 +26,13 @@
 }
 
 @media screen and (max-width: 480px) {
-  font-size: 6em;
+  .dbb-draw-result {
+    font-size: 6em;
+  }
 }
 
 @media screen and (max-width: 390px) {
-  font-size: 5.5em;
+  .dbb-draw-result {
+    font-size: 5.5em;
+  }
 }

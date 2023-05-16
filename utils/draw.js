@@ -40,11 +40,26 @@ export function findNextPlayer(drawsObj) {
     const playerDraws = drawsObj[key].draws;
     const activeTurn = findActiveTurnPlayer(playerDraws);
     if (!acc.id && acc.activeTurn === 0) return { id: key, activeTurn };
-    if (activeTurn < acc.activeTurn || acc.activeTurn === -1) return { id: key, activeTurn };
+
+    const isMinActiveTurn = activeTurn < acc.activeTurn && activeTurn >= 0;
+    const isDraftActiveTurn = activeTurn === -1 && acc.activeTurn === -1 && activeTurn === acc.activeTurn;
+    const onePlayerHasTurn = activeTurn > acc.activeTurn && acc.activeTurn <= 0;
+    if (isMinActiveTurn || isDraftActiveTurn || onePlayerHasTurn) { return { id: key, activeTurn }; }
+
     return acc;
   }, { id: null, activeTurn: 0 });
 
   return nextPlayer;
+}
+
+export function drawsHasStarted(drawsObj) {
+  const array = Object.keys(drawsObj);
+  return array.reduce((acc, key) => {
+    const playerDraws = drawsObj[key].draws;
+    const activeTurn = findActiveTurnPlayer(playerDraws);
+    if (activeTurn > 0 || activeTurn === -1) return true;
+    return acc;
+  }, false);
 }
 
 export function drawAlreadyExists(draw, drawsArr) {
@@ -72,7 +87,7 @@ export function findLastDraw(draws) {
 
 export function findLastDrawPlayers(drawsObj) {
   const lastKey = Object.keys(drawsObj).reduce((acc, key) => {
-    const lastIndex = drawsObj[key];
+    const lastIndex = findLastDraw(drawsObj[key].draws);
 
     if (lastIndex >= acc.lastIndex) {
       return { ...acc, key, lastIndex };

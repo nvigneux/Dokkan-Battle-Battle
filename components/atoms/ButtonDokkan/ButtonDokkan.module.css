@@ -13,6 +13,7 @@
 .dbb-btn--small {
   padding: 0.8em 1.5em;
   font-size: 1.05em !important;
+  text-shadow: -1px -1px 0 rgb(0 0 0 / 70%), -1px 0 0 rgb(0 0 0 / 70%), -1px 1px 0 rgb(0 0 0 / 70%), 0 -1px 0 rgb(0 0 0 / 70%), 0 0 0 rgb(0 0 0 / 70%), 0 1px 0 rgb(0 0 0 / 70%), 1px -1px 0 rgb(0 0 0 / 70%), 1px 0 0 rgb(0 0 0 / 70%), 1px 1px 0 rgb(0 0 0 / 70%);
 }
 
 .dbb-btn--small.dbb-btn--corner::after {
@@ -131,6 +132,13 @@
   font-size: 1.5em;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-btn--big,
+  .dbb-btn--big.dbb-btn--text-white {
+    text-shadow: -1px -1px 0 rgb(0 0 0 / 70%), -1px 0 0 rgb(0 0 0 / 70%), -1px 1px 0 rgb(0 0 0 / 70%), 0 -1px 0 rgb(0 0 0 / 70%), 0 0 0 rgb(0 0 0 / 70%), 0 1px 0 rgb(0 0 0 / 70%), 1px -1px 0 rgb(0 0 0 / 70%), 1px 0 0 rgb(0 0 0 / 70%), 1px 1px 0 rgb(0 0 0 / 70%);
+  }
 }
 
 .dbb-btn--corner-border {

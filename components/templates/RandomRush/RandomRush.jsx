@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 // Components
 import TitleDokkan from '../../atoms/TitleDokkan/TitleDokkan';
 import Players from '../../organisms/Players/Players';
@@ -7,12 +7,15 @@ import DrawCharacter from '../../organisms/DrawCharacter/DrawCharacter';
 // Styles
 import styles from './RandomRush.module.css';
 import {
-  drawAlreadyExists, drawIsCanceled, findActiveTurnPlayer, findLastDraw, findLastDrawPlayers, findNextPlayer, getRandomArbitrary,
+  drawAlreadyExists, drawIsCanceled, drawsHasStarted, findActiveTurnPlayer, findLastDraw, findLastDrawPlayers,
+  findNextPlayer, getRandomArbitrary,
 } from '../../../utils/draw';
 import DrawsSummary from '../../molecules/DrawsSummary/DrawsSummary';
 import {
   DRAWS_STATE, RUSH_MAX_COLUMN, RUSH_MIN_COLUMN, RUSH_MIN_LINE,
 } from '../../../utils/constants';
+import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
+import TitleButtonDokkan from '../../atoms/TitleButtonDokkan/TitleButtonDokkan';
 
 const EMPTY_DRAW = { line: null, column: null };
 const INIT_PLAYER_DRAWS = { draws: Array(6).fill(EMPTY_DRAW) };
@@ -26,19 +29,18 @@ function RandomRush() {
   const [activePlayer, setActivePlayer] = useState(players[0]);
   const [previousPlayer, setPreviousPlayer] = useState(players[0]);
 
-  const handleEndOfDraws = () => {
-    setDrawsState(DRAWS_STATE.DRAFT);
-  };
+  const drawsHasValues = useMemo(() => drawsHasStarted(draws), [draws]);
 
   /**
  * Defines the next player based on the current state of draws and active turn.
  * @param {Object} drawsObj - The previous state of draws.
- * @returns {Player} The next player.
+ * @returns {Players} all players.
  */
   const defineNextPlayer = (drawsObj, playersArr) => {
     const { id, activeTurn } = findNextPlayer(drawsObj);
+    console.log('findNextPlayer', id, activeTurn);
     const nextPlayer = playersArr.find((p) => p.id === +id);
-    if (activeTurn === -1) handleEndOfDraws();
+    if (activeTurn === -1) setDrawsState(DRAWS_STATE.DRAFT);
     if (drawsState !== DRAWS_STATE.OPEN && activeTurn > -1) setDrawsState(DRAWS_STATE.OPEN);
     return nextPlayer;
   };
@@ -74,7 +76,6 @@ function RandomRush() {
 
     const nextPlayer = defineNextPlayer(updatedDraws, newPlayers);
     setActivePlayer(nextPlayer);
-
     const lastPlayerDraw = findLastDrawPlayers(updatedDraws);
     if (previousPlayer.id !== lastPlayerDraw.key) {
       const lastPlayer = newPlayers.find((p) => p.id === lastPlayerDraw.key);
@@ -96,6 +97,32 @@ function RandomRush() {
     }));
   };
 
+  /**
+ * Resets the draws to their initial state for all players.
+ * Then sets the active player based on the new draw data.
+ */
+  const handleResetDraws = () => {
+    setDraws((prevState) => {
+      const newDraws = Object.keys(prevState).reduce((acc, key) => {
+        acc[key] = INIT_PLAYER_DRAWS;
+        return acc;
+      }, {});
+      const nextPlayer = defineNextPlayer(newDraws, players);
+      setActivePlayer(nextPlayer);
+      setPreviousPlayer(nextPlayer);
+      return newDraws;
+    });
+  };
+
+  /**
+ * Handles the cancellation of a draw for a player.
+ * Updates the draws with the canceled draw for the player.
+ * Sets the active draw to the new draw.
+ * Sets the active player and the previous player based on the new draws.
+ *
+ * @param {Player} player - The player whose draw was canceled.
+ * @param {object} newDraw - The new draw for the player.
+ */
   const handleDrawIsCanceled = (player, newDraw) => {
     setDraws((prevDraws) => {
       const newDraws = {
@@ -111,115 +138,69 @@ function RandomRush() {
     });
   };
 
-  const handleDraw = (playerId) => {
+  /**
+ * Handles the draw for a player.
+ * Generates a random line and column for the draw.
+ * Checks if the draw is canceled, and handles it accordingly.
+ * Updates the draws with the new draw and sets the active player based on the updated draws.
+ *
+ * @param {string} playerId - The ID of the player.
+ * @param {boolean} [reDraw=false] - Indicates whether it is a redraw.
+ * @param {boolean} [onlyColumn=false] - Indicates whether it is only column draw.
+ * @param {number} [activeTurn=-1] - The active turn of the player.
+ * @returns {void}
+ */
+  const handleDraw = (playerId, reDraw = false, onlyColumn = false, activeTurn = -1) => {
     const player = players.find((p) => p.id === playerId);
 
     if (player.nbLines > 0) {
       const line = getRandomArbitrary(RUSH_MIN_LINE, player.nbLines);
       const column = getRandomArbitrary(RUSH_MIN_COLUMN, RUSH_MAX_COLUMN);
-      const newDraw = { line, column };
+      const activeTurnPlayerFunc = reDraw ? findLastDraw : findActiveTurnPlayer;
+      const activeTurnPlayer = activeTurn >= 0 ? activeTurn : activeTurnPlayerFunc(draws[playerId].draws);
+      const activeDrawPlayer = activeTurn >= 0 ? draws[playerId].draws[activeTurn] : activeDraw;
+
+      const newDraw = onlyColumn && activeDrawPlayer.line
+        ? { line: activeDrawPlayer.line, column } : { line, column };
 
       if (drawIsCanceled(newDraw)) {
         handleDrawIsCanceled(player, newDraw);
         return;
       }
 
+      // if only column and column is the same as the active draw relaunch the draw for avoid duplicate check and delete
+      if (onlyColumn && activeDrawPlayer.column === column) {
+        handleDraw(playerId, true, true, activeTurnPlayer);
+        return;
+      }
+
       const drawAlreadyExistsInPreviousDraws = drawAlreadyExists(newDraw, draws[playerId].draws);
+      setDraws((prevDraws) => {
+        const newPlayersDraws = draws[playerId].draws.reduce((acc, draw, index) => {
+          if (index === drawAlreadyExistsInPreviousDraws) return [...acc, { line: null, column: null }];
+          if (index === activeTurnPlayer) return [...acc, newDraw];
+          return [...acc, draw];
+        }, []);
 
-      if (drawAlreadyExistsInPreviousDraws >= 0) {
-        setDraws((prevDraws) => {
-          const newPlayerDrawsArray = draws[playerId].draws.reduce((acc, draw, index) => {
-            if (index === drawAlreadyExistsInPreviousDraws) return [...acc, { line: null, column: null }];
-            return [...acc, draw];
-          }, []);
+        const newDraws = {
+          ...prevDraws,
+          [playerId]: {
+            ...prevDraws[playerId],
+            draws: newPlayersDraws,
+          },
+        };
+        setActiveDraw(newDraw);
 
-          const newDraws = {
-            ...prevDraws,
-            [playerId]: {
-              ...prevDraws[playerId],
-              draws: newPlayerDrawsArray,
-            },
-          };
-          setActiveDraw(newDraw);
-
-          const nextPlayer = defineNextPlayer(newDraws, players);
-          setActivePlayer(nextPlayer);
-          setPreviousPlayer(player);
-          return newDraws;
-        });
-        return;
-      }
-
-      if (drawAlreadyExistsInPreviousDraws < 0) {
-        setDraws((prevDraws) => {
-          const activeTurnPlayer = findActiveTurnPlayer(draws[playerId].draws);
-          const newPlayersDraws = draws[playerId].draws.reduce((acc, draw, index) => {
-            if (index === activeTurnPlayer) return [...acc, newDraw];
-            return [...acc, draw];
-          }, []);
-
-          const newDraws = {
-            ...prevDraws,
-            [playerId]: {
-              ...prevDraws[playerId],
-              draws: newPlayersDraws,
-            },
-          };
-          setActiveDraw(newDraw);
-
-          const nextPlayer = defineNextPlayer(newDraws, players);
-          setActivePlayer(nextPlayer);
-          setPreviousPlayer(player);
-          return newDraws;
-        });
-        return;
-      }
+        const nextPlayer = defineNextPlayer(newDraws, players);
+        setActivePlayer(nextPlayer);
+        setPreviousPlayer(player);
+        return newDraws;
+      });
+      return;
     }
 
     if (player.nbLines <= 0) {
       alert('No lines for this player');
-    }
-  };
-
-  const handleReDraw = (playerId) => {
-    const player = players.find((p) => p.id === playerId);
-
-    if (player.nbLines > 0) {
-      const line = getRandomArbitrary(RUSH_MIN_LINE, player.nbLines);
-      const column = getRandomArbitrary(RUSH_MIN_COLUMN, RUSH_MAX_COLUMN);
-      const newDraw = { line, column };
-
-      if (drawIsCanceled(newDraw)) {
-        handleDrawIsCanceled(player, newDraw);
-        return;
-      }
-
-      const lastPlayerDraw = findLastDraw(draws[playerId].draws);
-      const drawAlreadyExistsInPreviousDraws = drawAlreadyExists(newDraw, draws[playerId].draws);
-      if (lastPlayerDraw) {
-        setDraws((prevDraws) => {
-          const newPlayersDraws = draws[player.id].draws.reduce((acc, draw, index) => {
-            if (index === drawAlreadyExistsInPreviousDraws) return [...acc, { line: null, column: null }];
-            if (index === lastPlayerDraw) return [...acc, newDraw];
-            return [...acc, draw];
-          }, []);
-
-          const newDraws = {
-            ...prevDraws,
-            [player.id]: { draws: newPlayersDraws },
-          };
-          setActiveDraw(newDraw);
-          const nextPlayer = defineNextPlayer(newDraws, players);
-          setActivePlayer(nextPlayer);
-          setPreviousPlayer(player);
-
-          return newDraws;
-        });
-      }
-
-      if (player.nbLines <= 0) {
-        alert('No lines for this player');
-      }
     }
   };
 
@@ -237,13 +218,22 @@ function RandomRush() {
         activePlayer={activePlayer}
         previousPlayer={previousPlayer}
         handleDraw={handleDraw}
-        handleReDraw={handleReDraw}
         draws={draws}
         drawState={drawsState}
         activeDraw={activeDraw}
       />
-      <TitleDokkan>Draws summary</TitleDokkan>
-      <DrawsSummary draws={draws} />
+      <TitleButtonDokkan>
+        <TitleDokkan>Draws summary</TitleDokkan>
+        <ButtonDokkan
+          size="small"
+          color="green"
+          onClick={handleResetDraws}
+          disabled={!drawsHasValues}
+        >
+          Reset
+        </ButtonDokkan>
+      </TitleButtonDokkan>
+      <DrawsSummary draws={draws} drawsState={drawsState} handleDraw={handleDraw} />
     </div>
   );
 }

@@ -9,7 +9,7 @@ import styles from './DrawCharacter.module.css';
 import { DRAWS_STATE } from '../../../utils/constants';
 
 function DrawCharacter({
-  activePlayer, previousPlayer, draws, handleDraw, handleReDraw, activeDraw, drawState,
+  activePlayer, previousPlayer, draws, handleDraw, activeDraw, drawState,
 }) {
   return (
     <div className={styles['dbb-draw-container']}>
@@ -31,7 +31,7 @@ function DrawCharacter({
           color="yellow"
           size="small"
           disabled={(!previousPlayer && !activeDraw?.randomLine) || !draws[previousPlayer?.id]?.draws[0]?.line}
-          onClick={() => handleReDraw(previousPlayer?.id)}
+          onClick={() => handleDraw(previousPlayer?.id, true)}
         >
           {`Re-Draw for P${previousPlayer?.id}`}
         </ButtonDokkan>
@@ -40,7 +40,7 @@ function DrawCharacter({
           color="yellow"
           size="small"
           disabled={(!previousPlayer && !activeDraw?.randomLine) || !draws[previousPlayer?.id]?.draws[0]?.line}
-          onClick={() => handleDraw(previousPlayer?.nbLines, true, true)}
+          onClick={() => handleDraw(previousPlayer?.id, true, true)}
         >
           Re-Draw Column
         </ButtonDokkan>
