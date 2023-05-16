@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 /* stylelint-disable max-line-length */
 /* stylelint-disable selector-class-pattern */
 .dbb-summary-title {
@@ -9,6 +10,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding-top: 6px;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-summary__draft {
+    width: 100%;
+  }
 }
 
 .dbb-summary__draft-text {
@@ -17,6 +25,8 @@
   font-size: 0.8em;
   font-style: italic;
   padding-bottom: 3px;
+  flex: 0;
+  text-align: right;
 }
 
 .dbb-summary-player {
@@ -56,8 +66,22 @@
 
 .dbb-summary {
   display: flex;
+  flex-flow: row nowrap;
+  padding: 20px 0 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 655px) {
+  .dbb-summary {
+    flex-flow: column-reverse wrap;
+  }
+}
+
+.dbb-summary__wrapper {
+  display: flex;
   flex-flow: column wrap;
-  padding: 20px 0;
+  flex: 1 0 auto;
   gap: 10px;
 }
 
@@ -69,7 +93,7 @@
 
 @media screen and (max-width: 480px) {
   .dbb-summary {
-    padding: 15px 0;
+    padding: 15px 0 25px;
   }
 }
 

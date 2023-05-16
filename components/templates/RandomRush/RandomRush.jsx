@@ -3,19 +3,22 @@ import { useMemo, useState } from 'react';
 import TitleDokkan from '../../atoms/TitleDokkan/TitleDokkan';
 import Players from '../../organisms/Players/Players';
 import DrawCharacter from '../../organisms/DrawCharacter/DrawCharacter';
+import DrawsSummary from '../../molecules/DrawsSummary/DrawsSummary';
+import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
+import TitleButtonDokkan from '../../atoms/TitleButtonDokkan/TitleButtonDokkan';
+import Drawback from '../../molecules/Drawback/Drawback';
 
 // Styles
 import styles from './RandomRush.module.css';
+
+// Utils
 import {
   drawAlreadyExists, drawIsCanceled, drawsHasStarted, findActiveTurnPlayer, findLastDraw, findLastDrawPlayers,
   findNextPlayer, getRandomArbitrary,
 } from '../../../utils/draw';
-import DrawsSummary from '../../molecules/DrawsSummary/DrawsSummary';
 import {
   DRAWS_STATE, RUSH_MAX_COLUMN, RUSH_MIN_COLUMN, RUSH_MIN_LINE,
 } from '../../../utils/constants';
-import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
-import TitleButtonDokkan from '../../atoms/TitleButtonDokkan/TitleButtonDokkan';
 
 const EMPTY_DRAW = { line: null, column: null };
 const INIT_PLAYER_DRAWS = { draws: Array(6).fill(EMPTY_DRAW) };
@@ -38,7 +41,6 @@ function RandomRush() {
  */
   const defineNextPlayer = (drawsObj, playersArr) => {
     const { id, activeTurn } = findNextPlayer(drawsObj);
-    console.log('findNextPlayer', id, activeTurn);
     const nextPlayer = playersArr.find((p) => p.id === +id);
     if (activeTurn === -1) setDrawsState(DRAWS_STATE.DRAFT);
     if (drawsState !== DRAWS_STATE.OPEN && activeTurn > -1) setDrawsState(DRAWS_STATE.OPEN);
@@ -234,6 +236,8 @@ function RandomRush() {
         </ButtonDokkan>
       </TitleButtonDokkan>
       <DrawsSummary draws={draws} drawsState={drawsState} handleDraw={handleDraw} />
+      <TitleDokkan>Draw disadvantage</TitleDokkan>
+      <Drawback />
     </div>
   );
 }

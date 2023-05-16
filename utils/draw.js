@@ -1,5 +1,3 @@
-import { max } from 'lodash';
-
 /**
    * Get random number between min and max
    * @param min
@@ -43,8 +41,8 @@ export function findNextPlayer(drawsObj) {
 
     const isMinActiveTurn = activeTurn < acc.activeTurn && activeTurn >= 0;
     const isDraftActiveTurn = activeTurn === -1 && acc.activeTurn === -1 && activeTurn === acc.activeTurn;
-    const onePlayerHasTurn = activeTurn > acc.activeTurn && acc.activeTurn <= 0;
-    if (isMinActiveTurn || isDraftActiveTurn || onePlayerHasTurn) { return { id: key, activeTurn }; }
+    const onePlayerHasFinished = activeTurn > acc.activeTurn && acc.activeTurn < 0;
+    if (isMinActiveTurn || isDraftActiveTurn || onePlayerHasFinished) { return { id: key, activeTurn }; }
 
     return acc;
   }, { id: null, activeTurn: 0 });
