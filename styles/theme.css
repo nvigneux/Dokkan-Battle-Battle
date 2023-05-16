@@ -98,6 +98,7 @@
 
   /* SIZES */
   --footer-height: 60px;
+  --toastify-toast-width: auto;
 }
 
 html,
@@ -148,4 +149,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
   appearance: textfield;
+}
+
+.Toastify__toast {
+  margin-bottom: 0;
+  padding: 2px;
 }

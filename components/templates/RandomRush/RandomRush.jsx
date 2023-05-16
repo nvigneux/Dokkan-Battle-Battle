@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { toast } from 'react-toastify';
 // Components
 import TitleDokkan from '../../atoms/TitleDokkan/TitleDokkan';
 import Players from '../../organisms/Players/Players';
@@ -35,20 +36,41 @@ function RandomRush() {
 
   const drawsHasValues = useMemo(() => drawsHasStarted(draws), [draws]);
 
-  // const notify = (text, subText) => toast.custom(<DokkanToast text={text} subText={subText} />, {
-  //   duration: 3000,
-  //   position: 'top-right',
-  // });
+  const notify = (id, text, subText, type = 'info') => {
+    if (!toast.isActive(id)) {
+      toast(
+        <DokkanToast
+          text={text}
+          subText={subText}
+          type={type}
+        />,
+        {
+          toastId: id,
+          duration: 3000,
+          position: 'top-right',
+          onClose: () => toast.clearWaitingQueue(),
+        },
+      );
+    }
+  };
 
   /**
  * Defines the next player based on the current state of draws and active turn.
  * @param {Object} drawsObj - The previous state of draws.
  * @returns {Players} all players.
  */
-  const defineNextPlayer = (drawsObj, playersArr) => {
+  const defineNextPlayer = (drawsObj, playersArr, isDraft = false) => {
     const { id, activeTurn } = findNextPlayer(drawsObj);
     const nextPlayer = playersArr.find((p) => p.id === +id);
-    if (activeTurn === -1) setDrawsState(DRAWS_STATE.DRAFT);
+    if (activeTurn === -1 && drawsState !== DRAWS_STATE.DRAFT && isDraft) {
+      notify(
+        'draft',
+        'Draft is open',
+        'Draws finished',
+        'success',
+      );
+      setDrawsState(DRAWS_STATE.DRAFT);
+    }
     if (drawsState !== DRAWS_STATE.OPEN && activeTurn > -1) setDrawsState(DRAWS_STATE.OPEN);
     return nextPlayer;
   };
@@ -144,6 +166,11 @@ function RandomRush() {
       setPreviousPlayer(player);
       return newDraws;
     });
+    notify(
+      'draw-1-1',
+      'Draw 1-1',
+      'You need to re-draw your picks.',
+    );
   };
 
   /**
@@ -183,6 +210,15 @@ function RandomRush() {
       }
 
       const drawAlreadyExistsInPreviousDraws = drawAlreadyExists(newDraw, draws[playerId].draws);
+
+      if (drawAlreadyExistsInPreviousDraws >= 0) {
+        notify(
+          'duplicate',
+          'Duplicate',
+          'Redraw, the last pick was a duplicate',
+        );
+      }
+
       setDraws((prevDraws) => {
         const newPlayersDraws = draws[playerId].draws.reduce((acc, draw, index) => {
           if (index === drawAlreadyExistsInPreviousDraws) return [...acc, { line: null, column: null }];
@@ -199,7 +235,7 @@ function RandomRush() {
         };
         setActiveDraw(newDraw);
 
-        const nextPlayer = defineNextPlayer(newDraws, players);
+        const nextPlayer = defineNextPlayer(newDraws, players, true);
         setActivePlayer(nextPlayer);
         setPreviousPlayer(player);
         return newDraws;
@@ -208,13 +244,14 @@ function RandomRush() {
     }
 
     if (player.nbLines <= 0) {
-      // notify('No lines for this player', 'error');
+      notify('error-nbLines', 'Numbers of lines', `Enter the number of lines for the Player ${player.id}`, 'error');
     }
   };
 
   return (
     <div className={styles.container}>
       <TitleDokkan>Number of players</TitleDokkan>
+      <button onClick={() => notify('duplicate', 'toto')}>toto</button>
       <Players
         players={players}
         addPlayer={addPlayer}
