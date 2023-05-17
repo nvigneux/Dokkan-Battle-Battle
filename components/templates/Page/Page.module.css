@@ -1,12 +1,13 @@
 .page {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  flex-flow: column wrap;
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
   min-height: 100vh;
   padding: 1.25rem;
+  align-items: stretch;
 }
 
 .fullscreen {
@@ -24,11 +25,5 @@
   .fullscreen {
     min-height: 100vh;
     height: 100vh;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .page {
-    padding: 0.5rem;
   }
 }
