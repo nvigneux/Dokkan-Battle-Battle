@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 // Styles
 import styles from './DrawsSummaryChallenge.module.css';
+
+// Utils
 import { DRAWS_STATE } from '../../../utils/constants';
 import { getClassByValue } from '../../../utils/draw';
 
