@@ -1,0 +1,135 @@
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable selector-class-pattern */
+.dbb-timer {
+  display: flex;
+  padding: 20px 0;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-timer {
+    flex-direction: column;
+    padding: 10px 0 20px;
+  }
+}
+
+.dbb-timer__time {
+  display: flex;
+  flex: 1 0 50%;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-timer__time {
+    flex-direction: column;
+    padding: 10px 0 20px;
+  }
+}
+
+.dbb-timer__action {
+  display: flex;
+  flex: 1 0 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.dbb-timer__input {
+  appearance: none;
+  margin: 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  color: #e6f4e3;
+  font-size: 2.7em;
+  font-weight: bold;
+  font-style: italic;
+  padding-top: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-timer__input {
+    font-size: 2.5em;
+  }
+}
+
+.dbb-timer__input--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.dbb-timer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dbb-timer__content {
+  margin: 0 20px;
+}
+
+.dbb-timer__area {
+  border: 1px solid rgb(0 255 33 / 12%);
+  background: rgb(0 0 0 / 53%);
+  color: #e0e0e0;
+  width: 90px;
+  padding: 8px 2px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+.dbb-timer__separate {
+  color: #e6f4e3;
+  font-size: 2.7em;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Roboto, sans-serif;
+  margin-top: -25px;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-timer__separate {
+    margin-top: -45px;
+    font-size: 2.5em;
+  }
+}
+
+.dbb-timer__label {
+  color: #e6f4e3;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Roboto, sans-serif;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-timer__label {
+    font-size: 0.9em;
+  }
+}
+
+.dbb-timer__content {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .dbb-timer__content {
+    padding-bottom: 20px;
+  }
+}
+
+.dbb-timer__action button {
+  margin: 0 10px !important;
+}
+
+.dbb-timer__sentence {
+  padding-top: 2px;
+  color: #adadad;
+  font-family: Roboto, sans-serif;
+  font-size: 0.8em;
+  font-style: italic;
+}

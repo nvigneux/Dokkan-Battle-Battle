@@ -1,28 +1,18 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // Styles
 import styles from './Drawback.module.css';
 // Components
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
-import { arrayToString, stringToArray } from '../../../utils/transform';
 
-function Drawback() {
-  const DEFAULT_DRAWBACKS = [
-    'Re-Draw one character',
-    'Random friend leader',
-    'Only 3 support item',
-  ];
-  const [drawbacks, setDrawbacks] = useState(arrayToString(DEFAULT_DRAWBACKS));
-  const [drawbackSelected, setDrawbackSelected] = useState('');
+function Drawback({
+  label, drawbacksOptions, drawbackSelected, handleClick,
+}) {
+  const [drawbacks, setDrawbacks] = useState(drawbacksOptions);
 
   const handleDrawback = (value) => {
     setDrawbacks(value);
-  };
-
-  const handleSelectedDrawback = () => {
-    const drawbacksArray = stringToArray(drawbacks);
-    const randomIndex = Math.floor(Math.random() * drawbacksArray.length);
-    setDrawbackSelected(drawbacksArray[randomIndex]);
   };
 
   return (
@@ -39,12 +29,25 @@ function Drawback() {
         <div className={styles['dbb-drawback__sentence']}>
           {drawbackSelected}
         </div>
-        <ButtonDokkan color="orange" size="small" onClick={handleSelectedDrawback}>
-          Draw disadvantage
+        <ButtonDokkan color="orange" size="small" onClick={() => handleClick(drawbacks)}>
+          {label}
         </ButtonDokkan>
       </div>
     </div>
   );
 }
+
+Drawback.propTypes = {
+  label: PropTypes.string.isRequired,
+  drawbacksOptions: PropTypes.string,
+  drawbackSelected: PropTypes.string,
+  handleClick: PropTypes.func,
+};
+
+Drawback.defaultProps = {
+  drawbacksOptions: '',
+  drawbackSelected: '',
+  handleClick: () => {},
+};
 
 export default Drawback;

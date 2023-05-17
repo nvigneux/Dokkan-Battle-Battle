@@ -21,7 +21,13 @@ import {
 import {
   DRAWS_STATE, RUSH_MAX_COLUMN, RUSH_MIN_COLUMN, RUSH_MIN_LINE,
 } from '../../../utils/constants';
+import { arrayToString, stringToArray } from '../../../utils/transform';
 
+const DEFAULT_DRAWBACKS = [
+  'Re-Draw one character',
+  'Random friend leader',
+  'Only 3 support item',
+];
 const EMPTY_DRAW = { line: null, column: null };
 const INIT_PLAYER_DRAWS = { draws: Array(6).fill(EMPTY_DRAW) };
 
@@ -33,6 +39,8 @@ function RandomRush() {
   const [players, setPlayers] = useState([{ id: 1, nbLines: 0, color: 'green' }]);
   const [activePlayer, setActivePlayer] = useState(players[0]);
   const [previousPlayer, setPreviousPlayer] = useState(players[0]);
+
+  const [drawbackSelected, setDrawbackSelected] = useState('');
 
   const drawsHasValues = useMemo(() => drawsHasStarted(draws), [draws]);
 
@@ -248,6 +256,12 @@ function RandomRush() {
     }
   };
 
+  const handleSelectDrawback = (items) => {
+    const drawbacksArray = stringToArray(items);
+    const randomIndex = Math.floor(Math.random() * drawbacksArray.length);
+    setDrawbackSelected(drawbacksArray[randomIndex]);
+  };
+
   return (
     <div className={styles.container}>
       <TitleDokkan>Number of players</TitleDokkan>
@@ -279,7 +293,12 @@ function RandomRush() {
       </TitleButtonDokkan>
       <DrawsSummary draws={draws} drawsState={drawsState} handleDraw={handleDraw} />
       <TitleDokkan>Draw disadvantage</TitleDokkan>
-      <Drawback />
+      <Drawback
+        label="Draw disadvantage"
+        drawbacksOptions={arrayToString(DEFAULT_DRAWBACKS)}
+        handleClick={handleSelectDrawback}
+        drawbackSelected={drawbackSelected}
+      />
     </div>
   );
 }
