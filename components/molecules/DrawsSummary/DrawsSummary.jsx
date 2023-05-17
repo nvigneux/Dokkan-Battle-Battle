@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 // Styles
 import styles from './DrawsSummary.module.css';
+
+// Utils
 import { DRAWS_STATE } from '../../../utils/constants';
 
 function DrawsSummary({ draws, drawsState, handleDraw }) {

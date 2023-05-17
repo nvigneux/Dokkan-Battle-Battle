@@ -1,4 +1,4 @@
-const { DRAWS_STATE } = require('../../../utils/constants');
+const { DRAWS_STATE } = require('../utils/constants');
 
 const DEFAULT_TYPES_DRAWS = [
   'Extrem Strong',

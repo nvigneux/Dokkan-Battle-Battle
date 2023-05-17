@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 // Components
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 import DrawNumbers from '../../atoms/DrawNumbers/DrawNumbers';
+import DrawTypes from '../../atoms/DrawTypes/DrawTypes';
 
 // Styles
 import styles from './DrawCharacter.module.css';
+
+// Utils
 import { DRAWS_STATE } from '../../../utils/constants';
-import DrawTypes from '../../atoms/DrawTypes/DrawTypes';
 
 function DrawCharacter({
   mode, activePlayer, previousPlayer, draws, handleDraw, activeDraw, drawState,
