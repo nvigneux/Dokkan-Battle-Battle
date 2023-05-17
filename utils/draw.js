@@ -96,3 +96,50 @@ export function findLastDrawPlayers(drawsObj) {
 
   return { ...lastKey, key: +lastKey.key };
 }
+
+/**
+ * Retrieves the type as an object with line and column properties.
+ * @param {string} type - The type string.
+ * @returns {{ line: string, column: string }} The type object with line and column properties.
+ */
+export const getType = (type) => {
+  const subType = type.split(' ');
+  if (subType.length >= 2) {
+    if (
+      subType[0].toLowerCase() === 'super'
+      || subType[0].toLowerCase() === 'extrem'
+      || subType[0].toLowerCase() === 'extreme'
+    ) {
+      return { line: subType[1], column: subType[0] };
+    }
+  }
+  return { line: type, column: '' };
+};
+
+/**
+ * Retrieves the CSS class based on the provided value.
+ * @param {string} value - The value to determine the CSS class.
+ * @returns {string} The CSS class based on the value.
+ */
+export const getClassByValue = (value) => {
+  switch (value.substring(0, 3).toUpperCase()) {
+    case 'SUP':
+      return 'color-sup';
+    case 'EXT':
+      return 'color-ext';
+    case 'STR': case 'PUI':
+      return 'color-str';
+    case 'AGI':
+      return 'color-agi';
+    case 'PHY': case 'END':
+      return 'color-phy';
+    case 'INT':
+      return 'color-int';
+    case 'TEC':
+      return 'color-tec';
+    case 'RAI':
+      return 'color-rai';
+    default:
+      return 'color-default';
+  }
+};

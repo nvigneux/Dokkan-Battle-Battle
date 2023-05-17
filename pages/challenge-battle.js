@@ -1,14 +1,16 @@
-// Utils
+// Components
+import Page from '../components/templates/Page/Page';
+import ChallengeBattle from '../components/templates/ChallengeBattle/ChallengeBattle';
 import WithHeaderFooter from '../components/templates/WithHeaderFooter/WithHeaderFooter';
+// Utils
 import { getCommonProps } from '../utils/requests';
 
 function Home() {
   return (
     <WithHeaderFooter>
-      <div className="container center">
-        <h1 className="h1">Dokkan Battle Battle</h1>
-        <h2 className="h2">Work in progress</h2>
-      </div>
+      <Page>
+        <ChallengeBattle />
+      </Page>
     </WithHeaderFooter>
   );
 }

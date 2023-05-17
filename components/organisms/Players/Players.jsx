@@ -8,10 +8,10 @@ import styles from './Players.module.css';
 import cn from '../../../utils/cn';
 
 function Players({
-  players, addPlayer, deletePlayer, setPlayerLine,
+  mode, players, addPlayer, deletePlayer, setPlayerLine,
 }) {
   return (
-    <div className={styles['dbb-players']}>
+    <div className={cn([styles['dbb-players'], styles[mode]])}>
       {players.map((player) => (
         <div
           key={player.id}
@@ -24,19 +24,23 @@ function Players({
             {player.id}
           </span>
           <div className={styles['dbb-player__number']}>
-            <input
-              name={`player-${player.id}`}
-              className={styles['dbb-player__number--input']}
-              type="number"
-              min="0"
-              value={player.nbLines}
-              onChange={(e) => {
-                const value = Math.min(Math.max(0, e.target.value), 999);
-                setPlayerLine(player, value);
-              }}
-            />
+            {mode === 'rush' ? (
+              <input
+                name={`player-${player.id}`}
+                className={styles['dbb-player__number--input']}
+                type="number"
+                min="0"
+                value={player.nbLines}
+                onChange={(e) => {
+                  const value = Math.min(Math.max(0, e.target.value), 999);
+                  setPlayerLine(player, value);
+                }}
+              />
+            ) : (
+              <span className={styles['dbb-player__number--input']}>{`P${player.id}`}</span>
+            )}
           </div>
-          <div className={styles['dbb-player__line']}>Nb lines</div>
+          <div className={styles['dbb-player__line']}>{mode === 'rush' ? 'Nb lines' : null}</div>
           {player.id !== 1 && (
             <button
               type="button"
@@ -69,10 +73,16 @@ function Players({
 }
 
 Players.propTypes = {
+  mode: PropTypes.oneOf(['challenge', 'rush']),
   players: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   addPlayer: PropTypes.func.isRequired,
   deletePlayer: PropTypes.func.isRequired,
-  setPlayerLine: PropTypes.func.isRequired,
+  setPlayerLine: PropTypes.func,
+};
+
+Players.defaultProps = {
+  mode: 'rush',
+  setPlayerLine: () => {},
 };
 
 export default Players;

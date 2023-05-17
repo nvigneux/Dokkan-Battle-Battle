@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import App from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
@@ -60,5 +61,17 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     </>
   );
 }
+
+MyApp.getInitialProps = async (appContext) => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+
+  if (appContext.ctx.res?.statusCode === 404) {
+    appContext.ctx.res.writeHead(302, { Location: '/' });
+    appContext.ctx.res.end();
+  }
+
+  return { ...appProps };
+};
 
 export default appWithTranslation(MyApp);

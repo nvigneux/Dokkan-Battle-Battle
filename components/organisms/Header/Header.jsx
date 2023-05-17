@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className={styles['dbb-navbar']}>
       <Link href="/patchs" className={styles['dbb-articles']}>
-        2.?.?
+        2.0.0
       </Link>
       <Link href="/" className={styles['dbb-navbar__logo']}>
         <div className={styles['dbb-navbar__logo--d']} />
@@ -25,9 +25,8 @@ function Header() {
           Random Rush
         </Link>
         <Link
-          disabled
           href="/challenge-battle"
-          className={cn([styles['dbb-navbar__link'], styles['dbb-navbar__link--disabled']])}
+          className={cn([styles['dbb-navbar__link']])}
         >
           Challenge Battle
         </Link>
