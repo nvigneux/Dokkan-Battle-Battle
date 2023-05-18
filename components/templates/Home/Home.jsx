@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className={styles['dbb-home__description']}>
           <p>For the moment Dokkan Battle Battle allows you to play in two multiplayers modes.</p>
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: `
           The principle and the rules were thought and created by the youtubers described below.

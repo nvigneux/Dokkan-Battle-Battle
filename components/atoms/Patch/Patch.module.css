@@ -1,0 +1,42 @@
+/* stylelint-disable selector-class-pattern */
+.title {
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  padding: 1.25rem 0;
+}
+
+.button {
+  align-self: flex-start;
+}
+
+.dbb-patch__content {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.6em;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+}
+
+.dbb-patch__content h2 {
+  font-size: 1.4em;
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.dbb-patch__content p {
+  margin-block: 1rem;
+}
+
+.dbb-patch__date {
+  padding-bottom: 15px;
+  font-size: 0.9em;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}

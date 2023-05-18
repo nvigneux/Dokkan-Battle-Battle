@@ -7,7 +7,7 @@ import styles from './ButtonDokkan.module.css';
 import cn from '../../../utils/cn';
 
 function ButtonDokkan({
-  children, color, size, disabled, onClick,
+  children, color, size, disabled, onClick, className,
 }) {
   return (
     <button
@@ -20,6 +20,7 @@ function ButtonDokkan({
         styles['dbb-btn--corner'],
         styles[`dbb-btn--gradient-${color}`],
         styles['dbb-btn--text-white'],
+        className,
       ])}
     >
       {children}
@@ -35,6 +36,7 @@ ButtonDokkan.propTypes = {
   size: PropTypes.oneOf(['small', 'big']),
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 ButtonDokkan.defaultProps = {
@@ -42,6 +44,7 @@ ButtonDokkan.defaultProps = {
   size: 'big',
   disabled: false,
   onClick: () => {},
+  className: '',
 };
 
 export default ButtonDokkan;
