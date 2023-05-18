@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern */
+.title {
+  font-size: 1.4em;
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 430px) {
+  .title {
+    font-size: 1.2em;
+  }
+}
+
+.dbb-patch {
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 1.25rem;
+}
+
+.dbb-patch__resume {
+  font-size: 1em;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  padding-bottom: 1.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.dbb-patch__date {
+  font-size: 0.9em;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  padding-bottom: 1.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.dbb-patch::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: rgb(255 255 255 / 31%);
+}
+
+.dbb-patch:hover .title,
+.dbb-patch:hover .dbb-patch__resume,
+.dbb-patch:hover .dbb-patch__date {
+  color: var(--color-grey-100);
+}
