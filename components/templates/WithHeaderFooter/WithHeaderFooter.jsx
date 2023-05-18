@@ -5,6 +5,7 @@ import styles from './WithHeaderFooter.module.css';
 
 // Components
 import Header from '../../organisms/Header/Header';
+import Footer from '../../organisms/Footer/Footer';
 
 function WithHeaderFooter({ children }) {
   return (
@@ -13,6 +14,7 @@ function WithHeaderFooter({ children }) {
       <div className={styles.main}>
         {children}
       </div>
+      <Footer />
       <div className={styles.bg} />
     </>
   );

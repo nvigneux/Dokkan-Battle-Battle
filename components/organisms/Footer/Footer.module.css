@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  padding: 0.5rem 1.25rem;
+  color: var(--color-grey-100);
+  font-size: 0.925rem;
+  gap: 6px;
+}
+
+.footer a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 655px) {
+  .desktopOnly {
+    display: none;
+  }
+}
