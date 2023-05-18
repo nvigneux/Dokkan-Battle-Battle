@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
+import Head from 'next/head';
 
 // Utils
 import {
@@ -231,71 +232,81 @@ function Home() {
   };
 
   return (
-    <WithHeaderFooter>
-      <Page>
-        <TitleDokkan>Number of players</TitleDokkan>
-        <Players
-          players={players}
-          addPlayer={addPlayer}
-          deletePlayer={deletePlayer}
-          mode="challenge"
+    <>
+      <Head>
+        <title>Challenge Battle - Dokkan Battle Battle</title>
+        <meta
+          name="description"
+          content="Create a team of 6 characters based on their types and fight your friends in a challenge battle"
         />
-        <TitleButtonDokkan>
-          <TitleDokkan>Draws type</TitleDokkan>
-          <ButtonDokkan size="small" color="green" onClick={() => setEditDrawsTypeIsOpen(!editDrawsTypeIsOpen)}>
-            {editDrawsTypeIsOpen ? 'Close' : 'Edit'}
-          </ButtonDokkan>
-        </TitleButtonDokkan>
-        {editDrawsTypeIsOpen ? (
-          <Drawback
-            label="Valid Edit"
-            drawbacksOptions={arrayToString(drawbacksTypes)}
-            handleClick={handleEditDrawsType}
+      </Head>
+
+      <WithHeaderFooter>
+        <Page>
+          <TitleDokkan>Number of players</TitleDokkan>
+          <Players
+            players={players}
+            addPlayer={addPlayer}
+            deletePlayer={deletePlayer}
+            mode="challenge"
           />
-        ) : null}
-        <DrawCharacter
-          activePlayer={activePlayer}
-          handleDraw={handleDraw}
-          draws={draws}
-          drawState={drawsState}
-          activeDraw={activeDraw}
-          mode="challenge"
-        />
-        <TitleButtonDokkan>
-          <TitleDokkan>Draws summary</TitleDokkan>
-          <ButtonDokkan
-            size="small"
-            color="green"
-            onClick={handleResetDraws}
-            disabled={!drawsHasValues}
-          >
-            Reset all
-          </ButtonDokkan>
-        </TitleButtonDokkan>
-        <DrawsSummaryChallenge
-          draws={draws}
-          drawsState={drawsState}
-          handleDraw={handleDraw}
-          handleResetPlayer={handleResetPlayer}
-        />
-        <TitleDokkan>Team cost</TitleDokkan>
-        <Drawback
-          label="Draw cost"
-          drawbacksOptions={arrayToString(DEFAULT_COST_DRAWS)}
-          handleClick={handleSelectDrawbackCost}
-          drawbackSelected={drawbackCostSelected}
-        />
-        <TitleDokkan>Draw joker</TitleDokkan>
-        <Drawback
-          label="Draw joker"
-          drawbacksOptions={arrayToString(DEFAULT_JOKER_DRAWS)}
-          handleClick={handleSelectDrawbackJoker}
-          drawbackSelected={drawbackJokerSelected}
-        />
-        <TitleDokkan>Timer</TitleDokkan>
-        <DokkanTimer />
-      </Page>
-    </WithHeaderFooter>
+          <TitleButtonDokkan>
+            <TitleDokkan>Draws type</TitleDokkan>
+            <ButtonDokkan size="small" color="green" onClick={() => setEditDrawsTypeIsOpen(!editDrawsTypeIsOpen)}>
+              {editDrawsTypeIsOpen ? 'Close' : 'Edit'}
+            </ButtonDokkan>
+          </TitleButtonDokkan>
+          {editDrawsTypeIsOpen ? (
+            <Drawback
+              label="Valid Edit"
+              drawbacksOptions={arrayToString(drawbacksTypes)}
+              handleClick={handleEditDrawsType}
+            />
+          ) : null}
+          <DrawCharacter
+            activePlayer={activePlayer}
+            handleDraw={handleDraw}
+            draws={draws}
+            drawState={drawsState}
+            activeDraw={activeDraw}
+            mode="challenge"
+          />
+          <TitleButtonDokkan>
+            <TitleDokkan>Draws summary</TitleDokkan>
+            <ButtonDokkan
+              size="small"
+              color="green"
+              onClick={handleResetDraws}
+              disabled={!drawsHasValues}
+            >
+              Reset all
+            </ButtonDokkan>
+          </TitleButtonDokkan>
+          <DrawsSummaryChallenge
+            draws={draws}
+            drawsState={drawsState}
+            handleDraw={handleDraw}
+            handleResetPlayer={handleResetPlayer}
+          />
+          <TitleDokkan>Team cost</TitleDokkan>
+          <Drawback
+            label="Draw cost"
+            drawbacksOptions={arrayToString(DEFAULT_COST_DRAWS)}
+            handleClick={handleSelectDrawbackCost}
+            drawbackSelected={drawbackCostSelected}
+          />
+          <TitleDokkan>Draw joker</TitleDokkan>
+          <Drawback
+            label="Draw joker"
+            drawbacksOptions={arrayToString(DEFAULT_JOKER_DRAWS)}
+            handleClick={handleSelectDrawbackJoker}
+            drawbackSelected={drawbackJokerSelected}
+          />
+          <TitleDokkan>Timer</TitleDokkan>
+          <DokkanTimer />
+        </Page>
+      </WithHeaderFooter>
+    </>
   );
 }
 

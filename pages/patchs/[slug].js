@@ -1,3 +1,6 @@
+import Head from 'next/head';
+
+// JSON
 import patchsData from './patchs.json';
 
 // Components
@@ -10,11 +13,20 @@ import { getCommonProps } from '../../utils/requests';
 
 function PatchSlug({ patch }) {
   return (
-    <WithHeaderFooter>
-      <Page>
-        <Patch patch={patch} />
-      </Page>
-    </WithHeaderFooter>
+    <>
+      <Head>
+        <title>
+          {patch?.resume}
+          {' '}
+          - Dokkan Battle Battle
+        </title>
+      </Head>
+      <WithHeaderFooter>
+        <Page>
+          <Patch patch={patch} />
+        </Page>
+      </WithHeaderFooter>
+    </>
   );
 }
 

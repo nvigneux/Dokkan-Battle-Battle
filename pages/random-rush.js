@@ -1,3 +1,4 @@
+import Head from 'next/head';
 // Components
 import { useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -264,45 +265,54 @@ function Accueil() {
   };
 
   return (
-    <WithHeaderFooter>
-      <Page>
-        <TitleDokkan>Number of players</TitleDokkan>
-        <Players
-          players={players}
-          addPlayer={addPlayer}
-          deletePlayer={deletePlayer}
-          setPlayerLine={setPlayerLine}
+    <>
+      <Head>
+        <title>Random rush - Dokkan Battle Battle</title>
+        <meta
+          name="description"
+          content="Create a team of 6 characters randomly from your box and fight your friends in a random rush"
         />
-        <TitleDokkan>Draw character</TitleDokkan>
-        <DrawCharacter
-          activePlayer={activePlayer}
-          previousPlayer={previousPlayer}
-          handleDraw={handleDraw}
-          draws={draws}
-          drawState={drawsState}
-          activeDraw={activeDraw}
-        />
-        <TitleButtonDokkan>
-          <TitleDokkan>Draws summary</TitleDokkan>
-          <ButtonDokkan
-            size="small"
-            color="green"
-            onClick={handleResetDraws}
-            disabled={!drawsHasValues}
-          >
-            Reset
-          </ButtonDokkan>
-        </TitleButtonDokkan>
-        <DrawsSummary draws={draws} drawsState={drawsState} handleDraw={handleDraw} />
-        <TitleDokkan>Draw disadvantage</TitleDokkan>
-        <Drawback
-          label="Draw disadvantage"
-          drawbacksOptions={arrayToString(DEFAULT_DRAWBACKS)}
-          handleClick={handleSelectDrawback}
-          drawbackSelected={drawbackSelected}
-        />
-      </Page>
-    </WithHeaderFooter>
+      </Head>
+      <WithHeaderFooter>
+        <Page>
+          <TitleDokkan>Number of players</TitleDokkan>
+          <Players
+            players={players}
+            addPlayer={addPlayer}
+            deletePlayer={deletePlayer}
+            setPlayerLine={setPlayerLine}
+          />
+          <TitleDokkan>Draw character</TitleDokkan>
+          <DrawCharacter
+            activePlayer={activePlayer}
+            previousPlayer={previousPlayer}
+            handleDraw={handleDraw}
+            draws={draws}
+            drawState={drawsState}
+            activeDraw={activeDraw}
+          />
+          <TitleButtonDokkan>
+            <TitleDokkan>Draws summary</TitleDokkan>
+            <ButtonDokkan
+              size="small"
+              color="green"
+              onClick={handleResetDraws}
+              disabled={!drawsHasValues}
+            >
+              Reset
+            </ButtonDokkan>
+          </TitleButtonDokkan>
+          <DrawsSummary draws={draws} drawsState={drawsState} handleDraw={handleDraw} />
+          <TitleDokkan>Draw disadvantage</TitleDokkan>
+          <Drawback
+            label="Draw disadvantage"
+            drawbacksOptions={arrayToString(DEFAULT_DRAWBACKS)}
+            handleClick={handleSelectDrawback}
+            drawbackSelected={drawbackSelected}
+          />
+        </Page>
+      </WithHeaderFooter>
+    </>
   );
 }
 

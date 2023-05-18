@@ -1,3 +1,6 @@
+import Head from 'next/head';
+
+// Json
 import patchsData from './patchs.json';
 
 // Components
@@ -9,15 +12,24 @@ import { getCommonProps } from '../../utils/requests';
 
 function Patchs({ patchs }) {
   return (
-    <WithHeaderFooter>
-      <Page>
-        <h1 className="h1">Patch</h1>
-        <h2 className="h2">Most Recent Patch News</h2>
-        {patchs.map((patch) => (
-          <PatchResume key={patch.id} patch={patch} />
-        ))}
-      </Page>
-    </WithHeaderFooter>
+    <>
+      <Head>
+        <title>Patchs - Dokkan Battle Battle</title>
+        <meta
+          name="description"
+          content="Follow news from Dokkan Battle Battle"
+        />
+      </Head>
+      <WithHeaderFooter>
+        <Page>
+          <h1 className="h1">Patch</h1>
+          <h2 className="h2">Most Recent Patch News</h2>
+          {patchs.map((patch) => (
+            <PatchResume key={patch.id} patch={patch} />
+          ))}
+        </Page>
+      </WithHeaderFooter>
+    </>
   );
 }
 
