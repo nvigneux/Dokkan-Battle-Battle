@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
 
 // Utils
 import {
@@ -25,32 +26,35 @@ import DokkanTimer from '../components/atoms/DokkanTimer/DokkanTimer';
 // Utils
 import { getCommonProps } from '../utils/requests';
 
-const DEFAULT_TYPES_DRAWS = [
-  'Extrem Strong',
-  'Extrem Physical',
-  'Extrem Intelligent',
-  'Extrem Technical',
-  'Extrem Agility',
-  'Super Strong',
-  'Super Physical',
-  'Super Intelligent',
-  'Super Technical',
-  'Super Agility',
-  'Rainbow',
-];
 const DEFAULT_COST_DRAWS = [
   '200',
   '250',
   '300',
-];
-const DEFAULT_JOKER_DRAWS = [
-  'Add your custom joker',
 ];
 
 const EMPTY_DRAW = { line: null, column: null };
 const INIT_PLAYER_DRAWS = { draws: Array(6).fill(EMPTY_DRAW) };
 
 function Home() {
+  const { t } = useTranslation();
+
+  const DEFAULT_TYPES_DRAWS = [
+    t('challengebattle.drawsType.extremStr'),
+    t('challengebattle.drawsType.extremPhy'),
+    t('challengebattle.drawsType.extremInt'),
+    t('challengebattle.drawsType.extremTec'),
+    t('challengebattle.drawsType.extremAgl'),
+    t('challengebattle.drawsType.superStr'),
+    t('challengebattle.drawsType.superPhy'),
+    t('challengebattle.drawsType.superInt'),
+    t('challengebattle.drawsType.superTec'),
+    t('challengebattle.drawsType.superAgl'),
+    t('challengebattle.drawsType.rainbow'),
+  ];
+  const DEFAULT_JOKER_DRAWS = [
+    t('challengebattle.addJoker'),
+  ];
+
   const [editDrawsTypeIsOpen, setEditDrawsTypeIsOpen] = useState(false);
   const [drawbacksTypes, setDrawbacksTypes] = useState(DEFAULT_TYPES_DRAWS);
 
@@ -104,8 +108,8 @@ function Home() {
     if (activeTurn === -1 && drawsState !== DRAWS_STATE.DRAFT && isDraft) {
       notify(
         'draft',
-        'Draft is open',
-        'Draws finished',
+        t('challengebattle.notifications.draftOpen'),
+        t('challengebattle.notifications.draftOpenMsg'),
         'success',
       );
       setDrawsState(DRAWS_STATE.DRAFT);
@@ -158,8 +162,8 @@ function Home() {
     setEditDrawsTypeIsOpen(false);
     notify(
       'editDrawback',
-      'Mofifications saved',
-      'Mofifications saved with success',
+      t('challengebattle.notifications.modificationSaved'),
+      t('challengebattle.notifications.modificationSavedMsg'),
       'success',
     );
   };
@@ -234,16 +238,16 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Challenge Battle - Dokkan Battle Battle</title>
+        <title>{t('challengebattle.title')}</title>
         <meta
           name="description"
-          content="Create a team of 6 characters based on their types and fight your friends in a challenge battle"
+          content={t('challengebattle.description')}
         />
       </Head>
 
       <WithHeaderFooter>
         <Page>
-          <TitleDokkan>Number of players</TitleDokkan>
+          <TitleDokkan>{t('challengebattle.numberofplayers')}</TitleDokkan>
           <Players
             players={players}
             addPlayer={addPlayer}
@@ -251,14 +255,14 @@ function Home() {
             mode="challenge"
           />
           <TitleButtonDokkan>
-            <TitleDokkan>Draws type</TitleDokkan>
+            <TitleDokkan>{t('challengebattle.drawstype')}</TitleDokkan>
             <ButtonDokkan size="small" color="green" onClick={() => setEditDrawsTypeIsOpen(!editDrawsTypeIsOpen)}>
-              {editDrawsTypeIsOpen ? 'Close' : 'Edit'}
+              {editDrawsTypeIsOpen ? t('challengebattle.close') : t('challengebattle.edit')}
             </ButtonDokkan>
           </TitleButtonDokkan>
           {editDrawsTypeIsOpen ? (
             <Drawback
-              label="Valid Edit"
+              label={t('challengebattle.validedit')}
               drawbacksOptions={arrayToString(drawbacksTypes)}
               handleClick={handleEditDrawsType}
             />
@@ -272,14 +276,14 @@ function Home() {
             mode="challenge"
           />
           <TitleButtonDokkan>
-            <TitleDokkan>Draws summary</TitleDokkan>
+            <TitleDokkan>{t('challengebattle.drawsummary')}</TitleDokkan>
             <ButtonDokkan
               size="small"
               color="green"
               onClick={handleResetDraws}
               disabled={!drawsHasValues}
             >
-              Reset all
+              {t('challengebattle.resetall')}
             </ButtonDokkan>
           </TitleButtonDokkan>
           <DrawsSummaryChallenge
@@ -288,21 +292,21 @@ function Home() {
             handleDraw={handleDraw}
             handleResetPlayer={handleResetPlayer}
           />
-          <TitleDokkan>Team cost</TitleDokkan>
+          <TitleDokkan>{t('challengebattle.teamcost')}</TitleDokkan>
           <Drawback
-            label="Draw cost"
+            label={t('challengebattle.drawcost')}
             drawbacksOptions={arrayToString(DEFAULT_COST_DRAWS)}
             handleClick={handleSelectDrawbackCost}
             drawbackSelected={drawbackCostSelected}
           />
-          <TitleDokkan>Draw joker</TitleDokkan>
+          <TitleDokkan>{t('challengebattle.drawjoker')}</TitleDokkan>
           <Drawback
-            label="Draw joker"
+            label={t('challengebattle.drawjoker')}
             drawbacksOptions={arrayToString(DEFAULT_JOKER_DRAWS)}
             handleClick={handleSelectDrawbackJoker}
             drawbackSelected={drawbackJokerSelected}
           />
-          <TitleDokkan>Timer</TitleDokkan>
+          <TitleDokkan>{t('challengebattle.timer')}</TitleDokkan>
           <DokkanTimer />
         </Page>
       </WithHeaderFooter>

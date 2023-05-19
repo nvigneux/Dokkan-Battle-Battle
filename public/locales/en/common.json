@@ -67,6 +67,41 @@
       "errorLinesMessage": "Enter the number of lines for the Player {{playerId}}"
     }
   },
+  "challengebattle": {
+    "title": "Challenge Battle - Dokkan Battle Battle",
+    "description": "Create a team of 6 characters based on their types and fight your friends in a challenge battle",
+    "addJoker": "Add your custom joker",
+    "numberofplayers": "Number of players",
+    "drawstype": "Draws type",
+    "close": "Close",
+    "edit": "Edit",
+    "validedit": "Valid Edit",
+    "resetall": "Reset all",
+    "teamcost": "Team cost",
+    "drawcost": "Draw cost",
+    "drawjoker": "Draw joker",
+    "timer": "Timer",
+    "drawsummary": "Draws summary",
+    "notifications": {
+      "draftOpen": "Draft is open",
+      "draftOpenMsg": "Draws finished",
+      "modificationSaved": "Modifications saved",
+      "modificationSavedMsg": "Modifications saved with success"
+    },
+    "drawsType": {
+      "extremStr": "Extrem Strong",
+      "extremPhy": "Extreme Physical",
+      "extremInt": "Extrem Intelligent",
+      "extremTec": "Extrem Technical",
+      "extremAgl": "Extrem Agility",
+      "superStr": "Super Strong",
+      "superPhy": "Super Physical",
+      "superInt": "Super Intelligent",
+      "superTec": "Super Technical",
+      "superAgl": "Super Agility",
+      "rainbow": "Rainbow"
+    }
+  },
   "players": {
     "player": "Player",
     "nbLines": "Nb lines",
