@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 // JSON
-import { useMemo } from 'react';
 import patchsData from './patchs.json';
 
 // Components
@@ -14,25 +13,22 @@ import { getCommonProps } from '../../utils/requests';
 import { pageLinksAlternate } from '../../utils/seo';
 
 function PatchSlug({ patch, locale }) {
-  const linksAlternate = useMemo(
-    () => pageLinksAlternate({
-      slug: `patchs/${patch.slug}`,
-      locale,
-    }),
-    [patch, locale],
-  );
-
   return (
     <>
       <Head>
         <title>
           {`${patch?.resume} - Dokkan Battle Battle`}
         </title>
-        {linksAlternate}
+        {pageLinksAlternate({
+          slug: `patchs/${patch?.slug}`,
+          locale,
+        })}
       </Head>
       <WithHeaderFooter>
         <Page>
-          <Patch patch={patch} />
+          {patch ? (
+            <Patch patch={patch} />
+          ) : null}
         </Page>
       </WithHeaderFooter>
     </>
@@ -53,7 +49,7 @@ export const getStaticPaths = async (ctx) => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 

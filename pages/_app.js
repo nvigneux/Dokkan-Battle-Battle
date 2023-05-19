@@ -64,7 +64,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
 MyApp.getInitialProps = async (appContext) => {
   // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
+  let appProps = {};
+
+  if (appContext.Component.getInitialProps) {
+    appProps = await App.getInitialProps(appContext);
+  }
 
   if (appContext.ctx.res?.statusCode === 404) {
     appContext.ctx.res.writeHead(302, { Location: '/' });

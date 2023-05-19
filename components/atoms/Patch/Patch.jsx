@@ -12,7 +12,7 @@ import ButtonDokkan from '../ButtonDokkan/ButtonDokkan';
 // Utils
 import cn from '../../../utils/cn';
 
-function Patch({ patch: { title, date, content } }) {
+function Patch({ patch }) {
   const { t } = useTranslation();
 
   return (
@@ -23,12 +23,12 @@ function Patch({ patch: { title, date, content } }) {
       <h1 className={cn([styles.title, 'h1'])}>
         Patch
         {' '}
-        {title.toUpperCase()}
+        {patch?.title.toUpperCase()}
         {' '}
         Notes
       </h1>
-      <p className={styles['dbb-patch__date']}>{date}</p>
-      <div className={styles['dbb-patch__content']} dangerouslySetInnerHTML={{ __html: content }} />
+      <p className={styles['dbb-patch__date']}>{patch?.date}</p>
+      <div className={styles['dbb-patch__content']} dangerouslySetInnerHTML={{ __html: patch?.content }} />
     </>
   );
 }
