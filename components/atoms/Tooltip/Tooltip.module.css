@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 0.3rem 0.75rem;
+  border-radius: 5px;
+  background: url("/images/stars.png") no-repeat, radial-gradient(ellipse at bottom, var(--color-tooltip-light) 0%, var(--color-tooltip-dark) 100%);
+  border: 1px solid var(--color-tooltip-border);
+}

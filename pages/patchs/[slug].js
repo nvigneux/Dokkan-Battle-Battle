@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 // JSON
+import { useMemo } from 'react';
 import patchsData from './patchs.json';
 
 // Components
@@ -10,16 +11,24 @@ import Patch from '../../components/atoms/Patch/Patch';
 
 // Utils
 import { getCommonProps } from '../../utils/requests';
+import { pageLinksAlternate } from '../../utils/seo';
 
-function PatchSlug({ patch }) {
+function PatchSlug({ patch, locale }) {
+  const linksAlternate = useMemo(
+    () => pageLinksAlternate({
+      slug: `patchs/${patch.slug}`,
+      locale,
+    }),
+    [patch, locale],
+  );
+
   return (
     <>
       <Head>
         <title>
-          {patch?.resume}
-          {' '}
-          - Dokkan Battle Battle
+          {`${patch?.resume} - Dokkan Battle Battle`}
         </title>
+        {linksAlternate}
       </Head>
       <WithHeaderFooter>
         <Page>
@@ -30,24 +39,33 @@ function PatchSlug({ patch }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const paths = patchsData.map((patch) => ({
-    params: { slug: `${patch.slug}` },
-  }));
+export const getStaticPaths = async (ctx) => {
+  const { locales } = ctx;
+  const paths = [];
+  locales.forEach((locale) => {
+    patchsData[locale].forEach((patch) => {
+      paths.push({
+        params: { slug: patch.slug },
+        locale,
+      });
+    });
+  });
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
 export const getStaticProps = async (ctx) => {
-  const { slug } = ctx.params;
-  const patch = patchsData.find((item) => `${item.slug}` === `${slug}`);
+  const { params: { slug }, locale } = ctx;
+
+  const patch = patchsData[locale].find((item) => `${item.slug}` === `${slug}`);
   const commonProps = await getCommonProps(ctx);
   return {
     props: {
       patch,
+      locale,
       ...commonProps,
     },
   };

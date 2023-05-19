@@ -75,6 +75,9 @@
   --color-black: #000;
   --color-bg-gradient-light: #0c1e42;
   --color-bg-gradient-dark: #000505;
+  --color-tooltip-border: #62391d;
+  --color-tooltip-light: #080300;
+  --color-tooltip-dark: #140800;
 
   /* Primary font */
   --font-primary: "Roboto", sans-serif;

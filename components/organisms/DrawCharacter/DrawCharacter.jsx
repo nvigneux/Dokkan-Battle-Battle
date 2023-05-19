@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'next-i18next';
 
 // Components
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
@@ -14,6 +15,8 @@ import { DRAWS_STATE } from '../../../utils/constants';
 function DrawCharacter({
   mode, activePlayer, previousPlayer, draws, handleDraw, activeDraw, drawState,
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className={styles['dbb-draw-container']}>
       <div className={styles['dbb-draw-random']}>
@@ -30,7 +33,7 @@ function DrawCharacter({
           onClick={() => handleDraw(activePlayer?.id)}
           disabled={drawState !== DRAWS_STATE.OPEN}
         >
-          {`Draw for Player ${activePlayer?.id}`}
+          {t('drawCharacter.drawButton', { id: activePlayer?.id })}
         </ButtonDokkan>
       </div>
       {mode === 'rush' ? (
@@ -41,7 +44,7 @@ function DrawCharacter({
             disabled={(!previousPlayer && !activeDraw?.randomLine) || !draws[previousPlayer?.id]?.draws[0]?.line}
             onClick={() => handleDraw(previousPlayer?.id, true)}
           >
-            {`Re-Draw for P${previousPlayer?.id}`}
+            {t('drawCharacter.redrawButton', { id: previousPlayer?.id })}
           </ButtonDokkan>
 
           <ButtonDokkan
@@ -50,7 +53,7 @@ function DrawCharacter({
             disabled={(!previousPlayer && !activeDraw?.randomLine) || !draws[previousPlayer?.id]?.draws[0]?.line}
             onClick={() => handleDraw(previousPlayer?.id, true, true)}
           >
-            Re-Draw Column
+            {t('drawCharacter.redrawColumnButton')}
           </ButtonDokkan>
         </div>
       ) : null}

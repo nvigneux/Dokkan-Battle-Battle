@@ -1,66 +1,134 @@
-[
-  {
-    "id": 8,
-    "slug": "8",
-    "title": "2.01",
-    "date": "18/05/2023",
-    "resume": "Exciting Updates for the Dokkan Battle Online Platform!",
-    "content": "<p>I'm back with some fantastic news and updates for our beloved online platform. Get ready to level up your gaming experience because we have some awesome features to announce!</p>\n\n<h2>Contact Support:</h2>\n<p>I understand the importance of staying connected and addressing any issues you may encounter while using our platform. That's why I've implemented a new and improved support system. If you come across any bugs, glitches, or have any questions or suggestions, you can now easily reach out to our dedicated support team. We're here to assist you and ensure a smooth and enjoyable gaming journey.</p>\n\n<h2>French Translation Website:</h2>\n<p>As promised, we've expanded our services to cater specifically to our French-speaking players. I'm thrilled to announce the launch of our new and improved French translation website. Now, you can access all the features, updates, and content in your preferred language. Profitez de l'expérience Dokkan Battle en français et découvrez toutes les nouveautés qui vous attendent !</p>\n\n<h2>PWA Enhancement:</h2>\n<p>We want to provide the best mobile gaming experience possible. To achieve this, we've implemented a Progressive Web App (PWA) feature. What does this mean for you? It means faster loading times, smoother gameplay, and an overall enhanced mobile experience. Simply add our website to your home screen, and you'll have instant access to the world of Dokkan Battle right at your fingertips.</p>\n\n<p>These exciting updates are just the beginning of our ongoing commitment to improving your Dokkan Battle journey. We value your feedback and suggestions, so please don't hesitate to reach out to us through our new support system. Your input will help shape the future of our platform and ensure it meets the needs of our incredible community.</p>\n\n<p>Thank you for being part of this amazing adventure. Together, we'll continue to make Dokkan Battle the ultimate online gaming destination.</p>\n\n<p>Stay tuned for more surprises and updates coming your way soon. Get ready to embark on epic battles, forge unbreakable alliances, and create unforgettable memories.</p>\n\n<p>Until next time, happy gaming!</p>"
-  },
-  {
-    "id": 7,
-    "slug": "7",
-    "title": "2.00",
-    "date": "15/05/2023",
-    "resume": "The Dokkan Battle Battle app is Back !",
-    "content": "<h2>Welcome back, Dokkan Battle players!</h2>\n\n  <p>Guess what? Our online platform is making a comeback, and it's going to be better than ever! I'm thrilled to announce that after a brief downtime, we're back in action.</p>\n\n  <p>During the break, I've worked hard to revamp the website using the latest technology. We've switched to the sleek and powerful Next.js framework, bringing you an enhanced gaming experience.</p>\n\n  <p>Now, here's the deal. I've been covering the hosting costs myself, but to ensure stability and availability, I've found a new hosting solution. Say goodbye to crashes and hello to non-stop gaming excitement!</p>\n\n  <p>And that's not all! I've got some awesome features lined up specifically for our French players. Get ready for an even more immersive Dokkan Battle experience.</p>\n\n  <p>I need your help too! If you come across any bugs or glitches, reach out to me. Your feedback is invaluable in making our platform even better.</p>\n\n  <p>So, gather your team, sharpen your skills, and prepare for the epic return of Dokkan Battle. Let's create unforgettable memories together!</p>\n\n  <p>Thank you for being part of our incredible community. Now, let's dive back into the action!</p>"
-  },
-  {
-    "id": 6,
-    "slug": "6",
-    "title": "1.12",
-    "date": "22/01/2019",
-    "resume": "Correction css mobile version",
-    "content": "Minor correction for the mobile css."
-  },
-  {
-    "id": 5,
-    "slug": "5",
-    "title": "1.10",
-    "date": "07/11/2018",
-    "resume": "In this patch : fix timer lag",
-    "content": "The timer lag when the page is not focus by the user. Fix change all the system of timer."
-  },
-  {
-    "id": 4,
-    "slug": "4",
-    "title": "1.03",
-    "date": "28/12/2017",
-    "resume": "In this patch : season 4 rules challenge battle",
-    "content": "New rules for the challenge battle, each player can draw a joker and decide to use it or not. The joker can be to redraw your entire team so each player can reset it's own team."
-  },
-  {
-    "id": 3,
-    "slug": "3",
-    "title": "1.02",
-    "date": "29/11/2017",
-    "resume": "In this patch : evolve of challenge battle",
-    "content": "Little modification for the responsive of the summary draws of challenge battle, a lot of users use mobile to use dokkan battle battle but the display of the six div was not optimize."
-  },
-  {
-    "id": 2,
-    "slug": "2",
-    "title": "1.01",
-    "date": "17/11/2017",
-    "resume": "In this patch : evolve of challenge battle",
-    "content": "New modifications for the mode challenge battle. <br> The rules have evolued and add new types of caracters. <br> I add the rainbow type and all the super & extrem + one of the five types to the random choice. <br> This include a modification of the algoryt to substring correctly the text. <br> The color have bee adjust for the custom types you add. <br> <br> Enjoy !"
-  },
-  {
-    "id": 1,
-    "slug": "1",
-    "title": "1.00",
-    "date": "13/11/2017",
-    "resume": "In this patch : The launch of platform",
-    "content": "I'm happy to launch the Dokkan Battle Battle, it's just the beginning of this adventure :). <br> For the start you can play to random rush and challenge battle with the actual rules of october 2017  <br> <br> Enjoy !"
-  }
-]
+{
+  "en": [
+    {
+      "id": 8,
+      "slug": "8",
+      "title": "2.01",
+      "date": "18/05/2023",
+      "resume": "Exciting Updates for the Dokkan Battle Online Platform!",
+      "content": "<p>I'm back with some fantastic news and updates for our beloved online platform. Get ready to level up your gaming experience because we have some awesome features to announce!</p>\n\n<h2>Contact Support:</h2>\n<p>I understand the importance of staying connected and addressing any issues you may encounter while using our platform. That's why I've implemented a new and improved support system. If you come across any bugs, glitches, or have any questions or suggestions, you can now easily reach out to our dedicated support team. We're here to assist you and ensure a smooth and enjoyable gaming journey.</p>\n\n<h2>French Translation Website:</h2>\n<p>As promised, we've expanded our services to cater specifically to our French-speaking players. I'm thrilled to announce the launch of our new and improved French translation website. Now, you can access all the features, updates, and content in your preferred language. Profitez de l'expérience Dokkan Battle en français et découvrez toutes les nouveautés qui vous attendent !</p>\n\n<h2>PWA Enhancement:</h2>\n<p>We want to provide the best mobile gaming experience possible. To achieve this, we've implemented a Progressive Web App (PWA) feature. What does this mean for you? It means faster loading times, smoother gameplay, and an overall enhanced mobile experience. Simply add our website to your home screen, and you'll have instant access to the world of Dokkan Battle right at your fingertips.</p>\n\n<p>These exciting updates are just the beginning of our ongoing commitment to improving your Dokkan Battle journey. We value your feedback and suggestions, so please don't hesitate to reach out to us through our new support system. Your input will help shape the future of our platform and ensure it meets the needs of our incredible community.</p>\n\n<p>Thank you for being part of this amazing adventure. Together, we'll continue to make Dokkan Battle the ultimate online gaming destination.</p>\n\n<p>Stay tuned for more surprises and updates coming your way soon. Get ready to embark on epic battles, forge unbreakable alliances, and create unforgettable memories.</p>\n\n<p>Until next time, happy gaming!</p>"
+    },
+    {
+      "id": 7,
+      "slug": "7",
+      "title": "2.00",
+      "date": "15/05/2023",
+      "resume": "The Dokkan Battle Battle app is Back !",
+      "content": "<h2>Welcome back, Dokkan Battle players!</h2>\n\n  <p>Guess what? Our online platform is making a comeback, and it's going to be better than ever! I'm thrilled to announce that after a brief downtime, we're back in action.</p>\n\n  <p>During the break, I've worked hard to revamp the website using the latest technology. We've switched to the sleek and powerful Next.js framework, bringing you an enhanced gaming experience.</p>\n\n  <p>Now, here's the deal. I've been covering the hosting costs myself, but to ensure stability and availability, I've found a new hosting solution. Say goodbye to crashes and hello to non-stop gaming excitement!</p>\n\n  <p>And that's not all! I've got some awesome features lined up specifically for our French players. Get ready for an even more immersive Dokkan Battle experience.</p>\n\n  <p>I need your help too! If you come across any bugs or glitches, reach out to me. Your feedback is invaluable in making our platform even better.</p>\n\n  <p>So, gather your team, sharpen your skills, and prepare for the epic return of Dokkan Battle. Let's create unforgettable memories together!</p>\n\n  <p>Thank you for being part of our incredible community. Now, let's dive back into the action!</p>"
+    },
+    {
+      "id": 6,
+      "slug": "6",
+      "title": "1.12",
+      "date": "22/01/2019",
+      "resume": "Correction css mobile version",
+      "content": "Minor correction for the mobile css."
+    },
+    {
+      "id": 5,
+      "slug": "5",
+      "title": "1.10",
+      "date": "07/11/2018",
+      "resume": "In this patch : fix timer lag",
+      "content": "The timer lag when the page is not focus by the user. Fix change all the system of timer."
+    },
+    {
+      "id": 4,
+      "slug": "4",
+      "title": "1.03",
+      "date": "28/12/2017",
+      "resume": "In this patch : season 4 rules challenge battle",
+      "content": "New rules for the challenge battle, each player can draw a joker and decide to use it or not. The joker can be to redraw your entire team so each player can reset it's own team."
+    },
+    {
+      "id": 3,
+      "slug": "3",
+      "title": "1.02",
+      "date": "29/11/2017",
+      "resume": "In this patch : evolve of challenge battle",
+      "content": "Little modification for the responsive of the summary draws of challenge battle, a lot of users use mobile to use dokkan battle battle but the display of the six div was not optimize."
+    },
+    {
+      "id": 2,
+      "slug": "2",
+      "title": "1.01",
+      "date": "17/11/2017",
+      "resume": "In this patch : evolve of challenge battle",
+      "content": "New modifications for the mode challenge battle. <br> The rules have evolued and add new types of caracters. <br> I add the rainbow type and all the super & extrem + one of the five types to the random choice. <br> This include a modification of the algoryt to substring correctly the text. <br> The color have bee adjust for the custom types you add. <br> <br> Enjoy !"
+    },
+    {
+      "id": 1,
+      "slug": "1",
+      "title": "1.00",
+      "date": "13/11/2017",
+      "resume": "In this patch : The launch of platform",
+      "content": "I'm happy to launch the Dokkan Battle Battle, it's just the beginning of this adventure :). <br> For the start you can play to random rush and challenge battle with the actual rules of october 2017  <br> <br> Enjoy !"
+    }
+  ],
+  "fr": [
+    {
+      "id": 8,
+      "slug": "8",
+      "title": "2.01",
+      "date": "18/05/2023",
+      "resume": "Des mises à jour passionnantes pour la plateforme en ligne Dokkan Battle Battle !",
+      "content": "<p>Je suis de retour avec d'excellentes nouvelles et des mises à jour pour notre plateforme en ligne bien-aimée. Préparez-vous à améliorer votre expérience de jeu car nous avons de super fonctionnalités à annoncer !</p>\n\n<h2>Contactez le support :</h2>\n<p>Je comprends l'importance de rester connecté et de résoudre tout problème que vous pourriez rencontrer lors de l'utilisation de notre plateforme. C'est pourquoi j'ai mis en place un nouveau système d'assistance amélioré. Si vous rencontrez des bugs, des problèmes ou si vous avez des questions ou des suggestions, vous pouvez maintenant facilement contacter notre équipe de support dédiée. Nous sommes là pour vous aider et garantir un parcours de jeu fluide et agréable.</p>\n\n<h2>Site Web de traduction en français :</h2>\n<p>Comme promis, nous avons étendu nos services pour répondre spécifiquement à nos joueurs francophones. Je suis ravi d'annoncer le lancement de notre nouveau et amélioré site Web de traduction en français. Maintenant, vous pouvez accéder à toutes les fonctionnalités, mises à jour et contenus dans votre langue préférée. Profitez de l'expérience Dokkan Battle en français et découvrez toutes les nouveautés qui vous attendent !</p>\n\n<h2>Amélioration de PWA :</h2>\n<p>Nous voulons offrir la meilleure expérience de jeu mobile possible. Pour cela, nous avons mis en place une fonctionnalité Progressive Web App (PWA). Qu'est-ce que cela signifie pour vous ? Cela signifie des temps de chargement plus rapides, un gameplay plus fluide et une expérience mobile globalement améliorée. Il vous suffit d'ajouter notre site Web à votre écran d'accueil et vous aurez accès instantané à l'univers de Dokkan Battle directement à portée de main.</p>\n\n<p>Ces mises à jour passionnantes ne sont que le début de notre engagement continu à améliorer votre parcours Dokkan Battle. Nous apprécions vos commentaires et suggestions, alors n'hésitez pas à nous contacter via notre nouveau système de support. Vos contributions contribueront à façonner l'avenir de notre plateforme et garantir qu'elle réponde aux besoins de notre incroyable communauté.</p>\n\n<p>Merci de faire partie de cette aventure incroyable. Ensemble, nous continuerons à faire de Dokkan Battle la destination ultime des jeux en ligne.</p>\n\n<p>Restez à l'écoute pour plus de surprises et de mises à jour à venir bientôt. Préparez-vous à vous lancer dans des batailles épiques, à forger des alliances indestructibles et à créer des souvenirs inoubliables.</p>\n\n<p>À la prochaine, bon jeu !</p>"
+    },
+    {
+      "id": 7,
+      "slug": "7",
+      "title": "2.00",
+      "date": "15/05/2023",
+      "resume": "L'application Dokkan Battle Battle est de retour !",
+      "content": "<h2>Bienvenue de retour, joueurs de Dokkan Battle !</h2>\n\n  <p>Devinez quoi ? Notre plateforme en ligne fait son retour et elle sera meilleure que jamais ! Je suis ravi de vous annoncer qu'après une courte période d'inactivité, nous sommes de retour en action.</p>\n\n  <p>Pendant cette pause, j'ai travaillé dur pour moderniser le site en utilisant les dernières technologies. Nous avons adopté le framework Next.js élégant et puissant, ce qui vous offre une expérience de jeu améliorée.</p>\n\n  <p>Mais ce n'est pas tout ! J'ai prévu d'incroyables fonctionnalités spécialement pour nos joueurs francophones. Préparez-vous à une expérience Dokkan Battle encore plus immersive.</p>\n\n  <p>J'ai besoin de votre aide aussi ! Si vous rencontrez des bugs ou des problèmes, n'hésitez pas à me contacter. Vos retours sont précieux pour améliorer encore notre plateforme.</p>\n\n  <p>Alors, rassemblez votre équipe, affûtez vos compétences et préparez-vous pour le retour épique de Dokkan Battle. Créons ensemble des souvenirs inoubliables !</p>\n\n  <p>Merci d'être membre de notre incroyable communauté. Maintenant, replongeons-nous dans l'action !</p>"
+    },
+    {
+      "id": 6,
+      "slug": "6",
+      "title": "1.12",
+      "date": "22/01/2019",
+      "resume": "Correction CSS pour la version mobile",
+      "content": "Correction mineure pour le CSS mobile."
+    },
+    {
+      "id": 5,
+      "slug": "5",
+      "title": "1.10",
+      "date": "07/11/2018",
+      "resume": "Dans cette mise à jour : correction de décalage de la minuterie",
+      "content": "Correction du décalage de la minuterie lorsque la page n'est pas au premier plan de l'utilisateur. Modification de tout le système de minuterie."
+    },
+    {
+      "id": 4,
+      "slug": "4",
+      "title": "1.03",
+      "date": "28/12/2017",
+      "resume": "Dans cette mise à jour : règles de la saison 4 du challenge battle",
+      "content": "Nouvelles règles pour le challenge battle, chaque joueur peut tirer un joker et décider de l'utiliser ou non. Le joker peut être utilisé pour réinitialiser entièrement votre équipe, ce qui permet à chaque joueur de réinitialiser sa propre équipe."
+    },
+    {
+      "id": 3,
+      "slug": "3",
+      "title": "1.02",
+      "date": "29/11/2017",
+      "resume": "Dans cette mise à jour : évolution du challenge battle",
+      "content": "Petite modification pour la réactivité des résumés des dessins du challenge battle, de nombreux utilisateurs utilisent un mobile pour jouer à Dokkan Battle Battle, mais l'affichage des six div n'était pas optimisé."
+    },
+    {
+      "id": 2,
+      "slug": "2",
+      "title": "1.01",
+      "date": "17/11/2017",
+      "resume": "Dans cette mise à jour : évolution du challenge battle",
+      "content": "Nouvelles modifications pour le mode challenge battle. <br> Les règles ont évolué et de nouveaux types de personnages ont été ajoutés. <br> J'ai ajouté le type arc-en-ciel et tous les types super & extrême + l'un des cinq types au choix aléatoire. <br> Cela inclut une modification de l'algorithme pour découper correctement le texte. <br> Les couleurs ont été ajustées pour les types personnalisés que vous ajoutez. <br> <br> Profitez-en !"
+    },
+    {
+      "id": 1,
+      "slug": "1",
+      "title": "1.00",
+      "date": "13/11/2017",
+      "resume": "Dans cette mise à jour : Le lancement de la plateforme",
+      "content": "Je suis heureux de lancer Dokkan Battle Battle, c'est juste le début de cette aventure :). <br> Pour commencer, vous pouvez jouer à la random rush et au challenge battle avec les règles actuelles d'octobre 2017. <br> <br> Profitez-en !"
+    }
+  ]
+}

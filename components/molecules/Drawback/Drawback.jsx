@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 // Styles
 import styles from './Drawback.module.css';
@@ -10,6 +11,7 @@ import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 function Drawback({
   label, drawbacksOptions, drawbackSelected, handleClick,
 }) {
+  const { t } = useTranslation();
   const [drawbacks, setDrawbacks] = useState(drawbacksOptions);
 
   const handleDrawback = (value) => {
@@ -24,7 +26,7 @@ function Drawback({
           value={drawbacks}
           onChange={(e) => handleDrawback(e.target.value)}
         />
-        <span className={styles['dbb-textarea__label']}>Write your own sentences, each on a separate line</span>
+        <span className={styles['dbb-textarea__label']}>{t('drawback.label')}</span>
       </div>
       <div className={styles['dbb-drawback__result']}>
         <div className={styles['dbb-drawback__sentence']}>

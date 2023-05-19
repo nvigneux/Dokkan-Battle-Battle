@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+
 // Components
 import { useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -25,15 +27,17 @@ import {
 } from '../utils/constants';
 import { arrayToString, stringToArray } from '../utils/transform';
 
-const DEFAULT_DRAWBACKS = [
-  'Re-Draw one character',
-  'Random friend leader',
-  'Only 3 support item',
-];
 const EMPTY_DRAW = { line: null, column: null };
 const INIT_PLAYER_DRAWS = { draws: Array(6).fill(EMPTY_DRAW) };
 
-function Accueil() {
+function RandomRush() {
+  const { t } = useTranslation();
+  const DEFAULT_DRAWBACKS = [
+    t('randomrush.drawbacks.reDrawOneCharacter'),
+    t('randomrush.drawbacks.randomFriendLeader'),
+    t('randomrush.drawbacks.onlyThreeSupportItem'),
+  ];
+
   const [draws, setDraws] = useState({ 1: INIT_PLAYER_DRAWS });
   const [drawsState, setDrawsState] = useState(DRAWS_STATE.OPEN);
   const [activeDraw, setActiveDraw] = useState({ line: 0, column: 0 });
@@ -75,8 +79,8 @@ function Accueil() {
     if (activeTurn === -1 && drawsState !== DRAWS_STATE.DRAFT && isDraft) {
       notify(
         'draft',
-        'Draft is open',
-        'Draws finished',
+        t('randomrush.notifications.draftTitle'),
+        t('randomrush.notifications.drawsFinished'),
         'success',
       );
       setDrawsState(DRAWS_STATE.DRAFT);
@@ -178,8 +182,8 @@ function Accueil() {
     });
     notify(
       'draw-1-1',
-      'Draw 1-1',
-      'You need to re-draw your picks.',
+      t('randomrush.notifications.drawTitle', { drawNumber: '1-1' }),
+      t('randomrush.notifications.redrawPicks'),
     );
   };
 
@@ -224,8 +228,8 @@ function Accueil() {
       if (drawAlreadyExistsInPreviousDraws >= 0) {
         notify(
           'duplicate',
-          'Duplicate',
-          'Redraw, the last pick was a duplicate',
+          t('randomrush.notifications.duplicateTitle'),
+          t('randomrush.notifications.redrawDuplicate'),
         );
       }
 
@@ -254,7 +258,12 @@ function Accueil() {
     }
 
     if (player.nbLines <= 0) {
-      notify('error-nbLines', 'Numbers of lines', `Enter the number of lines for the Player ${player.id}`, 'error');
+      notify(
+        'error-nbLines',
+        t('randomrush.notifications.errorLinesTitle'),
+        t('randomrush.notifications.errorLinesMessage', { playerId: player.id }),
+        'error',
+      );
     }
   };
 
@@ -267,22 +276,19 @@ function Accueil() {
   return (
     <>
       <Head>
-        <title>Random rush - Dokkan Battle Battle</title>
-        <meta
-          name="description"
-          content="Create a team of 6 characters randomly from your box and fight your friends in a random rush"
-        />
+        <title>{t('randomrush.title')}</title>
+        <meta name="description" content={t('randomrush.description')} />
       </Head>
       <WithHeaderFooter>
         <Page>
-          <TitleDokkan>Number of players</TitleDokkan>
+          <TitleDokkan>{t('randomrush.number_of_players')}</TitleDokkan>
           <Players
             players={players}
             addPlayer={addPlayer}
             deletePlayer={deletePlayer}
             setPlayerLine={setPlayerLine}
           />
-          <TitleDokkan>Draw character</TitleDokkan>
+          <TitleDokkan>{t('randomrush.draw_character')}</TitleDokkan>
           <DrawCharacter
             activePlayer={activePlayer}
             previousPlayer={previousPlayer}
@@ -292,20 +298,24 @@ function Accueil() {
             activeDraw={activeDraw}
           />
           <TitleButtonDokkan>
-            <TitleDokkan>Draws summary</TitleDokkan>
+            <TitleDokkan>{t('randomrush.draws_summary')}</TitleDokkan>
             <ButtonDokkan
               size="small"
               color="green"
               onClick={handleResetDraws}
               disabled={!drawsHasValues}
             >
-              Reset
+              {t('randomrush.reset_button')}
             </ButtonDokkan>
           </TitleButtonDokkan>
-          <DrawsSummary draws={draws} drawsState={drawsState} handleDraw={handleDraw} />
-          <TitleDokkan>Draw disadvantage</TitleDokkan>
+          <DrawsSummary
+            draws={draws}
+            drawsState={drawsState}
+            handleDraw={handleDraw}
+          />
+          <TitleDokkan>{t('randomrush.draw_disadvantage')}</TitleDokkan>
           <Drawback
-            label="Draw disadvantage"
+            label={t('randomrush.draw_disadvantage')}
             drawbacksOptions={arrayToString(DEFAULT_DRAWBACKS)}
             handleClick={handleSelectDrawback}
             drawbackSelected={drawbackSelected}
@@ -325,4 +335,4 @@ export const getStaticProps = async (ctx) => {
   };
 };
 
-export default Accueil;
+export default RandomRush;

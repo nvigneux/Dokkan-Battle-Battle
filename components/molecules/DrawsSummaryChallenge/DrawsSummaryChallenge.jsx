@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import PropTypes from 'prop-types';
+import { useTranslation } from 'next-i18next';
 
 // Styles
 import styles from './DrawsSummaryChallenge.module.css';
@@ -11,6 +12,8 @@ import { getClassByValue } from '../../../utils/draw';
 function DrawsSummaryChallenge({
   draws, drawsState, handleDraw, handleResetPlayer,
 }) {
+  const { t } = useTranslation();
+
   const drawsArray = Object.keys(draws);
   return (
     <div className={styles['dbb-summary']}>
@@ -20,16 +23,14 @@ function DrawsSummaryChallenge({
             <div className={styles['dbb-summary-title']}>
               <div className={styles['dbb-summary-title-container']}>
                 <h3 className={styles['dbb-summary-player']}>
-                  Player
-                  {' '}
-                  {key}
+                  {t('drawsSummary.player', { id: key })}
                 </h3>
                 <button
                   type="button"
                   onClick={() => handleResetPlayer(key)}
                   className={`${styles['dbb-summary-player']} ${styles['dbb-summary-player--reset']}`}
                 >
-                  Reset
+                  {t('drawsSummary.reset')}
                 </button>
               </div>
               {drawsState === DRAWS_STATE.DRAFT && +key === 1 ? (
@@ -39,7 +40,7 @@ function DrawsSummaryChallenge({
                 ${styles['dbb-summary-player--pulse']}
                 `}
                 >
-                  Draft open
+                  {t('drawsSummary.draftOpen')}
                 </span>
               ) : null}
             </div>

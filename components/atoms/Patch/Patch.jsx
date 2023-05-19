@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import PropTypes from 'prop-types';
+import { useTranslation } from 'next-i18next';
 
 // Styles
 import Link from 'next/link';
@@ -12,10 +13,12 @@ import ButtonDokkan from '../ButtonDokkan/ButtonDokkan';
 import cn from '../../../utils/cn';
 
 function Patch({ patch: { title, date, content } }) {
+  const { t } = useTranslation();
+
   return (
     <>
       <Link href="/patchs">
-        <ButtonDokkan className={styles.button} size="small" color="orange">Go back to patchs !</ButtonDokkan>
+        <ButtonDokkan className={styles.button} size="small" color="orange">{t('patchs.back')}</ButtonDokkan>
       </Link>
       <h1 className={cn([styles.title, 'h1'])}>
         Patch

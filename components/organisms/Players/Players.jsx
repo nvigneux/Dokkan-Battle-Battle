@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import PropTypes from 'prop-types';
+import { useTranslation } from 'next-i18next';
 
 // Styles
 import styles from './Players.module.css';
@@ -10,6 +11,8 @@ import cn from '../../../utils/cn';
 function Players({
   mode, players, addPlayer, deletePlayer, setPlayerLine,
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className={cn([styles['dbb-players'], styles[mode]])}>
       {players.map((player) => (
@@ -19,7 +22,7 @@ function Players({
           ${styles[`dbb-player--border-${player.color}`]}`}
         >
           <span className={styles['dbb-player__id']}>
-            Player
+            {t('players.player')}
             {' '}
             {player.id}
           </span>
@@ -40,7 +43,7 @@ function Players({
               <span className={styles['dbb-player__number--input']}>{`P${player.id}`}</span>
             )}
           </div>
-          <div className={styles['dbb-player__line']}>{mode === 'rush' ? 'Nb lines' : null}</div>
+          <div className={styles['dbb-player__line']}>{mode === 'rush' ? t('players.nbLines') : null}</div>
           {player.id !== 1 && (
             <button
               type="button"
@@ -58,12 +61,12 @@ function Players({
         ${styles['dbb-player--grey']} ${styles['dbb-player--border-grey']}`}
         onClick={addPlayer}
       >
-        <span className={styles['dbb-player__id']}>Add</span>
+        <span className={styles['dbb-player__id']}>{t('players.add')}</span>
         <div className={styles['dbb-player__number']}>
           <span className={styles['dbb-player__number--input']}>+</span>
         </div>
         <div className={styles['dbb-player__line']}>
-          Player
+          {t('players.player')}
           {' '}
           {players[players.length - 1].id + 1}
         </div>

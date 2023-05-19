@@ -15,9 +15,9 @@ function PatchResume({
       <h3 className={styles.title}>
         Patch
         {' '}
-        {title}
+        note
         {' '}
-        notes
+        {title}
       </h3>
       <p className={styles['dbb-patch__date']}>{date}</p>
       <h4 className={styles['dbb-patch__resume']} dangerouslySetInnerHTML={{ __html: resume }} />
