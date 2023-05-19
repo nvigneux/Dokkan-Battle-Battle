@@ -1,3 +1,122 @@
 {
-  
+  "header": {
+    "fr": "FR",
+    "en": "EN"
+  },
+  "homepage": {
+    "title": "Dokkan Battle Battle",
+    "subtitle": "Affrontez vos amis dans des modes multijoueurs",
+    "description": "Pour le moment, Dokkan Battle Battle vous permet de jouer dans deux modes multijoueurs.",
+    "htmlDescription": "Le principe et les règles ont été réfléchis et créés par les YouTubers décrits ci-dessous.<br />Je les remercie d'avoir proposé des modes multijoueurs, afin que chacun puisse partager sa passion pour <strong>Dragon Ball Z Dokkan Battle</strong>.",
+    "randomRush": {
+      "title": "Random Rush",
+      "youtubersTitle": "YouTubers",
+      "youtuber1": "Fitz Adri",
+      "youtuber2": "Sussucre",
+      "rulesTitle": "Les règles",
+      "rule1": "Dans Random Rush, chaque joueur créera une équipe de 6 personnages de manière aléatoire.",
+      "rule2": "Pour cela, chaque joueur doit remplir le nombre de lignes de leur box.",
+      "rule3": "Les joueurs tireront à chaque tour un nombre aléatoire pour les lignes et les colonnes.",
+      "rule4": "Cela déterminera un personnage dans la box du joueur concerné.",
+      "rule5": "En cas de tirage en double, vous devez supprimer le personnage de votre équipe dans le jeu et tirer à nouveau une ligne et une colonne aléatoires.",
+      "rule6": "Selon le nombre de lignes que chaque joueur a, vous pouvez choisir un certain nombre de personnages pour votre équipe :",
+      "rule7": "0 <> 10 lignes = 1 choix ; 10 <> 20 lignes = 2 choix ; 20 <> Plus ; 3 choix",
+      "rule8": "Lorsque tous les joueurs ont leurs 6 personnages, vous tirerez si vous voulez un désavantage.",
+      "rule9": "Chaque joueur peut réorganiser son équipe et changer le leader de l'équipe.",
+      "rule10": "Vous êtes prêt à jouer.",
+      "playButton": "Let's play !"
+    },
+    "challengeBattle": {
+      "title": "Challenge Battle",
+      "youtubersTitle": "YouTubers",
+      "youtuber1": "Yekais",
+      "youtuber2": "Fafa",
+      "rulesTitle": "Les règles",
+      "rule1": "Dans le Challenge Battle, chaque joueur créera une équipe de 6 personnages en fonction de leurs types.",
+      "rule2": "Définissez le nombre de joueurs.",
+      "rule3": "Les joueurs tireront à chaque tour un type de personnage aléatoire.",
+      "rule4": "Lorsque tous les joueurs ont leurs 6 types de personnages, vous définirez le coût maximal de l'équipe.",
+      "rule5": "Facultatif* Vous pouvez définir et tirer un joker ; les joueurs ont le choix de l'utiliser ou non.",
+      "rule6": "Chaque joueur a pour mission de créer une équipe avec tous les types qu'ils tirent.",
+      "rule7": "Vous pouvez ajouter de la difficulté en définissant une limite de temps.",
+      "rule8": "Vous êtes prêt à jouer.",
+      "playButton": "Let's play !"
+    }
+  },
+  "randomrush": {
+    "title": "Random Rush - Dokkan Battle Battle",
+    "description": "Créez une équipe de 6 personnages de manière aléatoire à partir de votre boîte et affrontez vos amis dans un Random Rush",
+    "number_of_players": "Nombre de joueurs",
+    "draw_character": "Tirer un personnage",
+    "draws_summary": "Récap des tirages",
+    "reset_button": "Reset",
+    "draw_disadvantage": "Tirer un désavantage",
+    "drawbacks": {
+      "reDrawOneCharacter": "Retirer un personnage et tirer à nouveau",
+      "randomFriendLeader": "Leader d'ami aléatoire",
+      "onlyThreeSupportItem": "Seulement 3 objets de soutien"
+    },
+    "notifications": {
+      "draftTitle": "Le choix est ouvert",
+      "drawsFinished": "Tirages terminés",
+      "drawTitle": "Tirage 1-1",
+      "redrawPicks": "Vous devez retirer vos choix et tirer à nouveau.",
+      "duplicateTitle": "Doublon",
+      "redrawDuplicate": "Tirage à nouveau, le dernier choix était un doublon",
+      "errorLinesTitle": "Nombre de lignes",
+      "errorLinesMessage": "Entrez le nombre de lignes pour le joueur {{playerId}}"
+    }
+  },
+  "players": {
+    "player": "Joueur",
+    "nbLines": "Nb lignes",
+    "add": "Ajouter"
+  },
+  "drawCharacter": {
+    "drawButton": "Tirer pour le joueur {{id}}",
+    "redrawButton": "Re-Tirer pour J{{id}}",
+    "redrawColumnButton": "Re-Tirer une colonne"
+  },
+  "drawsSummary": {
+    "player": "Joueur {{id}}",
+    "line": "L",
+    "column": "C",
+    "clickTopNumber": "Cliquez sur le nombre en haut pour tirer",
+    "clickBottomNumber": "Cliquez sur le nombre en bas pour tirer une colonne",
+    "draftOpen": "Choix ouvert",
+    "reset": "Reset"
+  },
+  "drawback": {
+    "label": "Écrivez vos propres phrases, une par ligne"
+  },
+  "patchs": {
+    "title": "Patchs",
+    "back": "Retour aux patchs !",
+    "pageTitle": "Patchs - Dokkan Battle Battle",
+    "pageDescription": "Suivez les dernières actualités de Dokkan Battle Battle",
+    "recentNews": "Les dernières actualités de patch"
+  },
+  "timer": {
+    "finished": {
+      "title": "Le temps est écoulé",
+      "message": "Le minuteur a terminé son décompte."
+    },
+    "invalidNumber": {
+      "title": "Entrez un nombre",
+      "message": "Aucun temps détecté"
+    },
+    "labels": {
+      "minutes": "Minute(s)",
+      "seconds": "Seconde(s)"
+    },
+    "buttons": {
+      "start": "Lancer",
+      "stop": "Arrêter",
+      "reset": "Reset"
+    }
+  },
+  "footer": {
+    "contact_us_twitter": "Contactez-nous sur Twitter",
+    "or_by_email": "ou par email à"
+  }
 }

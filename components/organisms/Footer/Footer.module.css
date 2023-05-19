@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 60px;
-  padding: 0.5rem 1.25rem;
+  min-height: 60px;
+  padding: 0.5rem 1.25rem 2rem;
   color: var(--color-grey-100);
   font-size: 0.925rem;
   gap: 6px;
@@ -17,6 +17,10 @@
 }
 
 @media screen and (max-width: 655px) {
+  .footer {
+    gap: 1rem;
+  }
+
   .desktopOnly {
     display: none;
   }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'next-i18next';
 
 // Styles
 import styles from './DokkanTimer.module.css';
@@ -8,10 +9,9 @@ import styles from './DokkanTimer.module.css';
 import ButtonDokkan from '../ButtonDokkan/ButtonDokkan';
 import DokkanToast from '../DokkanToast/DokkanToast';
 
-/**
- * Timer component that allows countdown of minutes and seconds.
- */
 function DokkanTimer() {
+  const { t } = useTranslation();
+
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
@@ -20,15 +20,6 @@ function DokkanTimer() {
   const startTimeRef = useRef(null);
   const elapsedTimeRef = useRef(0);
 
-  /**
- * Notifies the user with a toast message.
- *
- * @param {string} id - The ID of the toast message.
- * @param {string} text - The main text content of the toast.
- * @param {string} subText - The subtext content of the toast.
- * @param {string} [type='info'] - The type of the toast message. Defaults to 'info'.
- * @returns {void}
- */
   const notify = (id, text, subText, type = 'info') => {
     if (!toast.isActive(id)) {
       toast(
@@ -47,16 +38,10 @@ function DokkanTimer() {
     }
   };
 
-  /**
-   * Clean up the timer on component unmount.
-   */
   useEffect(() => () => {
     cancelAnimationFrame(timerRef.current);
   }, []);
 
-  /**
-   * Update the timer based on elapsed time and remaining time.
-   */
   const updateTimer = () => {
     const currentTime = Date.now();
     const elapsedTime = currentTime - startTimeRef.current;
@@ -69,8 +54,8 @@ function DokkanTimer() {
       elapsedTimeRef.current = 0;
       notify(
         'timer-finished',
-        'Time is over',
-        'The timer has finished counting down.',
+        t('timer.finished.title'),
+        t('timer.finished.message'),
       );
       return;
     }
@@ -85,27 +70,18 @@ function DokkanTimer() {
     timerRef.current = requestAnimationFrame(updateTimer);
   };
 
-  /**
-   * Start the timer.
-   */
   const startTimer = () => {
     setIsActive(true);
     startTimeRef.current = Date.now() - elapsedTimeRef.current;
     requestAnimationFrame(updateTimer);
   };
 
-  /**
-   * Stop the timer.
-   */
   const stopTimer = () => {
     setIsActive(false);
     elapsedTimeRef.current = 0;
     cancelAnimationFrame(timerRef.current);
   };
 
-  /**
-   * Handle the Start button click event.
-   */
   const handleStart = () => {
     const parsedMinutes = parseInt(minutes, 10);
     const parsedSeconds = parseInt(seconds, 10);
@@ -117,13 +93,10 @@ function DokkanTimer() {
     ) {
       startTimer();
     } else {
-      notify('timer', 'Enter a number', 'No time detected');
+      notify('timer', t('timer.invalidNumber.title'), t('timer.invalidNumber.message'));
     }
   };
 
-  /**
-   * Handle the Reset button click event.
-   */
   const handleReset = () => {
     setIsActive(false);
     setMinutes(0);
@@ -150,7 +123,7 @@ function DokkanTimer() {
                 disabled={isActive}
               />
             </div>
-            <span className={styles['dbb-timer__label']}>Minute(s)</span>
+            <span className={styles['dbb-timer__label']}>{t('timer.labels.minutes')}</span>
           </div>
           <div className={styles['dbb-timer__separate']}>:</div>
           <div className={styles['dbb-timer__content']}>
@@ -167,7 +140,7 @@ function DokkanTimer() {
                 disabled={isActive}
               />
             </div>
-            <span className={styles['dbb-timer__label']}>Second(s)</span>
+            <span className={styles['dbb-timer__label']}>{t('timer.labels.seconds')}</span>
           </div>
         </div>
         <div className={styles['dbb-timer__action']}>
@@ -178,7 +151,7 @@ function DokkanTimer() {
             disabled={isActive}
             size="small"
           >
-            Launch
+            {t('timer.buttons.start')}
           </ButtonDokkan>
           <ButtonDokkan
             type="button"
@@ -186,7 +159,7 @@ function DokkanTimer() {
             onClick={isActive ? stopTimer : handleReset}
             size="small"
           >
-            {isActive ? 'Stop' : 'Reset'}
+            {isActive ? t('timer.buttons.stop') : t('timer.buttons.reset')}
           </ButtonDokkan>
         </div>
       </div>

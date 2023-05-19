@@ -1,3 +1,7 @@
+export const LOCALE_FR = 'fr';
+export const LOCALE_EN = 'en';
+
+export const DOMAIN = process.env.NEXT_PUBLIC_URL;
 export const DRAWS_STATE = {
   OPEN: 'OPEN',
   DRAFT: 'DRAFT',

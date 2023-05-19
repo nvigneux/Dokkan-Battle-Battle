@@ -1,16 +1,31 @@
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 // Styles
 import styles from './Header.module.css';
 
 // Utils
 import cn from '../../../utils/cn';
+import { LOCALE_EN, LOCALE_FR } from '../../../utils/constants';
+
+// Components
+import Tooltip from '../../atoms/Tooltip/Tooltip';
 
 function Header() {
+  const { t } = useTranslation();
+  const {
+    locale, push, query, pathname,
+  } = useRouter();
+
+  const changeLocale = (selectedLocale) => {
+    push({ pathname, query }, undefined, { locale: selectedLocale });
+  };
+
   return (
     <div className={styles['dbb-navbar']}>
       <Link href="/patchs" className={styles['dbb-articles']}>
-        2.0.0
+        2.01
       </Link>
       <Link href="/" className={styles['dbb-navbar__logo']}>
         <div className={styles['dbb-navbar__logo--d']} />
@@ -30,6 +45,27 @@ function Header() {
         >
           Challenge Battle
         </Link>
+        <Tooltip
+          label={(
+            <span className={cn([styles['dbb-locale'], styles['dbb-locale-label']])}>
+              {t(`header.${locale}`)}
+            </span>
+        )}
+        >
+          <div className={styles['dbb-locale-container']}>
+            {[LOCALE_FR, LOCALE_EN].map((item) => (
+              <button
+                type="button"
+                key={item}
+                onClick={() => changeLocale(item)}
+                className={styles['dbb-locale']}
+                disabled={locale === item}
+              >
+                {t(`header.${item}`)}
+              </button>
+            ))}
+          </div>
+        </Tooltip>
       </nav>
     </div>
   );

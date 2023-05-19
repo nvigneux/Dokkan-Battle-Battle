@@ -26,10 +26,10 @@ export default function Home() {
           />
         </div>
         <div className={styles['dbb-home__mode']}>
-          <TitleDokkan>{t('randomRush.title')}</TitleDokkan>
+          <TitleDokkan>{t('homepage.randomRush.title')}</TitleDokkan>
           <div className={styles['dbb-home__yt']}>
             <div className={styles['dbb-home__yt--title']}>
-              <h3>{t('randomRush.youtubersTitle')}</h3>
+              <h3>{t('homepage.randomRush.youtubersTitle')}</h3>
             </div>
             <div className={styles['dbb-home__yt--link']}>
               <Link
@@ -37,45 +37,45 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {t('randomRush.youtuber1')}
+                {t('homepage.randomRush.youtuber1')}
               </Link>
               <Link
                 href="https://www.youtube.com/channel/UC-Bag_B3YkqvX2nEj28jgOA"
                 target="_blank"
                 rel="noreferrer"
               >
-                {t('randomRush.youtuber2')}
+                {t('homepage.randomRush.youtuber2')}
               </Link>
             </div>
           </div>
           <div className={styles['dbb-home__rules']}>
             <div className={styles['dbb-home__rules--title']}>
-              <h3>{t('randomRush.rulesTitle')}</h3>
+              <h3>{t('homepage.randomRush.rulesTitle')}</h3>
             </div>
             <ul className={styles['dbb-home__rules--rule']}>
-              <li>{t('randomRush.rule1')}</li>
-              <li>{t('randomRush.rule2')}</li>
-              <li>{t('randomRush.rule3')}</li>
-              <li>{t('randomRush.rule4')}</li>
-              <li>{t('randomRush.rule5')}</li>
-              <li>{t('randomRush.rule6')}</li>
-              <li>{t('randomRush.rule7')}</li>
-              <li>{t('randomRush.rule8')}</li>
-              <li>{t('randomRush.rule9')}</li>
-              <li>{t('randomRush.rule10')}</li>
+              <li>{t('homepage.randomRush.rule1')}</li>
+              <li>{t('homepage.randomRush.rule2')}</li>
+              <li>{t('homepage.randomRush.rule3')}</li>
+              <li>{t('homepage.randomRush.rule4')}</li>
+              <li>{t('homepage.randomRush.rule5')}</li>
+              <li>{t('homepage.randomRush.rule6')}</li>
+              <li>{t('homepage.randomRush.rule7')}</li>
+              <li>{t('homepage.randomRush.rule8')}</li>
+              <li>{t('homepage.randomRush.rule9')}</li>
+              <li>{t('homepage.randomRush.rule10')}</li>
             </ul>
           </div>
           <div className={styles['dbb-home__btn']}>
             <Link href="/random-rush" className={styles['dbb-button']} data-size="big" data-color="orange">
-              <ButtonDokkan>{t('randomRush.playButton')}</ButtonDokkan>
+              <ButtonDokkan>{t('homepage.randomRush.playButton')}</ButtonDokkan>
             </Link>
           </div>
         </div>
         <div className={styles['dbb-home__mode']}>
-          <TitleDokkan>{t('challengeBattle.title')}</TitleDokkan>
+          <TitleDokkan>{t('homepage.challengeBattle.title')}</TitleDokkan>
           <div className={styles['dbb-home__yt']}>
             <div className={styles['dbb-home__yt--title']}>
-              <h3>{t('challengeBattle.youtubersTitle')}</h3>
+              <h3>{t('homepage.challengeBattle.youtubersTitle')}</h3>
             </div>
             <div className={styles['dbb-home__yt--link']}>
               <Link
@@ -83,35 +83,35 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {t('challengeBattle.youtuber1')}
+                {t('homepage.challengeBattle.youtuber1')}
               </Link>
               <Link
                 href="https://www.youtube.com/channel/UCXd0OqDuxy9IZSglBWHL6sA"
                 target="_blank"
                 rel="noreferrer"
               >
-                {t('challengeBattle.youtuber2')}
+                {t('homepage.challengeBattle.youtuber2')}
               </Link>
             </div>
           </div>
           <div className={styles['dbb-home__rules']}>
             <div className={styles['dbb-home__rules--title']}>
-              <h3>{t('challengeBattle.rulesTitle')}</h3>
+              <h3>{t('homepage.challengeBattle.rulesTitle')}</h3>
             </div>
             <ul className={styles['dbb-home__rules--rule']}>
-              <li>{t('challengeBattle.rule1')}</li>
-              <li>{t('challengeBattle.rule2')}</li>
-              <li>{t('challengeBattle.rule3')}</li>
-              <li>{t('challengeBattle.rule4')}</li>
-              <li>{t('challengeBattle.rule5')}</li>
-              <li>{t('challengeBattle.rule6')}</li>
-              <li>{t('challengeBattle.rule7')}</li>
-              <li>{t('challengeBattle.rule8')}</li>
+              <li>{t('homepage.challengeBattle.rule1')}</li>
+              <li>{t('homepage.challengeBattle.rule2')}</li>
+              <li>{t('homepage.challengeBattle.rule3')}</li>
+              <li>{t('homepage.challengeBattle.rule4')}</li>
+              <li>{t('homepage.challengeBattle.rule5')}</li>
+              <li>{t('homepage.challengeBattle.rule6')}</li>
+              <li>{t('homepage.challengeBattle.rule7')}</li>
+              <li>{t('homepage.challengeBattle.rule8')}</li>
             </ul>
           </div>
           <div className={styles['dbb-home__btn']}>
             <Link href="/challenge-battle" className={styles['dbb-button']} data-size="big" data-color="orange">
-              <ButtonDokkan>{t('challengeBattle.playButton')}</ButtonDokkan>
+              <ButtonDokkan>{t('homepage.challengeBattle.playButton')}</ButtonDokkan>
             </Link>
           </div>
         </div>
