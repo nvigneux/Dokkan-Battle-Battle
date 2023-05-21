@@ -315,6 +315,7 @@ function RandomRush() {
           />
           <TitleDokkan>{t('randomrush.draw_disadvantage')}</TitleDokkan>
           <Drawback
+            id="drawback"
             label={t('randomrush.draw_disadvantage')}
             drawbacksOptions={arrayToString(DEFAULT_DRAWBACKS)}
             handleClick={handleSelectDrawback}

@@ -25,9 +25,9 @@ function Header() {
   return (
     <div className={styles['dbb-navbar']}>
       <Link href="/patchs" className={styles['dbb-articles']}>
-        2.01
+        2.02
       </Link>
-      <Link href="/" className={styles['dbb-navbar__logo']}>
+      <Link href="/" aria-label="Dokkan Battle Battle" className={styles['dbb-navbar__logo']}>
         <div className={styles['dbb-navbar__logo--d']} />
         <div className={styles['dbb-navbar__logo--okkan']} />
         <div className={styles['dbb-navbar__logo--b']} />

@@ -21,15 +21,15 @@ function Players({
           className={`${styles['dbb-player']} ${styles[`dbb-player--${player.color}`]} 
           ${styles[`dbb-player--border-${player.color}`]}`}
         >
-          <span className={styles['dbb-player__id']}>
+          <label htmlFor={`player-${player.id}`} className={styles['dbb-player__id']}>
             {t('players.player')}
             {' '}
             {player.id}
-          </span>
+          </label>
           <div className={styles['dbb-player__number']}>
             {mode === 'rush' ? (
               <input
-                name={`player-${player.id}`}
+                id={`player-${player.id}`}
                 className={styles['dbb-player__number--input']}
                 type="number"
                 min="0"
@@ -43,7 +43,9 @@ function Players({
               <span className={styles['dbb-player__number--input']}>{`P${player.id}`}</span>
             )}
           </div>
-          <div className={styles['dbb-player__line']}>{mode === 'rush' ? t('players.nbLines') : null}</div>
+          <div htmlFor={`player-${player.id}`} className={styles['dbb-player__line']}>
+            {mode === 'rush' ? t('players.nbLines') : null}
+          </div>
           {player.id !== 1 && (
             <button
               type="button"

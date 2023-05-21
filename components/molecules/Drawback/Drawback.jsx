@@ -9,7 +9,7 @@ import styles from './Drawback.module.css';
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 
 function Drawback({
-  label, drawbacksOptions, drawbackSelected, handleClick,
+  id, label, drawbacksOptions, drawbackSelected, handleClick,
 }) {
   const { t } = useTranslation();
   const [drawbacks, setDrawbacks] = useState(drawbacksOptions);
@@ -22,16 +22,17 @@ function Drawback({
     <div className={styles['dbb-drawback']}>
       <div className={styles['dbb-drawback__textarea']}>
         <textarea
+          id={id}
           className={styles['dbb-textarea']}
           value={drawbacks}
           onChange={(e) => handleDrawback(e.target.value)}
         />
-        <span className={styles['dbb-textarea__label']}>{t('drawback.label')}</span>
+        <label htmlFor={id} className={styles['dbb-textarea__label']}>{t('drawback.label')}</label>
       </div>
       <div className={styles['dbb-drawback__result']}>
-        <div className={styles['dbb-drawback__sentence']}>
+        <span className={styles['dbb-drawback__sentence']}>
           {drawbackSelected}
-        </div>
+        </span>
         <ButtonDokkan color="orange" size="small" onClick={() => handleClick(drawbacks)}>
           {label}
         </ButtonDokkan>

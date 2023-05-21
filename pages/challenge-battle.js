@@ -262,6 +262,7 @@ function Home() {
           </TitleButtonDokkan>
           {editDrawsTypeIsOpen ? (
             <Drawback
+              id="editDrawsType"
               label={t('challengebattle.validedit')}
               drawbacksOptions={arrayToString(drawbacksTypes)}
               handleClick={handleEditDrawsType}
@@ -294,6 +295,7 @@ function Home() {
           />
           <TitleDokkan>{t('challengebattle.teamcost')}</TitleDokkan>
           <Drawback
+            id="drawbackCost"
             label={t('challengebattle.drawcost')}
             drawbacksOptions={arrayToString(DEFAULT_COST_DRAWS)}
             handleClick={handleSelectDrawbackCost}
@@ -301,6 +303,7 @@ function Home() {
           />
           <TitleDokkan>{t('challengebattle.drawjoker')}</TitleDokkan>
           <Drawback
+            id="drawbackJoker"
             label={t('challengebattle.drawjoker')}
             drawbacksOptions={arrayToString(DEFAULT_JOKER_DRAWS)}
             handleClick={handleSelectDrawbackJoker}
