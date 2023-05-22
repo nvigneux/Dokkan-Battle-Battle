@@ -43,6 +43,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         `}
       </Script>
 
+      <Script
+        id="Adsense-id"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999322166776407"
+        strategy="afterInteractive"
+        crossOrigin="anonymous"
+      />
+
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
