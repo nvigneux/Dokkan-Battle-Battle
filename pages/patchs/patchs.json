@@ -1,6 +1,14 @@
 {
   "en": [
     {
+      "id": 9,
+      "slug": "9",
+      "title": "2.02",
+      "date": "22/05/2023",
+      "resume": "Exciting news for Dokkan Battle Battle players! Experience a captivating Splash Screen and easily add the game to your home screen with Add-to-Home.",
+      "content": "<h2>Introducing Splash Screen and Add-to-Home!</h2>\n\n<p>Exciting news for Dokkan Battle Battle players! We've added two awesome features for mobile users: Splash Screen and Add-to-Home.</p>\n\n<h3>Splash Screen:</h3>\n<p>Experience a captivating introduction when launching the website on your mobile device. Get a sneak peek of the thrilling battles that await you!</p>\n\n<h3>Add-to-Home:</h3>\n<p>Easily add Dokkan Battle Battle to your device's home screen. Access the game instantly with a single tap, no more typing URLs.</p>\n\n<p>Enhance your mobile gaming experience with Dokkan Battle Battle's new Splash Screen and Add-to-Home features. Join the battle anytime, anywhere!</p>\n\n<p>Happy gaming!</p>\n"
+    },
+    {
       "id": 8,
       "slug": "8",
       "title": "2.01",
@@ -66,6 +74,14 @@
     }
   ],
   "fr": [
+    {
+      "id": 9,
+      "slug": "9",
+      "title": "2.02",
+      "date": "22/05/2023",
+      "resume": "Des nouveautés pour les joueurs de Dokkan Battle Battle ! Profitez d'un écran de démarrage et ajoutez facilement le jeu à votre écran d'accueil.",
+      "content": "<h2>Découvrez l'écran de démarrage et l'ajout à l'écran d'accueil !</h2>\n\n<p>Des nouveautés pour les joueurs de Dokkan Battle Battle ! Nous avons ajouté deux fonctionnalités pour les utilisateurs mobiles : l'écran de démarrage (Splash Screen) et l'ajout à l'écran d'accueil (Add-to-Home).</p>\n\n<h3>Écran de démarrage :</h3>\n<p>Vivez une expérience dès le lancement du site sur votre appareil mobile. Obtenez un avant-goût des batailles palpitantes qui vous attendent !</p>\n\n<h3>Ajout à l'écran d'accueil :</h3>\n<p>Ajoutez facilement Dokkan Battle Battle à l'écran d'accueil de votre appareil. Accédez au jeu en un seul clic, plus besoin de taper les URL.</p>\n\n<p>Améliorez votre expérience de jeu mobile avec les nouvelles fonctionnalités d'écran de démarrage et d'ajout à l'écran d'accueil de Dokkan Battle Battle.</p>\n\n<p>Bon jeu !</p>\n"
+    },
     {
       "id": 8,
       "slug": "8",
