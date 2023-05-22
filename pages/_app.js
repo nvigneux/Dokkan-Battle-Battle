@@ -44,9 +44,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       </Script>
 
       <Script
-        id="Adsense-id"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999322166776407"
-        strategy="afterInteractive"
+        async
+        src={
+          `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADS_ID}`
+        }
+        strategy="lazyOnload"
         crossOrigin="anonymous"
       />
 
