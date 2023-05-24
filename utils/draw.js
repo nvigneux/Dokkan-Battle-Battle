@@ -1,3 +1,6 @@
+import memoize from 'lodash/memoize';
+import kebabCase from 'lodash/kebabCase';
+
 /**
    * Get random number between min and max
    * @param min
@@ -102,19 +105,17 @@ export function findLastDrawPlayers(drawsObj) {
  * @param {string} type - The type string.
  * @returns {{ line: string, column: string }} The type object with line and column properties.
  */
-export const getType = (type) => {
+
+export const getType = memoize((type) => {
   const subType = type.split(' ');
   if (subType.length >= 2) {
-    if (
-      subType[0].toLowerCase() === 'super'
-      || subType[0].toLowerCase() === 'extrem'
-      || subType[0].toLowerCase() === 'extreme'
-    ) {
+    const firstWord = kebabCase(subType[0]);
+    if (firstWord === 'super' || firstWord === 'extrem' || firstWord === 'extreme') {
       return { line: subType[1], column: subType[0] };
     }
   }
   return { line: type, column: '' };
-};
+});
 
 /**
  * Retrieves the CSS class based on the provided value.
