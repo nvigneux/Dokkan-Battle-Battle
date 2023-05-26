@@ -43,13 +43,24 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         `}
       </Script>
 
-      <Script
+      {/* <Script
         async
         src={
           `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADS_ID}`
         }
         strategy="lazyOnload"
         crossOrigin="anonymous"
+      /> */}
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "${process.env.NEXT_PUBLIC_ADS_ID}",
+              enable_page_level_ads: true
+            });
+          `,
+        }}
       />
 
       <QueryClientProvider client={queryClient}>
