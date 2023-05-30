@@ -1,5 +1,12 @@
+export const PUBLIC_URL = process.env.NEXT_PUBLIC_URL;
+
 export const LOCALE_FR = 'fr';
 export const LOCALE_EN = 'en';
+
+export const DOMAINS_LOCALE = {
+  [LOCALE_FR]: `${PUBLIC_URL}/${LOCALE_FR}`,
+  [LOCALE_EN]: PUBLIC_URL,
+};
 
 export const DOMAIN = process.env.NEXT_PUBLIC_URL;
 export const DRAWS_STATE = {

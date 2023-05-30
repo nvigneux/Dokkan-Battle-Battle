@@ -153,5 +153,10 @@
   "footer": {
     "contact_us_twitter": "Contactez-nous sur Twitter",
     "or_by_email": "ou par email à"
+  },
+  "sitemap": {
+    "title": "Plan du site",
+    "pageTitle": "Plan du site - Dokkan Battle Battle",
+    "pageDescription": "Plan du site de Dokkan Battle Battle"
   }
 }

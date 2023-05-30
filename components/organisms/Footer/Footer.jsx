@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 // Styles
 import styles from './Footer.module.css';
@@ -25,6 +26,9 @@ function Footer() {
       <a href="mailto:dokkanbattlebattle.contact@gmail.com">
         dokkanbattlebattle.contact@gmail.com
       </a>
+      <Link href="/sitemap">
+        {t('sitemap.title')}
+      </Link>
     </div>
   );
 }

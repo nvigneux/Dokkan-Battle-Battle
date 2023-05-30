@@ -15,7 +15,11 @@ import '../styles/reset.css';
 import '../styles/theme.css';
 import '../styles/fonts.css';
 
+// Hooks
+import useCanonicalUrl from '../hooks/useCanonicalUrl';
+
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const canonicalUrl = useCanonicalUrl();
   const [queryClient] = React.useState(() => new QueryClient());
 
   return (
@@ -28,6 +32,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="canonical" href={canonicalUrl} />
       </Head>
 
       <Script
@@ -42,15 +47,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
         `}
       </Script>
-
-      {/* <Script
-        async
-        src={
-          `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADS_ID}`
-        }
-        strategy="lazyOnload"
-        crossOrigin="anonymous"
-      /> */}
 
       <script
         dangerouslySetInnerHTML={{

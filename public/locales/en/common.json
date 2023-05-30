@@ -153,5 +153,10 @@
   "footer": {
     "contact_us_twitter": "Contact us on Twitter",
     "or_by_email": "or by email at"
+  },
+  "sitemap": {
+    "title": "Sitemap",
+    "pageTitle": "Sitemap - Dokkan Battle Battle",
+    "pageDescription": "Sitemap of Dokkan Battle Battle"
   }
 }
