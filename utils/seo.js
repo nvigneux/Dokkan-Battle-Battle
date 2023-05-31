@@ -2,32 +2,29 @@
 
 import { DOMAIN, LOCALE_EN, LOCALE_FR } from './constants';
 
-export const pageLinksAlternate = ({
-  slug, locale,
-}) => (
-  slug ? (
+export const pageLinksAlternate = ({ slug, locale }) => {
+  if (!slug) return null;
+
+  const alternateLinks = [
+    {
+      hrefLang: 'x-default',
+      href: `${DOMAIN}/${locale === LOCALE_FR ? 'fr' : 'en'}/${slug}`,
+    },
+    {
+      hrefLang: locale === LOCALE_FR ? LOCALE_EN : LOCALE_FR,
+      href: `${DOMAIN}/${locale === LOCALE_FR ? 'en' : 'fr'}/${slug}`,
+    },
+    {
+      hrefLang: locale === LOCALE_FR ? LOCALE_FR : LOCALE_EN,
+      href: `${DOMAIN}/${locale === LOCALE_FR ? 'fr' : 'en'}/${slug}`,
+    },
+  ];
+
+  return (
     <>
-      <link
-        rel="alternate"
-        hrefLang="x-default"
-        href={locale === LOCALE_FR
-          ? `${DOMAIN}/${slug}`
-          : `${DOMAIN}/en/${slug}`}
-      />
-      <link
-        rel="alternate"
-        hrefLang={locale === LOCALE_FR ? LOCALE_EN : LOCALE_FR}
-        href={locale === LOCALE_FR
-          ? `${DOMAIN}/en/${slug}`
-          : `${DOMAIN}/${slug}`}
-      />
-      <link
-        rel="alternate"
-        hrefLang={locale === LOCALE_FR ? LOCALE_FR : LOCALE_EN}
-        href={locale === LOCALE_FR
-          ? `${DOMAIN}/${slug}`
-          : `${DOMAIN}/en/${slug}`}
-      />
+      {alternateLinks.map(({ hrefLang, href }) => (
+        <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+      ))}
     </>
-  ) : null
-);
+  );
+};
