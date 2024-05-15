@@ -13,11 +13,7 @@ function PatchResume({
   return (
     <Link href={`patchs/${slug}`} className={styles['dbb-patch']}>
       <h3 className={styles.title}>
-        Patch
-        {' '}
-        note
-        {' '}
-        {title}
+        {`Patch note ${title}`}
       </h3>
       <p className={styles['dbb-patch__date']}>{date}</p>
       <h4 className={styles['dbb-patch__resume']} dangerouslySetInnerHTML={{ __html: resume }} />
