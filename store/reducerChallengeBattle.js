@@ -88,37 +88,3 @@ export function rootReducer(state, action) {
     drawbacks: drawbacksReducer(state.drawbacks, action),
   };
 }
-
-// const [state, dispatch] = useReducer(rootReducer, {
-//   players: initialPlayersState,
-//   draws: initialDrawsState,
-//   drawbacks: initialDrawbacksState,
-// });
-
-// // Accessing state and dispatch for players
-// const { players, activePlayer } = state.players;
-// // ...
-// const setPlayers = (updatedPlayers) => {
-//   dispatch({ type: 'SET_PLAYERS', payload: updatedPlayers });
-// };
-// // ...
-
-// // Accessing state and dispatch for draws
-// const { draws, drawsState, activeDraw } = state.draws;
-// // ...
-// const setDraws = (updatedDraws) => {
-//   dispatch({ type: 'SET_DRAWS', payload: updatedDraws });
-// };
-// // ...
-
-// // Accessing state and dispatch for drawbacks
-// const {
-//   editDrawsTypeIsOpen,
-//   drawbacksTypes,
-//   drawbackCostSelected,
-//   drawbackJokerSelected,
-// } = state.drawbacks;
-// // ...
-// const setEditDrawsTypeOpen = (isOpen) => {
-//   dispatch({ type: 'SET_EDIT_DRAWS_TYPE_OPEN', payload: isOpen });
-// };

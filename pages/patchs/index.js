@@ -8,6 +8,7 @@ import patchsData from './patchs.json';
 import WithHeaderFooter from '../../components/templates/WithHeaderFooter/WithHeaderFooter';
 import Page from '../../components/templates/Page/Page';
 import PatchResume from '../../components/atoms/PatchResume/PatchResume';
+
 // Utils
 import { getCommonProps } from '../../utils/requests';
 
