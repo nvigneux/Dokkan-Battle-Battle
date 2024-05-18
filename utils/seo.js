@@ -2,21 +2,30 @@
 
 import { DOMAIN, LOCALE_EN, LOCALE_FR } from './constants';
 
+/**
+ * Generates alternate page links for SEO purposes.
+ *
+ * @param {Object} params - The parameters for generating the links.
+ * @param {string} params.slug - The slug of the page.
+ * @param {string} params.locale - The locale of the page.
+ * @returns {JSX.Element|null} A JSX element containing the alternate links, or null if no slug is provided.
+ */
 export const pageLinksAlternate = ({ slug, locale }) => {
   if (!slug) return null;
 
+  const alternateLocale = locale === LOCALE_FR ? LOCALE_EN : LOCALE_FR;
   const alternateLinks = [
     {
       hrefLang: 'x-default',
-      href: `${DOMAIN}/${locale === LOCALE_FR ? 'fr' : 'en'}/${slug}`,
+      href: `${DOMAIN}/${locale}/${slug}`,
     },
     {
-      hrefLang: locale === LOCALE_FR ? LOCALE_EN : LOCALE_FR,
-      href: `${DOMAIN}/${locale === LOCALE_FR ? 'en' : 'fr'}/${slug}`,
+      hrefLang: alternateLocale,
+      href: `${DOMAIN}/${alternateLocale}/${slug}`,
     },
     {
-      hrefLang: locale === LOCALE_FR ? LOCALE_FR : LOCALE_EN,
-      href: `${DOMAIN}/${locale === LOCALE_FR ? 'fr' : 'en'}/${slug}`,
+      hrefLang: locale,
+      href: `${DOMAIN}/${locale}/${slug}`,
     },
   ];
 

@@ -49,8 +49,8 @@ function Tooltip({ label, children }) {
         <div
           ref={refs.setFloating}
           style={floatingStyles}
-          {...getFloatingProps()}
           className={styles.container}
+          {...getFloatingProps()}
         >
           {children}
         </div>

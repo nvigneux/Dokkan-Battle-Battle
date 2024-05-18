@@ -68,9 +68,7 @@ function Players({
           <span className={styles['dbb-player__number--input']}>+</span>
         </div>
         <div className={styles['dbb-player__line']}>
-          {t('players.player')}
-          {' '}
-          {players[players.length - 1].id + 1}
+          {`${t('players.player')} ${players[players.length - 1].id + 1}`}
         </div>
       </button>
     </div>
