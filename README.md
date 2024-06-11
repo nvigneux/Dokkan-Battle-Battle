@@ -4,8 +4,13 @@
 Dokkan Battle Battle is a platform where you can challenge your friends in multiplayer modes for the Dragon Ball Z Dokkan Battle game. This project enhances the gaming experience with modes created by passionate YouTubers.
 
 ## Features
-- **Random Rush**: Create a team of 6 random characters.
 - **Challenge Battle**: Form a team of 6 characters based on their types.
+- **Random Rush**: Create a team of 6 random characters.
+ 
+#### Challenge Battle
+![Challenge Battle](public/images/readme/Dokkan-Battle-Battle-1.webp)
+#### Random Rush
+![Random Rush](public/images/readme/Dokkan-Battle-Battle-2.webp)
 
 ## Installation
 1. Clone the repository:
