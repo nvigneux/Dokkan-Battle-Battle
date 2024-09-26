@@ -95,6 +95,10 @@
   .dbb-summary {
     padding: 15px 0 25px;
   }
+
+  .dbb-summary__wrapper {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -106,8 +110,8 @@
 }
 
 .dbb-summary__items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
 }
 
