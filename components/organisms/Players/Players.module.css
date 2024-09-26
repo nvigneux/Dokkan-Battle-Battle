@@ -44,7 +44,8 @@
 .dbb-player__line {
   text-align: center;
   display: flex;
-  flex: 0 1 30%;
+  flex: 1;
+  height: 30px;
   justify-content: center;
   align-items: center;
   font-weight: bold;
@@ -76,6 +77,9 @@
   font-size: 2.7rem;
   font-weight: bold;
   font-style: italic;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 480px) {
@@ -190,8 +194,13 @@
   display: flex;
   justify-content: center;
   flex: 0 1 70%;
+  max-height: 62px;
   border-radius: 5px;
   flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .challenge .dbb-player__number--input {

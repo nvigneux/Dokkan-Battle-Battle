@@ -13,6 +13,31 @@ function Players({
 }) {
   const { t } = useTranslation();
 
+  /**
+   * Handles the onFocus event for a player input field.
+   *
+   * @param {Event} e - The onFocus event object.
+   * @param {Object} player - The player object.
+   */
+  const handleOnBlur = (e, player) => {
+    if (e.target.value === '') {
+      setPlayerLine(player, 0);
+    }
+  };
+
+  /**
+   * Handles the onFocus event for a player input field.
+   *
+   * @param {Event} e - The onFocus event object.
+   * @param {Object} player - The player object.
+   */
+  const handleOnFocus = (e, player) => {
+    if (!player.nbLines) {
+      e.target.select();
+      setPlayerLine(player, '');
+    }
+  };
+
   return (
     <div className={cn([styles['dbb-players'], styles[mode]])}>
       {players.map((player) => (
@@ -34,6 +59,8 @@ function Players({
                 type="number"
                 min="0"
                 value={player.nbLines}
+                onFocus={(e) => handleOnFocus(e, player)}
+                onBlur={(e) => handleOnBlur(e, player)}
                 onChange={(e) => {
                   const value = Math.min(Math.max(0, e.target.value), 999);
                   setPlayerLine(player, value);
