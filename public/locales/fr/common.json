@@ -116,9 +116,9 @@
     "player": "Joueur {{id}}",
     "line": "L",
     "column": "C",
-    "clickTopNumber": "Cliquez sur le nombre en haut pour tirer",
+    "clickTopNumber": "Cliquez sur le nombre en haut pour tirer une ligne",
     "clickBottomNumber": "Cliquez sur le nombre en bas pour tirer une colonne",
-    "draftOpen": "Choix ouvert",
+    "draftOpen": "Draft ouverte",
     "reset": "Reset"
   },
   "drawback": {
