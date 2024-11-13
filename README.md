@@ -31,7 +31,7 @@ Dokkan Battle Battle is a platform where you can challenge your friends in multi
    ```
 
 ## Usage
-Visit [Dokkan Battle Battle](https://dokkanbattlebattle.com) to start playing with your friends.
+Visit [Dokkan Battle Battle](https://dokkanbattlebattle.vercel.app) to start playing with your friends.
 
 ## Contributing
 1. Fork the project.
