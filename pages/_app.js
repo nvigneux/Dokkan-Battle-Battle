@@ -8,6 +8,8 @@ import { appWithTranslation } from 'next-i18next';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ToastContainer, Slide } from 'react-toastify';
+import { Analytics } from '@vercel/analytics/react';
+
 import 'react-toastify/dist/ReactToastify.min.css';
 
 // Styles
@@ -72,6 +74,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             transition={Slide}
             limit={2}
           />
+          <Analytics />
         </Hydrate>
       </QueryClientProvider>
     </>
