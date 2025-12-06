@@ -10,7 +10,7 @@
     "dev-http": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@floating-ui/react": "^0.24.1",
