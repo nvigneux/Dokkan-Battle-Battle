@@ -10,7 +10,7 @@ import { DRAWS_STATE } from '../../../utils/constants';
 import { getClassByValue } from '../../../utils/draw';
 
 function DrawsSummaryChallenge({
-  draws, drawsState, handleDraw, handleResetPlayer,
+  draws, drawsState, handleDraw = () => {}, handleResetPlayer = () => {},
 }) {
   const { t } = useTranslation();
 
@@ -89,11 +89,6 @@ DrawsSummaryChallenge.propTypes = {
   drawsState: PropTypes.string.isRequired,
   handleResetPlayer: PropTypes.func,
   handleDraw: PropTypes.func,
-};
-
-DrawsSummaryChallenge.defaultProps = {
-  handleResetPlayer: () => {},
-  handleDraw: () => {},
 };
 
 export default DrawsSummaryChallenge;

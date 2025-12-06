@@ -9,7 +9,7 @@ import styles from './Drawback.module.css';
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 
 function Drawback({
-  id, label, drawbacksOptions, drawbackSelected, handleClick,
+  id, label, drawbacksOptions = '', drawbackSelected = '', handleClick = () => {},
 }) {
   const { t } = useTranslation();
   const [drawbacks, setDrawbacks] = useState(drawbacksOptions);
@@ -46,12 +46,6 @@ Drawback.propTypes = {
   drawbacksOptions: PropTypes.string,
   drawbackSelected: PropTypes.string,
   handleClick: PropTypes.func,
-};
-
-Drawback.defaultProps = {
-  drawbacksOptions: '',
-  drawbackSelected: '',
-  handleClick: () => {},
 };
 
 export default Drawback;
