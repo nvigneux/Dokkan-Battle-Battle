@@ -27,6 +27,4 @@ WithHeaderFooter.propTypes = {
   ]).isRequired,
 };
 
-WithHeaderFooter.defaultProps = {};
-
 export default WithHeaderFooter;

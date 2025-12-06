@@ -7,7 +7,7 @@ import styles from './Page.module.css';
 import cn from '../../../utils/cn';
 
 function Page({
-  children, theme,
+  children, theme = 'page',
 }) {
   return (
     <div className={cn([
@@ -26,10 +26,6 @@ Page.propTypes = {
     PropTypes.node,
   ]).isRequired,
   theme: PropTypes.oneOf(['page', 'fullscreen']),
-};
-
-Page.defaultProps = {
-  theme: 'page',
 };
 
 export default Page;
