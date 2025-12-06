@@ -9,7 +9,7 @@ import styles from './Players.module.css';
 import cn from '../../../utils/cn';
 
 function Players({
-  mode, players, addPlayer, deletePlayer, setPlayerLine,
+  mode = 'rush', players, addPlayer, deletePlayer, setPlayerLine = () => {},
 }) {
   const { t } = useTranslation();
 
@@ -108,11 +108,6 @@ Players.propTypes = {
   addPlayer: PropTypes.func.isRequired,
   deletePlayer: PropTypes.func.isRequired,
   setPlayerLine: PropTypes.func,
-};
-
-Players.defaultProps = {
-  mode: 'rush',
-  setPlayerLine: () => {},
 };
 
 export default Players;

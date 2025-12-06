@@ -13,7 +13,7 @@ import styles from './DrawCharacter.module.css';
 import { DRAWS_STATE } from '../../../utils/constants';
 
 function DrawCharacter({
-  mode, activePlayer, previousPlayer, draws, handleDraw, activeDraw, drawState,
+  mode = 'rush', activePlayer, previousPlayer = null, draws, handleDraw, activeDraw = null, drawState,
 }) {
   const { t } = useTranslation();
 
@@ -84,12 +84,6 @@ DrawCharacter.propTypes = {
   }),
   drawState: PropTypes.string.isRequired,
   mode: PropTypes.oneOf(['rush', 'challenge']),
-};
-
-DrawCharacter.defaultProps = {
-  previousPlayer: null,
-  activeDraw: null,
-  mode: 'rush',
 };
 
 export default DrawCharacter;
