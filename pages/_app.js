@@ -5,8 +5,6 @@ import App from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { ToastContainer, Slide } from 'react-toastify';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -22,7 +20,6 @@ import useCanonicalUrl from '../hooks/useCanonicalUrl';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const canonicalUrl = useCanonicalUrl();
-  const [queryClient] = React.useState(() => new QueryClient());
 
   return (
     <>
@@ -61,22 +58,17 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         }}
       />
 
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
-          <ReactQueryDevtools initialIsOpen={false} />
-          <ToastContainer
-            theme=""
-            closeButton={false}
-            position="top-right"
-            autoClose={4000}
-            closeOnClick
-            transition={Slide}
-            limit={2}
-          />
-          <Analytics />
-        </Hydrate>
-      </QueryClientProvider>
+      <Component {...pageProps} />
+      <ToastContainer
+        theme=""
+        closeButton={false}
+        position="top-right"
+        autoClose={4000}
+        closeOnClick
+        transition={Slide}
+        limit={2}
+      />
+      <Analytics />
     </>
   );
 }
