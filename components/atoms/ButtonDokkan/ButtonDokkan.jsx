@@ -7,7 +7,7 @@ import styles from './ButtonDokkan.module.css';
 import cn from '../../../utils/cn';
 
 function ButtonDokkan({
-  children, color, size, disabled, onClick, className,
+  children, color = 'orange', size = 'big', disabled = false, onClick = () => {}, className = '',
 }) {
   return (
     <button
@@ -37,14 +37,6 @@ ButtonDokkan.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
-};
-
-ButtonDokkan.defaultProps = {
-  color: 'orange',
-  size: 'big',
-  disabled: false,
-  onClick: () => {},
-  className: '',
 };
 
 export default ButtonDokkan;

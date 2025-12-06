@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './TitleDokkan.module.css';
 
 function TitleDokkan({
-  children, subtitle,
+  children, subtitle = '',
 }) {
   return (
     <h2 className={styles['dbb-main-title']}>
@@ -17,10 +17,6 @@ function TitleDokkan({
 TitleDokkan.propTypes = {
   children: PropTypes.node.isRequired,
   subtitle: PropTypes.string,
-};
-
-TitleDokkan.defaultProps = {
-  subtitle: '',
 };
 
 export default TitleDokkan;
