@@ -266,6 +266,7 @@ function Home() {
               label={t('challengebattle.validedit')}
               drawbacksOptions={arrayToString(drawbacksTypes)}
               handleClick={handleEditDrawsType}
+              data-testid="edit-draws-type"
             />
           ) : null}
           <DrawCharacter
@@ -300,6 +301,7 @@ function Home() {
             drawbacksOptions={arrayToString(DEFAULT_COST_DRAWS)}
             handleClick={handleSelectDrawbackCost}
             drawbackSelected={drawbackCostSelected}
+            data-testid="team-cost"
           />
           <TitleDokkan>{t('challengebattle.drawjoker')}</TitleDokkan>
           <Drawback
@@ -308,6 +310,7 @@ function Home() {
             drawbacksOptions={arrayToString(DEFAULT_JOKER_DRAWS)}
             handleClick={handleSelectDrawbackJoker}
             drawbackSelected={drawbackJokerSelected}
+            data-testid="joker"
           />
           <TitleDokkan>{t('challengebattle.timer')}</TitleDokkan>
           <DokkanTimer />

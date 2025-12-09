@@ -9,7 +9,7 @@ import styles from './Drawback.module.css';
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 
 function Drawback({
-  id, label, drawbacksOptions = '', drawbackSelected = '', handleClick = () => {},
+  id, label, drawbacksOptions = '', drawbackSelected = '', handleClick = () => {}, 'data-testid': dataTestId,
 }) {
   const { t } = useTranslation();
   const [drawbacks, setDrawbacks] = useState(drawbacksOptions);
@@ -26,7 +26,7 @@ function Drawback({
           className={styles['dbb-textarea']}
           value={drawbacks}
           onChange={(e) => handleDrawback(e.target.value)}
-          data-testid="drawback-textarea"
+          data-testid={dataTestId ? `${dataTestId}-textarea` : 'drawback-textarea'}
         />
         <label htmlFor={id} className={styles['dbb-textarea__label']}>{t('drawback.label')}</label>
       </div>
@@ -38,7 +38,7 @@ function Drawback({
           color="orange"
           size="small"
           onClick={() => handleClick(drawbacks)}
-          data-testid="drawback-draw-button"
+          data-testid={dataTestId ? `${dataTestId}-button` : 'drawback-draw-button'}
         >
           {label}
         </ButtonDokkan>
@@ -52,6 +52,7 @@ Drawback.propTypes = {
   drawbacksOptions: PropTypes.string,
   drawbackSelected: PropTypes.string,
   handleClick: PropTypes.func,
+  'data-testid': PropTypes.string,
 };
 
 export default Drawback;

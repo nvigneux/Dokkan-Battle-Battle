@@ -19,7 +19,11 @@ function DrawsSummaryChallenge({
     <div className={styles['dbb-summary']}>
       <div className={styles['dbb-summary__wrapper']}>
         {drawsArray.map((key) => (
-          <div key={key} className={styles['dbb-summary__container']}>
+          <div
+            key={key}
+            className={styles['dbb-summary__container']}
+            data-testid={`draws-summary-challenge-player-${key}`}
+          >
             <div className={styles['dbb-summary-title']}>
               <div className={styles['dbb-summary-title-container']}>
                 <h3 className={styles['dbb-summary-player']}>
@@ -29,6 +33,7 @@ function DrawsSummaryChallenge({
                   type="button"
                   onClick={() => handleResetPlayer(key)}
                   className={`${styles['dbb-summary-player']} ${styles['dbb-summary-player--reset']}`}
+                  data-testid={`draws-summary-reset-player-${key}`}
                 >
                   {t('drawsSummary.reset')}
                 </button>
@@ -58,6 +63,7 @@ function DrawsSummaryChallenge({
                   ${index === draws[key].draws.length - 1 ? styles['dbb-summary__item--no-mr'] : ''}
                   ${styles[getClassByValue(playerDraw?.line || '')]}
                 `}
+                  data-testid={`draws-summary-challenge-item-player-${key}-draw-${index}`}
                 >
                   <div className={styles['dbb-summary__number']}>
                     {!playerDraw.column && playerDraw?.line?.slice(0, 3)}
