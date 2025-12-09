@@ -65,6 +65,7 @@ function Players({
                   const value = Math.min(Math.max(0, e.target.value), 999);
                   setPlayerLine(player, value);
                 }}
+                data-testid={`player-${player.id}-lines-input`}
               />
             ) : (
               <span className={styles['dbb-player__number--input']}>{`P${player.id}`}</span>
@@ -80,6 +81,7 @@ function Players({
               onClick={() => {
                 deletePlayer(player);
               }}
+              data-testid={`player-${player.id}-delete-button`}
             />
           )}
         </div>
@@ -89,6 +91,7 @@ function Players({
         className={`${styles['dbb-player']} ${styles['dbb-player--add']} 
         ${styles['dbb-player--grey']} ${styles['dbb-player--border-grey']}`}
         onClick={addPlayer}
+        data-testid="player-add-button"
       >
         <span className={styles['dbb-player__id']}>{t('players.add')}</span>
         <div className={styles['dbb-player__number']}>

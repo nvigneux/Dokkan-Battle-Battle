@@ -16,7 +16,11 @@ function DrawsSummary({ draws, drawsState, handleDraw = () => {} }) {
     <div className={styles['dbb-summary']}>
       <div className={styles['dbb-summary__wrapper']}>
         {drawsArray.map((key) => (
-          <div key={key} className={styles['dbb-summary__container']}>
+          <div
+            key={key}
+            className={styles['dbb-summary__container']}
+            data-testid={`draws-summary-player-${key}`}
+          >
             <div className={styles['dbb-summary-title']}>
               <h3 className={styles['dbb-summary-player']}>
                 {t('drawsSummary.player', { id: key })}
@@ -31,6 +35,7 @@ function DrawsSummary({ draws, drawsState, handleDraw = () => {} }) {
                   ${!playerDraw.line ? styles['dbb-summary__item--disabled'] : ''}
                   ${drawsState === DRAWS_STATE.DRAFT ? styles['dbb-summary__item--pulse-grey'] : ''}
                   ${index === draws[key].draws.length - 1 ? styles['dbb-summary__item--no-mr'] : ''}`}
+                  data-testid={`draws-summary-item-player-${key}-draw-${index}`}
                 >
                   <button
                     type="button"
@@ -38,6 +43,7 @@ function DrawsSummary({ draws, drawsState, handleDraw = () => {} }) {
                   ${styles['dbb-summary__number']}
                   ${drawsState === DRAWS_STATE.DRAFT ? styles['dbb-summary__clickable'] : ''}`}
                     onClick={() => handleDraw(+key, false, false, index)}
+                    data-testid={`draws-summary-line-button-player-${key}-draw-${index}`}
                   >
                     <span className={styles['dbb-summary__cat']}>{t('drawsSummary.line')}</span>
                     {playerDraw.line}
@@ -49,6 +55,7 @@ function DrawsSummary({ draws, drawsState, handleDraw = () => {} }) {
                       ${drawsState === DRAWS_STATE.DRAFT ? styles['dbb-summary__clickable'] : ''}
                       `}
                     onClick={() => handleDraw(+key, false, true, index)}
+                    data-testid={`draws-summary-column-button-player-${key}-draw-${index}`}
                   >
                     <span className={styles['dbb-summary__cat']}>{t('drawsSummary.column')}</span>
                     {playerDraw.column}

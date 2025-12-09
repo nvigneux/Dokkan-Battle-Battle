@@ -26,6 +26,7 @@ function Drawback({
           className={styles['dbb-textarea']}
           value={drawbacks}
           onChange={(e) => handleDrawback(e.target.value)}
+          data-testid="drawback-textarea"
         />
         <label htmlFor={id} className={styles['dbb-textarea__label']}>{t('drawback.label')}</label>
       </div>
@@ -33,7 +34,12 @@ function Drawback({
         <span className={styles['dbb-drawback__sentence']}>
           {drawbackSelected}
         </span>
-        <ButtonDokkan color="orange" size="small" onClick={() => handleClick(drawbacks)}>
+        <ButtonDokkan
+          color="orange"
+          size="small"
+          onClick={() => handleClick(drawbacks)}
+          data-testid="drawback-draw-button"
+        >
           {label}
         </ButtonDokkan>
       </div>
