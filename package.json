@@ -10,7 +10,8 @@
     "dev-http": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@floating-ui/react": "^0.24.1",
@@ -32,6 +33,7 @@
     "yup": "^1.1.1"
   },
   "devDependencies": {
+    "cypress": "^15.7.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "15.5.6",
