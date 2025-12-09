@@ -25,4 +25,19 @@ module.exports = {
     'max-len': ['error', { code: 120 }],
     'no-irregular-whitespace': 'off',
   },
+  overrides: [
+    {
+      files: ['cypress/**/*.js'],
+      env: {
+        mocha: true,
+      },
+      globals: {
+        cy: 'readonly',
+        Cypress: 'readonly',
+      },
+      rules: {
+        'max-len': 'off',
+      },
+    },
+  ],
 };
