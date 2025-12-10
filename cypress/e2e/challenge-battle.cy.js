@@ -5,62 +5,40 @@ describe('Challenge Battle - Complete scenario', () => {
 
   it('should complete the full Challenge Battle scenario', () => {
     // 1. Add two new players (3 players total)
-    cy.get('[data-testid="player-add-button"]').click();
-    cy.contains(/joueur 2|player 2/i).should('be.visible');
-
-    cy.get('[data-testid="player-add-button"]').click();
-    cy.contains(/joueur 3|player 3/i).should('be.visible');
+    cy.addPlayers(2);
 
     // Verify we have 3 players
-    cy.contains(/joueur 1|player 1/i).should('be.visible');
-    cy.contains(/joueur 2|player 2/i).should('be.visible');
-    cy.contains(/joueur 3|player 3/i).should('be.visible');
+    cy.verifyPlayersCount(3);
 
     // 2. Edit draw types (optional - can customize available types)
     cy.contains(/type de tirage|draws type/i).should('be.visible');
-    cy.get('button').contains(/modifier|edit/i).click();
+    cy.clickButtonByText(/modifier|edit/i);
 
     // Verify the edit section is visible
     cy.get('[data-testid="edit-draws-type-textarea"]').should('be.visible');
 
     // Close the edit section
-    cy.get('button').contains(/fermer|close/i).click();
+    cy.clickButtonByText(/fermer|close/i);
 
     // 3. Draw for player 1 and verify that type is displayed
-    cy.get('[data-testid="draw-button-player-1"]').click();
-    cy.wait(500); // Wait for the draw to complete
+    cy.drawForPlayer(1);
 
     // Verify that a type is displayed (should show type abbreviation like STR, PHY, etc.)
     cy.get('[data-testid="draws-summary-challenge-player-1"]').should('exist');
     cy.get('[data-testid="draws-summary-challenge-item-player-1-draw-0"]').should('exist');
 
     // 4. Continue with draws for other players
-    // Draw for player 2
-    cy.get('[data-testid="draw-button-player-2"]').click();
-    cy.wait(500);
-
-    // Draw for player 3
-    cy.get('[data-testid="draw-button-player-3"]').click();
-    cy.wait(500);
+    cy.drawForPlayer(2);
+    cy.drawForPlayer(3);
 
     // 5. Continue draws until all players have 6 types
     // Make several draws to complete 6 draws for each player (3 players x 6 = 18 draws)
-    // Make more to ensure all players have finished
-    for (let i = 0; i < 20; i += 1) {
-      // Find an available draw button for any player
-      cy.get('[data-testid^="draw-button-player-"]').then(($buttons) => {
-        const availableDrawButton = Array.from($buttons).find((btn) => !btn.disabled);
-
-        if (availableDrawButton) {
-          cy.wrap(availableDrawButton).click();
-          cy.wait(300);
-        }
-      });
-    }
+    cy.completeAllDraws(20, 300);
 
     // 6. When all players have 6 types, the draft opens
     // Verify that the "Draft open" message appears
-    cy.contains(/draft ouverte|draft open/i, { timeout: 10000 }).should('be.visible');
+    // Note: Challenge Battle doesn't show instruction messages like Random Rush
+    cy.verifyDraftOpen({ includeInstructions: false });
 
     // 7. In draft mode, we can re-draw each type by clicking on it
     // Click on a type for player 1 to re-draw it
@@ -90,19 +68,14 @@ describe('Challenge Battle - Complete scenario', () => {
     cy.wait(500);
 
     // Verify that a cost is displayed (one of the default costs)
-    cy.get('body').should(($body) => {
-      const text = $body.text();
-      const hasCost = text.includes('200') || text.includes('250') || text.includes('300');
-      return hasCost;
-    });
+    cy.verifyToastContainsOneOf(['200', '250', '300']);
 
     // 10. Draw joker (optional)
     // Verify that the joker section exists
     cy.contains(/tirage du joker|draw joker/i).should('be.visible');
 
     // Customize joker options
-    cy.get('[data-testid="joker-textarea"]').clear().type('Joker personnalisé 1\nJoker personnalisé 2');
-    cy.get('[data-testid="joker-textarea"]').should('have.value', 'Joker personnalisé 1\nJoker personnalisé 2');
+    cy.setTextareaValue('joker-textarea', 'Joker personnalisé 1\nJoker personnalisé 2');
 
     // Draw a joker
     cy.get('[data-testid="joker-button"]').click();
@@ -114,15 +87,14 @@ describe('Challenge Battle - Complete scenario', () => {
 
   it('should allow editing draw types', () => {
     // Click edit button
-    cy.get('button').contains(/modifier|edit/i).click();
+    cy.clickButtonByText(/modifier|edit/i);
 
     // Verify edit section is visible
     cy.get('[data-testid="edit-draws-type-textarea"]').should('be.visible');
 
     // Edit the types
     const customTypes = 'Test\nTest2\nTest3';
-    cy.get('[data-testid="edit-draws-type-textarea"]').clear().type(customTypes);
-    cy.get('[data-testid="edit-draws-type-textarea"]').should('have.value', customTypes);
+    cy.setTextareaValue('edit-draws-type-textarea', customTypes);
 
     // Validate the edit
     cy.get('[data-testid="edit-draws-type-button"]').click();
@@ -133,34 +105,28 @@ describe('Challenge Battle - Complete scenario', () => {
     cy.get('[data-testid="edit-draws-type-textarea"]').should('not.exist');
 
     // Verify success notification (toast appears in ToastContainer)
-    // Look for the toast in the body or ToastContainer
-    cy.get('body', { timeout: 5000 }).should(($body) => {
-      const text = $body.text();
-      const hasNotification = text.includes('Modifications enregistrées')
-        || text.includes('modifications enregistrées')
-        || text.includes('Modification saved')
-        || text.includes('modification saved');
-      return hasNotification;
-    });
+    cy.verifyToastContainsOneOf([
+      'Modifications enregistrées',
+      'modifications enregistrées',
+      'Modification saved',
+      'modification saved',
+    ], 5000);
 
     // Test to draw the custom types
-    cy.get('[data-testid="draw-button-player-1"]').click();
-    cy.wait(500);
+    cy.drawForPlayer(1);
     cy.get('[data-testid="draws-summary-challenge-item-player-1-draw-0"]').should('contain.text', 'Tes');
   });
 
   it('should reset all draws', () => {
     // Make some draws first
-    cy.get('[data-testid="draw-button-player-1"]').click();
-    cy.wait(500);
-    cy.get('[data-testid="draw-button-player-1"]').click();
-    cy.wait(500);
+    cy.drawForPlayer(1);
+    cy.drawForPlayer(1);
 
     // Verify draws exist
     cy.get('[data-testid="draws-summary-challenge-player-1"]').should('exist');
 
     // Click reset all button
-    cy.get('button').contains(/reset|resetall/i).first().click();
+    cy.clickButtonByText(/reset|resetall/i, 0);
     cy.wait(500);
 
     // Verify that draws are reset (player should be able to draw again from start)
@@ -231,14 +197,12 @@ describe('Challenge Battle - Complete scenario', () => {
     cy.wait(500);
 
     // Should show error notification
-    cy.get('body', { timeout: 3000 }).should(($body) => {
-      const text = $body.text();
-      const hasError = text.includes('Entrez un nombre')
-        || text.includes('entrez un nombre')
-        || text.includes('Enter a number')
-        || text.includes('Aucun temps détecté')
-        || text.includes('No time detected');
-      return hasError;
-    });
+    cy.verifyToastContainsOneOf([
+      'Entrez un nombre',
+      'entrez un nombre',
+      'Enter a number',
+      'Aucun temps détecté',
+      'No time detected',
+    ], 3000);
   });
 });
