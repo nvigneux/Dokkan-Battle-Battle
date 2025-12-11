@@ -7,7 +7,13 @@ import styles from './ButtonDokkan.module.css';
 import cn from '../../../utils/cn';
 
 function ButtonDokkan({
-  children, color = 'orange', size = 'big', disabled = false, onClick = () => {}, className = '',
+  children,
+  color = 'orange',
+  size = 'big',
+  disabled = false,
+  onClick = () => {},
+  className = '',
+  'data-testid': dataTestId,
 }) {
   return (
     <button
@@ -22,6 +28,7 @@ function ButtonDokkan({
         styles['dbb-btn--text-white'],
         className,
       ])}
+      data-testid={dataTestId}
     >
       {children}
       <div className={`${styles['dbb-btn__border']} ${styles['dbb-btn__border--black']}`} />
@@ -37,6 +44,7 @@ ButtonDokkan.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
+  'data-testid': PropTypes.string,
 };
 
 export default ButtonDokkan;

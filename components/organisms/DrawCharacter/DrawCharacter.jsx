@@ -32,6 +32,7 @@ function DrawCharacter({
           size="big"
           onClick={() => handleDraw(activePlayer?.id)}
           disabled={drawState !== DRAWS_STATE.OPEN}
+          data-testid={`draw-button-player-${activePlayer?.id}`}
         >
           {t('drawCharacter.drawButton', { id: activePlayer?.id })}
         </ButtonDokkan>
@@ -43,6 +44,7 @@ function DrawCharacter({
             size="small"
             disabled={(!previousPlayer && !activeDraw?.randomLine) || !draws[previousPlayer?.id]?.draws[0]?.line}
             onClick={() => handleDraw(previousPlayer?.id, true)}
+            data-testid={`redraw-button-player-${previousPlayer?.id}`}
           >
             {t('drawCharacter.redrawButton', { id: previousPlayer?.id })}
           </ButtonDokkan>
@@ -52,6 +54,7 @@ function DrawCharacter({
             size="small"
             disabled={(!previousPlayer && !activeDraw?.randomLine) || !draws[previousPlayer?.id]?.draws[0]?.line}
             onClick={() => handleDraw(previousPlayer?.id, true, true)}
+            data-testid={`redraw-column-button-player-${previousPlayer?.id}`}
           >
             {t('drawCharacter.redrawColumnButton')}
           </ButtonDokkan>

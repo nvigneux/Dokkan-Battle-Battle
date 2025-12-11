@@ -121,6 +121,7 @@ function DokkanTimer() {
                 maxLength="2"
                 max="59"
                 disabled={isActive}
+                data-testid="timer-minute-input"
               />
             </div>
             <span className={styles['dbb-timer__label']}>{t('timer.labels.minutes')}</span>
@@ -138,6 +139,7 @@ function DokkanTimer() {
                 maxLength="2"
                 max="59"
                 disabled={isActive}
+                data-testid="timer-second-input"
               />
             </div>
             <span className={styles['dbb-timer__label']}>{t('timer.labels.seconds')}</span>
@@ -150,6 +152,7 @@ function DokkanTimer() {
             onClick={handleStart}
             disabled={isActive}
             size="small"
+            data-testid="timer-start-button"
           >
             {t('timer.buttons.start')}
           </ButtonDokkan>
@@ -158,6 +161,7 @@ function DokkanTimer() {
             className={styles['dbb-timer__button']}
             onClick={isActive ? stopTimer : handleReset}
             size="small"
+            data-testid="timer-stop-reset-button"
           >
             {isActive ? t('timer.buttons.stop') : t('timer.buttons.reset')}
           </ButtonDokkan>
