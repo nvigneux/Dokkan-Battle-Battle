@@ -1,6 +1,13 @@
 describe('Random Rush - Complete scenario', () => {
   beforeEach(() => {
-    cy.visit('/random-rush');
+    // Visit the page with increased timeout for CI environments
+    cy.visit('/random-rush', {
+      timeout: 30000,
+      retryOnStatusCodeFailure: true,
+      retryOnNetworkFailure: true,
+    });
+    // Wait for the page to be fully loaded before running tests
+    cy.get('body').should('be.visible');
   });
 
   it('should complete the full Random Rush scenario', () => {
