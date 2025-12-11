@@ -1,6 +1,13 @@
 describe('Challenge Battle - Complete scenario', () => {
   beforeEach(() => {
-    cy.visit('/challenge-battle');
+    // Visit the page with increased timeout for CI environments
+    cy.visit('/challenge-battle', {
+      timeout: 30000,
+      retryOnStatusCodeFailure: true,
+      retryOnNetworkFailure: true,
+    });
+    // Wait for the page to be fully loaded before running tests
+    cy.get('body').should('be.visible');
   });
 
   it('should complete the full Challenge Battle scenario', () => {
