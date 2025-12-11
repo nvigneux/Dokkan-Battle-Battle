@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/react-in-jsx-scope': 0,
+    'react/require-default-props': 'off',
     'max-len': ['error', { code: 120 }],
     'no-irregular-whitespace': 'off',
   },

@@ -8,7 +8,7 @@ import styles from './DrawsSummary.module.css';
 // Utils
 import { DRAWS_STATE } from '../../../utils/constants';
 
-function DrawsSummary({ draws, drawsState, handleDraw }) {
+function DrawsSummary({ draws, drawsState, handleDraw = () => {} }) {
   const { t } = useTranslation();
 
   const drawsArray = Object.keys(draws);
@@ -86,10 +86,6 @@ DrawsSummary.propTypes = {
   }).isRequired,
   drawsState: PropTypes.string.isRequired,
   handleDraw: PropTypes.func,
-};
-
-DrawsSummary.defaultProps = {
-  handleDraw: () => {},
 };
 
 export default DrawsSummary;

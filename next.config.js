@@ -3,9 +3,6 @@ const { i18n } = require('./next-i18next.config');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: false,
-  },
   reactStrictMode: true, // false, if DnD development is neccesary
   i18n,
   webpack(config) {
