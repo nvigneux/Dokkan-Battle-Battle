@@ -266,6 +266,7 @@ function Home() {
               label={t('challengebattle.validedit')}
               drawbacksOptions={arrayToString(drawbacksTypes)}
               handleClick={handleEditDrawsType}
+              hasResetButton
               data-testid="edit-draws-type"
             />
           ) : null}

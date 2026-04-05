@@ -9,7 +9,13 @@ import styles from './Drawback.module.css';
 import ButtonDokkan from '../../atoms/ButtonDokkan/ButtonDokkan';
 
 function Drawback({
-  id, label, drawbacksOptions = '', drawbackSelected = '', handleClick = () => {}, 'data-testid': dataTestId,
+  id,
+  label,
+  drawbacksOptions = '',
+  drawbackSelected = '',
+  hasResetButton = false,
+  handleClick = () => {},
+  'data-testid': dataTestId,
 }) {
   const { t } = useTranslation();
   const [drawbacks, setDrawbacks] = useState(drawbacksOptions);
@@ -18,9 +24,24 @@ function Drawback({
     setDrawbacks(value);
   };
 
+  const handleResetDrawback = () => {
+    if (!hasResetButton) return;
+    setDrawbacks(drawbacksOptions);
+  };
+
   return (
     <div className={styles['dbb-drawback']}>
       <div className={styles['dbb-drawback__textarea']}>
+        {hasResetButton ? (
+          <button
+            type="button"
+            onClick={() => handleResetDrawback()}
+            className={`${styles['dbb-drawback-reset--button']}`}
+            data-testid="drawback-reset-button"
+          >
+            {t('drawsSummary.reset')}
+          </button>
+        ) : null}
         <textarea
           id={id}
           className={styles['dbb-textarea']}
@@ -51,8 +72,13 @@ Drawback.propTypes = {
   label: PropTypes.string.isRequired,
   drawbacksOptions: PropTypes.string,
   drawbackSelected: PropTypes.string,
+  hasResetButton: PropTypes.bool,
   handleClick: PropTypes.func,
   'data-testid': PropTypes.string,
+};
+
+Drawback.defaultProps = {
+  hasResetButton: false,
 };
 
 export default Drawback;

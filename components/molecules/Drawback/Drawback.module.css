@@ -6,11 +6,47 @@
   margin: 0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-drawback {
     flex-direction: column-reverse;
     padding: 10px 0 20px;
   }
+}
+
+
+.dbb-drawback-reset--button {
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #2b3763;
+  margin-bottom: 8px;
+  padding: 2px 4px;
+  position: relative;
+  cursor: pointer;
+  background: #030a13;
+  border-radius: 4px;
+  display: inline-block;
+  width: max-content;
+  align-self: flex-end;
+}
+
+@media screen and (width <= 480px) {
+  .dbb-drawback-reset--button {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+}
+
+.dbb-drawback-reset--button:hover {
+  color: #467562;
+  background: #13243a;
+}
+
+.dbb-drawback-reset--button::before {
+  content: "-";
+  position: absolute;
+  left: -15px;
+  color: #2b3763;
 }
 
 .dbb-drawback__textarea {
@@ -27,7 +63,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-drawback__result {
     padding-bottom: 20px;
   }
@@ -46,7 +82,7 @@
   min-height: 70px;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (width <= 390px) {
   .dbb-drawback__sentence {
     font-size: 1.3em !important;
     margin-bottom: 6px;
@@ -69,7 +105,7 @@
   line-height: 1.4em;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (width <= 320px) {
   .dbb-textarea {
     font-size: 0.75em;
   }

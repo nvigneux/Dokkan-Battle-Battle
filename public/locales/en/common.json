@@ -122,7 +122,8 @@
     "reset": "Reset"
   },
   "drawback": {
-    "label": "Write your own sentences, each on a separate line"
+    "label": "Write your own sentences, each on a separate line",
+    "reset": "Reset"
   },
   "patchs": {
     "title": "Patchs",
