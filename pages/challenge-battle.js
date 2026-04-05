@@ -264,8 +264,10 @@ function Home() {
             <Drawback
               id="editDrawsType"
               label={t('challengebattle.validedit')}
+              drawbacksDefaultOptions={arrayToString(DEFAULT_TYPES_DRAWS)}
               drawbacksOptions={arrayToString(drawbacksTypes)}
               handleClick={handleEditDrawsType}
+              hasResetButton
               data-testid="edit-draws-type"
             />
           ) : null}
