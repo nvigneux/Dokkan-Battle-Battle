@@ -12,6 +12,7 @@ function Drawback({
   id,
   label,
   drawbacksOptions = '',
+  drawbacksDefaultOptions = '',
   drawbackSelected = '',
   hasResetButton = false,
   handleClick = () => {},
@@ -26,7 +27,7 @@ function Drawback({
 
   const handleResetDrawback = () => {
     if (!hasResetButton) return;
-    setDrawbacks(drawbacksOptions);
+    setDrawbacks(drawbacksDefaultOptions);
   };
 
   return (
@@ -71,6 +72,7 @@ function Drawback({
 Drawback.propTypes = {
   label: PropTypes.string.isRequired,
   drawbacksOptions: PropTypes.string,
+  drawbacksDefaultOptions: PropTypes.string,
   drawbackSelected: PropTypes.string,
   hasResetButton: PropTypes.bool,
   handleClick: PropTypes.func,
@@ -78,6 +80,7 @@ Drawback.propTypes = {
 };
 
 Drawback.defaultProps = {
+  drawbacksDefaultOptions: '',
   hasResetButton: false,
 };
 

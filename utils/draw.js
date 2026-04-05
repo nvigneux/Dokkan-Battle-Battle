@@ -130,13 +130,13 @@ export const getClassByValue = (value) => {
       return 'color-ext';
     case 'STR': case 'PUI':
       return 'color-str';
-    case 'AGI':
+    case 'AGI': case 'AGL':
       return 'color-agi';
     case 'PHY': case 'END':
       return 'color-phy';
     case 'INT':
       return 'color-int';
-    case 'TEC':
+    case 'TEC': case 'TEQ':
       return 'color-tec';
     case 'RAI':
       return 'color-rai';
