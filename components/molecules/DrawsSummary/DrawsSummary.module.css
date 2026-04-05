@@ -13,7 +13,7 @@
   padding-top: 6px;
 }
 
-@media screen and (max-width: 655px) {
+@media screen and (width <= 655px) {
   .dbb-summary__draft {
     width: 100%;
   }
@@ -39,7 +39,7 @@
   align-self: flex-end;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary-player {
     font-size: 1em;
     padding: 0 0 5px;
@@ -53,7 +53,7 @@
   color: #d0c31d;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary-player__draft {
     font-size: 1em;
     padding: 0 0 5px;
@@ -72,7 +72,7 @@
   align-items: flex-start;
 }
 
-@media screen and (max-width: 655px) {
+@media screen and (width <= 655px) {
   .dbb-summary {
     flex-flow: column-reverse wrap;
   }
@@ -91,7 +91,7 @@
   gap: 4px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary {
     padding: 15px 0 25px;
   }
@@ -101,7 +101,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary__container {
     display: flex;
     flex: 1;
@@ -115,7 +115,7 @@
   gap: 10px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary__items {
     gap: 5px;
   }
@@ -135,7 +135,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary__item {
     --border-position: 2px;
 
@@ -144,7 +144,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (width <= 320px) {
   .dbb-summary__item {
     width: 47px;
     height: 47px;
@@ -181,15 +181,12 @@
   border-width: 3px;
   border-style: solid;
   border-color: rgb(255 255 255 / 41%);
-  top: var(--border-position);
-  left: var(--border-position);
-  right: var(--border-position);
-  bottom: var(--border-position);
+  inset: var(--border-position) var(--border-position) var(--border-position) var(--border-position);
   border-radius: 5px;
   z-index: 0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary__item::after {
     border-width: 2px;
   }
@@ -228,7 +225,7 @@
   font-family: Roboto, sans-serif;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .dbb-summary__number {
     font-size: 1.15em;
   }
